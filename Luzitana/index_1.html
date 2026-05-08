@@ -1,0 +1,1922 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Luzitana Ar Condicionado – Há mais de 40 anos climatizando ambientes</title>
+  <meta name="description" content="Instalação, manutenção e higienização de ar-condicionado para residências, empresas e indústrias em Porto Alegre e região. Mais de 40 anos de tradição." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:    #002B5C;
+      --blue:    #1E5BAA;
+      --sky:     #2F7DE1;
+      --light:   #EAF3FF;
+      --gold:    #F4B400;
+      --gold2:   #FFD866;
+      --white:   #FFFFFF;
+      --gray:    #F5F8FC;
+      --text:    #17304D;
+      --muted:   #607089;
+      --border:  #DDE8F5;
+      --shadow:  rgba(0,43,92,0.14);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: var(--text);
+      background: var(--white);
+      overflow-x: hidden;
+    }
+
+    /* ── NAVBAR ── */
+    .navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      background: rgba(0,43,92,0.97);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(244,180,0,0.22);
+      transition: box-shadow 0.3s;
+    }
+    .navbar.scrolled { box-shadow: 0 4px 32px rgba(0,0,0,0.28); }
+    .nav-inner {
+      max-width: 1280px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 2rem; height: 68px;
+    }
+    .logo {
+      display: flex; align-items: center; gap: 0.75rem; text-decoration: none;
+    }
+    .logo-mark {
+      width: auto; height: 58px; object-fit: contain;
+      display: block; border-radius: 6px;
+      filter: drop-shadow(0 8px 18px rgba(0,0,0,0.18));
+    }
+    .footer-main .logo-mark { width: 170px; height: auto; }
+    .logo-badge { display: none; }
+    .logo-text { display: flex; flex-direction: column; }
+    .logo-name {
+      font-weight: 800; font-size: 0.98rem; color: var(--white);
+      line-height: 1.1; letter-spacing: 0;
+    }
+    .logo-sub {
+      font-size: 0.62rem; color: var(--gold); letter-spacing: 0.08em;
+      text-transform: uppercase; font-weight: 600;
+    }
+    .nav-links {
+      display: flex; align-items: center; gap: 0.25rem; list-style: none;
+    }
+    .nav-links > li { position: relative; }
+    .nav-links > li > a, .nav-links > li > span {
+      display: flex; align-items: center; gap: 0.3rem;
+      padding: 0.5rem 0.9rem; color: rgba(255,255,255,0.85);
+      font-size: 0.875rem; font-weight: 500;
+      text-decoration: none; border-radius: 6px;
+      cursor: pointer; transition: color 0.2s, background 0.2s;
+      white-space: nowrap;
+    }
+    .nav-links > li > a:hover, .nav-links > li > span:hover,
+    .nav-links > li.active > a { color: var(--gold); }
+    .nav-links > li > a.active { color: var(--gold); }
+    .chevron { font-size: 0.65rem; transition: transform 0.25s; }
+    .has-dropdown:hover .chevron { transform: rotate(180deg); }
+
+    .dropdown {
+      position: absolute; top: calc(100% + 8px); left: 0;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.18);
+      min-width: 200px; padding: 0.5rem 0;
+      opacity: 0; pointer-events: none;
+      transform: translateY(-6px);
+      transition: opacity 0.2s, transform 0.2s;
+      z-index: 200;
+    }
+    .has-dropdown:hover .dropdown {
+      opacity: 1; pointer-events: auto; transform: translateY(0);
+    }
+    .dropdown-group { padding: 0.4rem 0; }
+    .dropdown-label {
+      display: block; padding: 0.3rem 1rem 0.15rem;
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--sky);
+    }
+    .dropdown a {
+      display: block; padding: 0.4rem 1rem 0.4rem 1.4rem;
+      font-size: 0.83rem; color: var(--text); text-decoration: none;
+      transition: background 0.15s, color 0.15s; border-radius: 4px;
+    }
+    .dropdown a:hover { background: var(--light); color: var(--sky); }
+    .dropdown hr { border: none; border-top: 1px solid var(--border); margin: 0.25rem 0; }
+
+    .btn-orçamento {
+      background: linear-gradient(135deg, var(--gold), var(--gold2));
+      color: var(--navy) !important; font-weight: 700 !important;
+      padding: 0.5rem 1.25rem !important; border-radius: 6px !important;
+      letter-spacing: 0.02em; font-size: 0.82rem !important;
+      transition: transform 0.2s, box-shadow 0.2s !important;
+    }
+    .btn-orçamento:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(244,180,0,0.35) !important; color: var(--navy) !important; }
+
+    .hamburger {
+      display: none; flex-direction: column; gap: 5px;
+      cursor: pointer; padding: 6px;
+    }
+    .hamburger span {
+      display: block; width: 24px; height: 2px;
+      background: var(--white); border-radius: 2px;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, rgba(0,43,92,0.98) 0%, rgba(30,91,170,0.94) 58%, rgba(0,43,92,0.98) 100%);
+      display: flex; align-items: center; position: relative; overflow: hidden;
+      padding-top: 68px;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 72% 58% at 76% 45%, rgba(244,180,0,0.18) 0%, transparent 66%),
+        radial-gradient(ellipse 70% 58% at 18% 78%, rgba(30,91,170,0.35) 0%, transparent 70%);
+    }
+    .hero-grid {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+    .hero-inner {
+      max-width: 1280px; margin: 0 auto; padding: 5rem 2rem;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;
+      align-items: center; position: relative; z-index: 1;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(244,180,0,0.14);
+      border: 1px solid rgba(244,180,0,0.36);
+      border-radius: 100px; padding: 0.35rem 1rem;
+      font-size: 0.75rem; font-weight: 600; color: var(--gold2);
+      letter-spacing: 0.08em; text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+    .hero-badge .dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--gold); animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%,100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.4); }
+    }
+    .hero h1 {
+      font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+      font-weight: 800; color: var(--white);
+      line-height: 1.12; margin-bottom: 1.5rem;
+    }
+    .hero h1 em { color: var(--gold2); font-style: normal; }
+    .hero-desc {
+      font-size: 1.05rem; color: rgba(255,255,255,0.72);
+      line-height: 1.75; margin-bottom: 2.5rem; max-width: 480px;
+    }
+    .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 3rem; }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: linear-gradient(135deg, var(--gold), var(--gold2));
+      color: var(--navy); font-weight: 700; font-size: 0.9rem;
+      padding: 0.85rem 1.75rem; border-radius: 8px;
+      text-decoration: none; border: none; cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s, filter 0.2s;
+      letter-spacing: 0.02em;
+      box-shadow: 0 10px 26px rgba(244,180,0,0.24);
+      animation: premiumPulse 3s ease-in-out infinite;
+    }
+
+    .request-action-wrap { position: relative; display: inline-flex; flex-direction: column; align-items: flex-start; gap: 0.7rem; }
+    .request-helper {
+      color: rgba(255,255,255,0.66);
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+    }
+    .request-menu {
+      position: absolute; left: 0; top: calc(100% + 0.35rem);
+      width: min(260px, calc(100vw - 3rem));
+      background: var(--white);
+      border: 1px solid rgba(244,180,0,0.3);
+      border-radius: 14px;
+      box-shadow: 0 18px 45px rgba(0,43,92,0.22);
+      padding: 0.45rem;
+      opacity: 0; visibility: hidden; pointer-events: none;
+      transform: translateY(-6px) scale(0.98);
+      transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+      z-index: 40;
+    }
+    .request-menu.open { opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0) scale(1); }
+    .request-menu a {
+      display: flex; align-items: center; gap: 0.7rem;
+      padding: 0.75rem 0.85rem;
+      color: var(--navy);
+      text-decoration: none;
+      border-radius: 10px;
+      font-size: 0.86rem;
+      font-weight: 700;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+    .request-menu a:hover { background: var(--light); transform: translateX(2px); }
+    .btn-whatsapp {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.25);
+      color: var(--white); font-weight: 600; font-size: 0.9rem;
+      padding: 0.85rem 1.75rem; border-radius: 8px;
+      text-decoration: none; cursor: pointer;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .btn-whatsapp:hover { background: rgba(255,255,255,0.18); border-color: rgba(255,255,255,0.5); }
+    .hero-stats {
+      display: flex; gap: 2rem; flex-wrap: wrap;
+    }
+    .hero-stat { display: flex; align-items: center; gap: 0.6rem; }
+    .hero-stat-icon {
+      width: 36px; height: 36px; border-radius: 8px;
+      background: rgba(244,180,0,0.15);
+      border: 1px solid rgba(244,180,0,0.28);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem;
+    }
+    .hero-stat-text { display: flex; flex-direction: column; }
+    .hero-stat-val { font-weight: 700; font-size: 0.88rem; color: var(--white); line-height: 1.2; }
+    .hero-stat-lbl { font-size: 0.72rem; color: rgba(255,255,255,0.55); }
+
+    .hero-visual {
+      display: flex; align-items: center; justify-content: center; position: relative;
+    }
+    .hero-img-wrap {
+      position: relative; border-radius: 20px; overflow: hidden;
+      box-shadow: 0 30px 80px rgba(0,23,58,0.45);
+      border: 1px solid rgba(255,255,255,0.16);
+      background: rgba(255,255,255,0.08);
+    }
+    .hero-img-wrap img { width: 100%; display: block; border-radius: 20px; }
+    .hero-img-placeholder {
+      width: 100%; aspect-ratio: 4/3;
+      background: linear-gradient(135deg, var(--blue) 0%, var(--navy) 100%);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 1rem; border-radius: 20px;
+    }
+    .hero-img-placeholder .ac-icon { font-size: 5rem; opacity: 0.5; }
+    .hero-img-placeholder p { color: rgba(255,255,255,0.4); font-size: 0.85rem; }
+    .hero-card-float {
+      position: absolute; bottom: -16px; left: -24px;
+      background: var(--white); border-radius: 12px;
+      padding: 0.9rem 1.2rem;
+      box-shadow: 0 8px 30px rgba(0,43,92,0.22);
+      display: flex; align-items: center; gap: 0.8rem;
+      min-width: 180px;
+    }
+    .float-icon {
+      width: 40px; height: 40px; border-radius: 10px;
+      background: linear-gradient(135deg, var(--blue), var(--navy));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; flex-shrink: 0;
+    }
+    .float-text .val { font-weight: 700; color: var(--navy); font-size: 1rem; }
+    .float-text .lbl { font-size: 0.72rem; color: var(--muted); }
+
+    /* ── SECTIONS COMMON ── */
+    section { padding: 5rem 0; }
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 2rem; }
+    .section-label {
+      display: inline-block; font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--sky); margin-bottom: 0.75rem;
+    }
+    .section-title {
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 800; color: var(--navy); line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+    .section-title em { color: var(--blue); font-style: normal; }
+    .section-desc { font-size: 1rem; color: var(--muted); line-height: 1.75; max-width: 600px; }
+
+    /* ── DIFERENCIAIS ── */
+    .diferenciais { background: var(--gray); }
+    .dif-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem; margin-top: 3rem;
+    }
+    .dif-card {
+      background: var(--white); border-radius: 14px;
+      padding: 1.75rem 1.5rem;
+      border: 1px solid var(--border);
+      box-shadow: 0 2px 12px var(--shadow);
+      transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+      position: relative; overflow: hidden;
+    }
+    .dif-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--sky), var(--gold));
+      opacity: 0; transition: opacity 0.25s;
+    }
+    .dif-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,43,92,0.14); border-color: rgba(30,91,170,0.25); }
+    .dif-card:hover::before { opacity: 1; }
+    .dif-icon {
+      width: 52px; height: 52px; border-radius: 12px;
+      background: linear-gradient(135deg, var(--light), rgba(244,180,0,0.16));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem; margin-bottom: 1rem;
+    }
+    .dif-card h3 { font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: 0.4rem; }
+    .dif-card p { font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
+
+    /* ── SERVIÇOS ── */
+    .servicos-header { text-align: center; margin-bottom: 3rem; }
+    .servicos-header .section-desc { margin: 0 auto; }
+    .serv-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+    .serv-card {
+      border-radius: 16px; overflow: hidden;
+      background: var(--white);
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 16px var(--shadow);
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+    }
+    .serv-card:hover { transform: translateY(-6px); box-shadow: 0 16px 48px rgba(0,43,92,0.18); }
+    .serv-img {
+      height: 180px;
+      background: linear-gradient(135deg, var(--blue), var(--navy));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 3.5rem; position: relative; overflow: hidden;
+    }
+    .serv-img-1 { background: linear-gradient(135deg, var(--navy), var(--blue)); }
+    .serv-img-2 { background: linear-gradient(135deg, var(--blue), #6FA8F5); }
+    .serv-img-3 { background: linear-gradient(135deg, #063B78, var(--navy)); }
+    .serv-img-4 { background: linear-gradient(135deg, var(--navy), #C39200); }
+    .serv-img-5 { background: linear-gradient(135deg, #174F91, var(--gold)); }
+    .serv-img::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.4) 0%, transparent 60%);
+    }
+    .serv-body { padding: 1.5rem; }
+    .serv-body h3 { font-size: 1.05rem; font-weight: 700; color: var(--navy); margin-bottom: 0.5rem; }
+    .serv-body p { font-size: 0.85rem; color: var(--muted); line-height: 1.65; margin-bottom: 1rem; }
+    .serv-link {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      font-size: 0.82rem; font-weight: 600; color: var(--sky);
+      text-decoration: none; transition: gap 0.2s;
+    }
+    .serv-link:hover { gap: 0.7rem; }
+
+    /* ── AVALIAÇÕES ── */
+    .avaliacoes { background: var(--gray); }
+    .av-header { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 3rem; flex-wrap: wrap; gap: 1rem; }
+    .av-score {
+      display: flex; align-items: center; gap: 1.5rem;
+      background: var(--white); border-radius: 16px;
+      padding: 1.25rem 2rem; border: 1px solid var(--border);
+      box-shadow: 0 2px 12px var(--shadow);
+    }
+    .av-num {
+      font-size: 3rem; font-weight: 800; color: var(--navy);
+    }
+    .av-stars { color: var(--gold); font-size: 1.3rem; letter-spacing: 0.05em; }
+    .av-total { font-size: 0.8rem; color: var(--muted); margin-top: 0.2rem; }
+    .av-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+    .av-card {
+      background: var(--white); border-radius: 14px;
+      padding: 1.5rem; border: 1px solid var(--border);
+      box-shadow: 0 2px 12px var(--shadow);
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .av-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,43,92,0.14); }
+    .av-card-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem; }
+    .av-user { display: flex; align-items: center; gap: 0.75rem; }
+    .av-avatar {
+      width: 42px; height: 42px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 1rem; color: var(--white);
+      flex-shrink: 0;
+    }
+    .av-avatar-1,
+    .av-avatar-3,
+    .av-avatar-5 { background: linear-gradient(135deg, var(--navy), var(--blue)); }
+    .av-avatar-2,
+    .av-avatar-4,
+    .av-avatar-6 { background: linear-gradient(135deg, var(--blue), var(--gold)); }
+    .av-name { font-weight: 600; font-size: 0.9rem; color: var(--navy); }
+    .av-date { font-size: 0.72rem; color: var(--muted); }
+    .av-google {
+      display: flex; align-items: center; gap: 0.35rem;
+      font-size: 0.7rem; color: var(--muted); font-weight: 500;
+    }
+    .av-google-dot {
+      width: 16px; height: 16px; border-radius: 50%;
+      background: linear-gradient(135deg, #4285f4 25%, #34a853 25% 50%, #fbbc04 50% 75%, #ea4335 75%);
+      display: inline-block; flex-shrink: 0;
+    }
+    .av-stars-sm { color: var(--gold); font-size: 0.85rem; margin-bottom: 0.6rem; }
+    .av-text { font-size: 0.87rem; color: var(--muted); line-height: 1.65; font-style: italic; }
+
+    /* ── MARCAS ── */
+    .marcas-header { text-align: center; margin-bottom: 2.5rem; }
+    .brands-track {
+      overflow: hidden; position: relative;
+    }
+    .brands-track::before, .brands-track::after {
+      content: ''; position: absolute; top: 0; bottom: 0; width: 80px; z-index: 2;
+    }
+    .brands-track::before { left: 0; background: linear-gradient(90deg, var(--white), transparent); }
+    .brands-track::after  { right: 0; background: linear-gradient(-90deg, var(--white), transparent); }
+    .brands-inner {
+      display: flex; gap: 3rem; align-items: center;
+      animation: slide 22s linear infinite;
+      width: max-content;
+    }
+    @keyframes slide {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .brand-item {
+      display: flex; flex-direction: column; align-items: center; gap: 0.4rem;
+      padding: 1rem 2rem;
+      border: 1px solid var(--border); border-radius: 12px;
+      background: var(--white); min-width: 120px;
+      box-shadow: 0 2px 8px var(--shadow);
+      flex-shrink: 0;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+    .brand-item:hover {
+      transform: translateY(-4px);
+      border-color: rgba(30,91,170,0.24);
+      box-shadow: 0 14px 34px rgba(0,43,92,0.14);
+    }
+    .brand-item .brand-icon { font-size: 1.8rem; }
+    .brand-logo {
+      width: 110px; height: 52px; object-fit: contain;
+      display: block;
+      filter: saturate(1.02);
+    }
+    .brand-item .brand-name { font-size: 0.8rem; font-weight: 700; color: var(--muted); letter-spacing: 0.08em; }
+
+    /* ── SOBRE NÓS ── */
+    .sobre { background: var(--navy); }
+    .sobre-inner {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center;
+    }
+    .sobre .section-label { color: var(--gold2); }
+    .sobre .section-title { color: var(--white); }
+    .sobre .section-desc { color: rgba(255,255,255,0.65); }
+    .sobre-list { list-style: none; margin-top: 2rem; display: flex; flex-direction: column; gap: 1rem; }
+    .sobre-list li {
+      display: flex; align-items: flex-start; gap: 0.75rem;
+      color: rgba(255,255,255,0.8); font-size: 0.92rem; line-height: 1.6;
+    }
+    .sobre-list li::before {
+      content: '✦'; color: var(--gold); font-size: 0.7rem;
+      margin-top: 0.25rem; flex-shrink: 0;
+    }
+    .sobre-visual {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+    }
+    .sobre-num-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 14px; padding: 1.5rem;
+      transition: background 0.25s, border-color 0.25s;
+    }
+    .sobre-num-card:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: rgba(244,180,0,0.42);
+    }
+    .sobre-num-card .num {
+      font-size: 2.2rem; font-weight: 800;
+      color: var(--gold2); line-height: 1;
+      margin-bottom: 0.35rem;
+    }
+    .sobre-num-card .lbl { font-size: 0.8rem; color: rgba(255,255,255,0.6); line-height: 1.4; }
+    .sobre-num-card-wide {
+      grid-column: 1 / -1;
+      background: linear-gradient(135deg, rgba(244,180,0,0.15), rgba(30,91,170,0.12));
+      border-color: rgba(244,180,0,0.3);
+      display: flex; align-items: center; gap: 1.5rem;
+    }
+    .sobre-num-card-wide .icon { font-size: 2.5rem; }
+
+    /* ── CONTATO ── */
+    .contato-inner {
+      display: grid; grid-template-columns: 1fr 1.2fr; gap: 4rem; align-items: start;
+    }
+    .contato-info { display: flex; flex-direction: column; gap: 1.5rem; margin-top: 2rem; }
+    .contato-item {
+      display: flex; gap: 1rem; align-items: flex-start;
+    }
+    .contato-icon {
+      width: 46px; height: 46px; border-radius: 10px; flex-shrink: 0;
+      background: linear-gradient(135deg, var(--light), rgba(244,180,0,0.16));
+      display: flex; align-items: center; justify-content: center; font-size: 1.2rem;
+    }
+    .contato-item-text .label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--sky); margin-bottom: 0.15rem; }
+    .contato-item-text .val { font-weight: 600; color: var(--navy); font-size: 0.92rem; }
+    .contato-item-text .val a { color: var(--navy); text-decoration: none; }
+    .contato-item-text .val a:hover { color: var(--sky); }
+
+    .form-card {
+      background: var(--white); border-radius: 16px;
+      padding: 2rem; border: 1px solid var(--border);
+      box-shadow: 0 4px 24px rgba(0,43,92,0.12);
+    }
+    .form-card h3 { font-size: 1.3rem; font-weight: 800; color: var(--navy); margin-bottom: 1.5rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .form-group { display: flex; flex-direction: column; gap: 0.35rem; margin-bottom: 1rem; }
+    .form-group label { font-size: 0.78rem; font-weight: 600; color: var(--text); letter-spacing: 0.04em; }
+    .form-group input, .form-group select, .form-group textarea {
+      padding: 0.7rem 0.9rem; border: 1.5px solid var(--border);
+      border-radius: 8px; font-family: inherit; font-size: 0.88rem;
+      color: var(--text); background: var(--white);
+      transition: border-color 0.2s, box-shadow 0.2s; outline: none;
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+      border-color: var(--blue); box-shadow: 0 0 0 3px rgba(30,91,170,0.12);
+    }
+    .form-group textarea { resize: vertical; min-height: 100px; }
+    .btn-submit {
+      width: 100%; padding: 0.9rem;
+      background: linear-gradient(135deg, var(--blue), var(--navy));
+      color: var(--white); font-weight: 700; font-size: 0.92rem;
+      border: none; border-radius: 8px; cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      font-family: inherit; letter-spacing: 0.04em;
+    }
+    .btn-submit:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(0,43,92,0.28); }
+
+    /* ── MAPA ── */
+    .mapa-wrap {
+      border-radius: 12px; overflow: hidden;
+      border: 1px solid var(--border);
+      margin-top: 1.5rem; height: 200px; background: var(--light);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.85rem; color: var(--muted);
+    }
+
+    /* ── PRODUTOS EXPANDIDOS ── */
+    .produtos-page {
+      background:
+        linear-gradient(180deg, var(--gray) 0%, var(--white) 52%, var(--gray) 100%);
+    }
+    .product-menu {
+      display: flex; align-items: center; justify-content: center; flex-wrap: wrap;
+      gap: 0.6rem; margin: 2rem 0 3rem;
+    }
+    .product-menu a {
+      text-decoration: none; color: var(--navy);
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 0.65rem 1rem;
+      font-size: 0.82rem; font-weight: 700;
+      box-shadow: 0 6px 18px rgba(0,43,92,0.08);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+    .product-menu a:hover {
+      transform: translateY(-2px);
+      border-color: rgba(244,180,0,0.55);
+      box-shadow: 0 10px 28px rgba(0,43,92,0.13);
+    }
+    .product-block { padding: 3rem 0; border-top: 1px solid rgba(221,232,245,0.8); }
+    .product-block:first-of-type { border-top: none; padding-top: 0; }
+    .product-heading {
+      display: flex; align-items: flex-end; justify-content: space-between;
+      gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap;
+    }
+    .product-heading h3 {
+      font-size: clamp(1.35rem, 2.4vw, 2rem);
+      color: var(--navy); font-weight: 800; margin-bottom: 0.35rem;
+    }
+    .product-heading p { color: var(--muted); line-height: 1.65; max-width: 620px; font-size: 0.92rem; }
+    .carousel-shell {
+      background: rgba(255,255,255,0.78);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 1rem;
+      box-shadow: 0 18px 42px rgba(0,43,92,0.1);
+      overflow: hidden;
+    }
+    .carousel-viewport { overflow: hidden; }
+    .control-track {
+      display: flex; gap: 1rem;
+      transition: transform 0.45s cubic-bezier(.22,.8,.24,1);
+      will-change: transform;
+    }
+    .control-card {
+      flex: 0 0 calc((100% - 2rem) / 3);
+      min-width: 0;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1rem;
+      box-shadow: 0 6px 18px rgba(0,43,92,0.08);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .control-card:hover { transform: translateY(-4px); box-shadow: 0 16px 34px rgba(0,43,92,0.15); }
+    .control-card img { width: 100%; height: 210px; object-fit: contain; display: block; }
+    .control-card h4 { color: var(--navy); font-size: 0.92rem; font-weight: 800; margin-top: 0.75rem; }
+    .carousel-actions { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-top: 1rem; flex-wrap: wrap; }
+    .carousel-buttons { display: flex; gap: 0.5rem; }
+    .icon-btn {
+      width: 40px; height: 40px; border-radius: 999px;
+      border: 1px solid var(--border); background: var(--white);
+      color: var(--navy); cursor: pointer;
+      font-size: 1.15rem; font-weight: 800;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .icon-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 22px rgba(0,43,92,0.14); }
+    .btn-secondary {
+      display: inline-flex; align-items: center; justify-content: center; gap: 0.45rem;
+      border: 1px solid rgba(30,91,170,0.18);
+      background: var(--white);
+      color: var(--navy);
+      border-radius: 999px;
+      padding: 0.7rem 1rem;
+      font-weight: 800;
+      font-size: 0.82rem;
+      text-decoration: none;
+      box-shadow: 0 8px 22px rgba(0,43,92,0.1);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .btn-secondary:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(0,43,92,0.14); }
+    .alternating-grid { display: grid; gap: 1.4rem; }
+    .alt-row {
+      display: grid; grid-template-columns: minmax(260px, 0.9fr) 1.1fr;
+      gap: 2rem; align-items: center;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 1.3rem;
+      box-shadow: 0 12px 32px rgba(0,43,92,0.1);
+    }
+    .alt-row:nth-child(even) { grid-template-columns: 1.1fr minmax(260px, 0.9fr); }
+    .alt-row:nth-child(even) .alt-media { order: 2; }
+    .alt-media img { width: 100%; max-height: 320px; object-fit: contain; display: block; }
+    .alt-copy h4 { color: var(--navy); font-size: 1.25rem; margin-bottom: 0.6rem; }
+    .alt-copy p { color: var(--muted); line-height: 1.75; font-size: 0.94rem; }
+    .used-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.4rem; }
+    .used-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 1rem;
+      box-shadow: 0 12px 30px rgba(0,43,92,0.11);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      overflow: hidden;
+    }
+    .used-card:hover { transform: translateY(-4px); box-shadow: 0 18px 42px rgba(0,43,92,0.16); }
+    .used-slider { height: 230px; display: grid; place-items: center; background: var(--gray); border-radius: 14px; overflow: hidden; }
+    .used-slider img { width: 100%; height: 100%; object-fit: contain; display: none; }
+    .used-slider img.active { display: block; animation: softIn 0.45s ease; }
+    .used-card h4 { margin-top: 1rem; color: var(--navy); font-size: 1rem; }
+    .used-card p { color: var(--muted); font-size: 0.88rem; line-height: 1.6; margin-top: 0.35rem; }
+    .empty-state {
+      border: 1px dashed rgba(30,91,170,0.28);
+      background: rgba(255,255,255,0.74);
+      color: var(--muted);
+      border-radius: 16px;
+      padding: 1.4rem;
+      text-align: center;
+      font-weight: 700;
+    }
+
+    /* ── MODAIS ── */
+    .modal-overlay {
+      position: fixed; inset: 0; z-index: 2000;
+      display: none; align-items: center; justify-content: center;
+      background: rgba(0,22,48,0.62);
+      backdrop-filter: blur(8px);
+      padding: 1.25rem;
+    }
+    .modal-overlay.open { display: flex; animation: fadeIn 0.2s ease; }
+    .modal-card {
+      width: min(680px, 100%);
+      max-height: min(90vh, 780px);
+      overflow-y: auto;
+      background: var(--white);
+      border: 1px solid rgba(244,180,0,0.24);
+      border-radius: 20px;
+      box-shadow: 0 30px 80px rgba(0,22,48,0.35);
+      padding: 1.35rem;
+      animation: modalIn 0.24s ease;
+    }
+    .modal-card.compact { width: min(420px, 100%); text-align: center; }
+    .modal-head { display: flex; justify-content: space-between; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+    .modal-head h3 { color: var(--navy); font-size: 1.25rem; font-weight: 800; }
+    .modal-close {
+      width: 38px; height: 38px; border-radius: 999px;
+      border: 1px solid var(--border); background: var(--white);
+      color: var(--navy); cursor: pointer; font-size: 1.2rem;
+    }
+    .modal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .modal-grid .full { grid-column: 1 / -1; }
+    .success-icon {
+      width: 58px; height: 58px; border-radius: 999px;
+      display: grid; place-items: center; margin: 0 auto 1rem;
+      background: linear-gradient(135deg, #23C55E, #15803D);
+      color: var(--white); font-size: 1.7rem;
+      box-shadow: 0 12px 28px rgba(21,128,61,0.24);
+    }
+    .success-title { color: var(--navy); font-size: 1.2rem; font-weight: 800; margin-bottom: 0.4rem; }
+    .success-copy { color: var(--muted); font-size: 0.92rem; }
+    .btn-loading {
+      display: none; align-items: center; justify-content: center; gap: 0.55rem;
+    }
+    .is-loading .btn-label { display: none; }
+    .is-loading .btn-loading { display: inline-flex; }
+    .spinner {
+      width: 16px; height: 16px; border-radius: 50%;
+      border: 2px solid rgba(255,255,255,0.45);
+      border-top-color: var(--white);
+      animation: spin 0.8s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes modalIn { from { opacity: 0; transform: translateY(12px) scale(0.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
+    @keyframes softIn { from { opacity: 0; transform: scale(1.02); } to { opacity: 1; transform: scale(1); } }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #001B3A;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .footer-main {
+      max-width: 1280px; margin: 0 auto; padding: 3.5rem 2rem 2.5rem;
+      display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 3rem;
+    }
+    .footer-brand .logo-name { font-size: 1.1rem; }
+    .footer-desc { font-size: 0.83rem; color: rgba(255,255,255,0.45); line-height: 1.7; margin: 1rem 0; }
+    .social-links { display: flex; gap: 0.75rem; }
+    .social-link {
+      width: 36px; height: 36px; border-radius: 8px;
+      background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.1);
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.9rem;
+      transition: background 0.2s, color 0.2s;
+    }
+    .social-link:hover { background: var(--sky); color: var(--white); border-color: var(--sky); }
+    .footer-col h4 {
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 1.25rem;
+    }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+    .footer-col ul li a {
+      font-size: 0.83rem; color: rgba(255,255,255,0.5);
+      text-decoration: none; transition: color 0.2s;
+    }
+    .footer-col ul li a:hover { color: var(--white); }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.07);
+      padding: 1.25rem 2rem;
+      max-width: 1280px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem;
+    }
+    .footer-bottom p { font-size: 0.77rem; color: rgba(255,255,255,0.3); }
+    .footer-bottom .gold-text { color: var(--gold); }
+
+    /* ── WHATSAPP FLOAT ── */
+    .whats-float {
+      position: fixed; bottom: 1.75rem; right: 1.75rem; z-index: 900;
+      display: flex; align-items: center; gap: 0.75rem;
+      background: linear-gradient(135deg, #16A34A, #25D366 55%, #0F8A3B);
+      color: var(--white);
+      padding: 0.75rem 1.25rem 0.75rem 1rem;
+      border-radius: 100px;
+      text-decoration: none; font-weight: 700; font-size: 0.87rem;
+      box-shadow: 0 8px 28px rgba(37,211,102,0.42);
+      transition: transform 0.2s, box-shadow 0.2s, color 0.2s, filter 0.2s;
+      animation: whatsPulse 5s ease-in-out infinite;
+    }
+    .whats-float:hover {
+      transform: translateY(-3px);
+      color: var(--gold2);
+      filter: brightness(1.08) saturate(1.08);
+      box-shadow: 0 12px 34px rgba(37,211,102,0.62);
+    }
+    .whats-float .icon { font-size: 1.2rem; }
+    @keyframes whatsPulse {
+      0%, 78%, 100% { box-shadow: 0 8px 28px rgba(37,211,102,0.42); }
+      86% { box-shadow: 0 0 0 9px rgba(37,211,102,0.11), 0 14px 38px rgba(37,211,102,0.56); }
+    }
+
+    /* ── FADE IN ANIMATION ── */
+    .fade-up {
+      opacity: 0; transform: translateY(28px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── MOBILE MENU ── */
+    .mobile-nav {
+      display: none; position: fixed; top: 68px; left: 0; right: 0;
+      background: rgba(10,22,40,0.98); backdrop-filter: blur(12px);
+      padding: 1.5rem 2rem 2rem; z-index: 999;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      max-height: calc(100vh - 68px); overflow-y: auto;
+    }
+    .mobile-nav.open { display: block; }
+    .mobile-nav a {
+      display: block; padding: 0.7rem 0;
+      color: rgba(255,255,255,0.8); text-decoration: none;
+      font-size: 1rem; border-bottom: 1px solid rgba(255,255,255,0.06);
+      transition: color 0.2s;
+    }
+    .mobile-nav a:hover { color: var(--gold); }
+    .mobile-nav .mobile-group-label {
+      font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.12em;
+      color: var(--gold); margin-top: 1rem; margin-bottom: 0.25rem; font-weight: 700;
+    }
+    .mobile-nav .sub-link {
+      padding-left: 1rem; font-size: 0.9rem; color: rgba(255,255,255,0.6);
+    }
+
+    /* ── RESPONSIVO ── */
+    @media (max-width: 1024px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 3rem; text-align: center; }
+      .hero-stats { justify-content: center; }
+      .hero-ctas { justify-content: center; }
+      .request-action-wrap { align-items: center; }
+      .hero-visual { display: none; }
+      .sobre-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .contato-inner { grid-template-columns: 1fr; }
+      .footer-main { grid-template-columns: 1fr 1fr; }
+      .control-card { flex-basis: calc((100% - 1rem) / 2); }
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .footer-main { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .modal-grid { grid-template-columns: 1fr; }
+      .modal-grid .full { grid-column: auto; }
+      section { padding: 3.5rem 0; }
+      .sobre-visual { grid-template-columns: 1fr; }
+      .sobre-num-card-wide { flex-direction: column; text-align: center; }
+      .control-card { flex-basis: 100%; }
+      .alt-row,
+      .alt-row:nth-child(even) { grid-template-columns: 1fr; }
+      .alt-row:nth-child(even) .alt-media { order: 0; }
+      .product-heading { align-items: flex-start; }
+      .whats-float { right: 1rem; bottom: 1rem; padding: 0.7rem 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="#inicio" class="logo">
+      <img src="logo-cropped.png" alt="Luzitana Ar Condicionado" class="logo-mark" />
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="#inicio" class="active">Início</a></li>
+
+      <li class="has-dropdown">
+        <span>Serviços <span class="chevron">▾</span></span>
+        <div class="dropdown">
+          <div class="dropdown-group">
+            <span class="dropdown-label">❄️ Ar Condicionado</span>
+            <a href="#servicos">Instalação</a>
+            <a href="#servicos">Manutenção</a>
+            <a href="#servicos">Limpeza</a>
+          </div>
+          <hr />
+          <div class="dropdown-group">
+            <span class="dropdown-label">🫧 Máquinas de Lavar</span>
+            <a href="#servicos">Instalação</a>
+            <a href="#servicos">Manutenção</a>
+            <a href="#servicos">Limpeza</a>
+          </div>
+        </div>
+      </li>
+
+      <li class="has-dropdown">
+        <span>Produtos <span class="chevron">▾</span></span>
+        <div class="dropdown">
+          <a href="#controle-remoto">Controle Remoto</a>
+          <a href="#protetor-ar">Protetor de Ar</a>
+          <a href="#aparelhos-usados">Aparelhos usados</a>
+          <a href="#pecas-elgin" onclick="openPartsModal(event)">Peças Elgin</a>
+        </div>
+      </li>
+
+      <li><a href="#sobre">Sobre Nós</a></li>
+      <li><a href="#contato">Contato</a></li>
+      <li><a href="#contato" class="btn-orçamento">Orçamento</a></li>
+    </ul>
+
+    <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-nav" id="mobileNav">
+  <a href="#inicio" onclick="toggleMenu()">Início</a>
+  <div class="mobile-group-label">Serviços – Ar Condicionado</div>
+  <a href="#servicos" class="sub-link" onclick="toggleMenu()">Instalação</a>
+  <a href="#servicos" class="sub-link" onclick="toggleMenu()">Manutenção</a>
+  <a href="#servicos" class="sub-link" onclick="toggleMenu()">Limpeza</a>
+  <div class="mobile-group-label">Serviços – Máquinas de Lavar</div>
+  <a href="#servicos" class="sub-link" onclick="toggleMenu()">Instalação</a>
+  <a href="#servicos" class="sub-link" onclick="toggleMenu()">Manutenção</a>
+  <a href="#servicos" class="sub-link" onclick="toggleMenu()">Limpeza</a>
+  <div class="mobile-group-label">Produtos</div>
+  <a href="#controle-remoto" class="sub-link" onclick="toggleMenu()">Controle Remoto</a>
+  <a href="#protetor-ar" class="sub-link" onclick="toggleMenu()">Protetor de Ar</a>
+  <a href="#aparelhos-usados" class="sub-link" onclick="toggleMenu()">Aparelhos usados</a>
+  <a href="#pecas-elgin" class="sub-link" onclick="toggleMenu(); openPartsModal(event)">Peças Elgin</a>
+  <a href="#sobre" onclick="toggleMenu()">Sobre Nós</a>
+  <a href="#contato" onclick="toggleMenu()">Contato</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="hero-grid"></div>
+  <div class="hero-inner">
+    <div class="hero-content fade-up">
+      <div class="hero-badge"><span class="dot"></span>Climatização Profissional</div>
+      <h1>Conforto que <em>transforma</em> ambientes.</h1>
+      <p class="hero-desc">
+        Instalação, manutenção e higienização de ar-condicionado para residências,
+        empresas e indústrias em Porto Alegre e região.
+      </p>
+      <div class="hero-ctas">
+        <div class="request-action-wrap">
+          <button type="button" class="btn-primary" id="budgetButton" onclick="toggleBudgetMenu(event)">📋 Solicitar orçamento</button>
+          <div class="request-menu" id="budgetMenu" aria-label="Opções de orçamento">
+            <a href="mailto:felipee.fariass.770@gmail.com?subject=Solicitação%20de%20orçamento%20-%20Luzitana">📧 Solicitar por E-mail</a>
+            <a href="https://wa.me/5551999999999?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento." target="_blank">💬 Solicitar por WhatsApp</a>
+          </div>
+          <span class="request-helper">Resposta rápida via WhatsApp ou orçamento por e-mail</span>
+        </div>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-icon">🏆</div>
+          <div class="hero-stat-text">
+            <span class="hero-stat-val">+40 Anos</span>
+            <span class="hero-stat-lbl">de tradição</span>
+          </div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-icon">👷</div>
+          <div class="hero-stat-text">
+            <span class="hero-stat-val">Equipe</span>
+            <span class="hero-stat-lbl">especializada</span>
+          </div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-icon">⚡</div>
+          <div class="hero-stat-text">
+            <span class="hero-stat-val">Atendimento</span>
+            <span class="hero-stat-lbl">rápido</span>
+          </div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-icon">✅</div>
+          <div class="hero-stat-text">
+            <span class="hero-stat-val">Garantia</span>
+            <span class="hero-stat-lbl">de qualidade</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-visual fade-up" style="transition-delay:0.2s">
+      <div class="hero-img-wrap">
+        <img src="hero-climatizacao.svg" alt="Técnico especializado em climatização" />
+        <div class="hero-card-float">
+          <div class="float-icon">⭐</div>
+          <div class="float-text">
+            <div class="val">5.0 / 5.0</div>
+            <div class="lbl">+200 avaliações no Google</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIFERENCIAIS -->
+<section class="diferenciais">
+  <div class="container">
+    <div class="fade-up">
+      <span class="section-label">Por que nos escolher</span>
+      <h2 class="section-title">Nossos <em>diferenciais</em></h2>
+      <p class="section-desc">Comprometidos com excelência em cada atendimento, do residencial ao industrial.</p>
+    </div>
+    <div class="dif-grid">
+      <div class="dif-card fade-up">
+        <div class="dif-icon">🏆</div>
+        <h3>+40 Anos de Tradição</h3>
+        <p>Décadas de experiência no mercado gaúcho de climatização, consolidando nossa reputação.</p>
+      </div>
+      <div class="dif-card fade-up" style="transition-delay:0.08s">
+        <div class="dif-icon">⚡</div>
+        <h3>Atendimento Rápido</h3>
+        <p>Resposta ágil para sua solicitação. Agendamento facilitado e cumprimento de prazos.</p>
+      </div>
+      <div class="dif-card fade-up" style="transition-delay:0.16s">
+        <div class="dif-icon">👷</div>
+        <h3>Equipe Especializada</h3>
+        <p>Técnicos certificados e em constante atualização com as melhores práticas do setor.</p>
+      </div>
+      <div class="dif-card fade-up" style="transition-delay:0.24s">
+        <div class="dif-icon">✅</div>
+        <h3>Garantia de Qualidade</h3>
+        <p>Todos os serviços com garantia. Utilizamos peças originais e de fornecedores homologados.</p>
+      </div>
+      <div class="dif-card fade-up" style="transition-delay:0.32s">
+        <div class="dif-icon">🏢</div>
+        <h3>Residencial e Comercial</h3>
+        <p>Atendemos desde apartamentos até grandes complexos industriais com a mesma dedicação.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVIÇOS -->
+<section id="servicos">
+  <div class="container">
+    <div class="servicos-header fade-up">
+      <span class="section-label">O que fazemos</span>
+      <h2 class="section-title">Nossos <em>Serviços</em></h2>
+      <p class="section-desc">Soluções completas em climatização com tecnologia de ponta e equipe treinada.</p>
+    </div>
+    <div class="serv-grid">
+      <div class="serv-card fade-up">
+        <div class="serv-img serv-img-1"><span style="position:relative;z-index:1">🔧</span></div>
+        <div class="serv-body">
+          <h3>Instalação de Ar-Condicionado</h3>
+          <p>Instalação profissional de splits, cassetes, janela e sistemas centrais. Todas as marcas e capacidades.</p>
+          <a href="#" class="serv-link" onclick="openServiceModal('Instalação de ar condicionado', event)">Solicitar serviço →</a>
+        </div>
+      </div>
+      <div class="serv-card fade-up" style="transition-delay:0.1s">
+        <div class="serv-img serv-img-2"><span style="position:relative;z-index:1">🫧</span></div>
+        <div class="serv-body">
+          <h3>Limpeza e Higienização</h3>
+          <p>Higienização completa com produtos bactericidas. Ar mais limpo, saudável e eficiente para seu ambiente.</p>
+          <a href="#" class="serv-link" onclick="openServiceModal('Limpeza e higienização', event)">Solicitar serviço →</a>
+        </div>
+      </div>
+      <div class="serv-card fade-up" style="transition-delay:0.2s">
+        <div class="serv-img serv-img-3"><span style="position:relative;z-index:1">⚙️</span></div>
+        <div class="serv-body">
+          <h3>Manutenção Preventiva</h3>
+          <p>Planos de manutenção periódica que garantem vida útil prolongada e economia de energia.</p>
+          <a href="#" class="serv-link" onclick="openServiceModal('Manutenção preventiva', event)">Solicitar serviço →</a>
+        </div>
+      </div>
+      <div class="serv-card fade-up" style="transition-delay:0.3s">
+        <div class="serv-img serv-img-4"><span style="position:relative;z-index:1">📋</span></div>
+        <div class="serv-body">
+          <h3>PMOC</h3>
+          <p>Plano de Manutenção, Operação e Controle conforme legislação vigente, com laudos e relatórios técnicos.</p>
+          <a href="#" class="serv-link" onclick="openServiceModal('PMOC', event)">Solicitar serviço →</a>
+        </div>
+      </div>
+      <div class="serv-card fade-up" style="transition-delay:0.4s">
+        <div class="serv-img serv-img-5"><span style="position:relative;z-index:1">🫧</span></div>
+        <div class="serv-body">
+          <h3>Máquinas de Lavar</h3>
+          <p>Instalação, manutenção e limpeza de máquinas de lavar. Diagnóstico preciso e reparo garantido.</p>
+          <a href="#" class="serv-link" onclick="openServiceModal('Máquina de lavar', event)">Solicitar serviço →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUTOS -->
+<section id="produtos" class="produtos-page">
+  <div class="container">
+    <div class="fade-up" style="text-align:center">
+      <span class="section-label">Loja</span>
+      <h2 class="section-title">Catálogo de <em>Produtos</em></h2>
+      <p class="section-desc" style="margin:0 auto">Peças, acessórios e equipamentos organizados para consulta rápida e expansão futura.</p>
+    </div>
+
+    <nav class="product-menu fade-up" aria-label="Menu de produtos">
+      <a href="#inicio">Início</a>
+      <a href="#controle-remoto">Controle Remoto</a>
+      <a href="#protetor-ar">Protetor de Ar</a>
+      <a href="#aparelhos-usados">Aparelhos usados</a>
+      <a href="#pecas-elgin" onclick="openPartsModal(event)">Peças Elgin</a>
+    </nav>
+
+    <div class="product-block fade-up" id="controle-remoto">
+      <div class="product-heading">
+        <div>
+          <h3>Controle Remoto</h3>
+          <p>Modelos universais e compatíveis com as principais marcas. O carrossel mostra até 3 controles por vez e avança com transição suave.</p>
+        </div>
+        <a class="btn-secondary" href="https://wa.me/5551999999999?text=Olá!%20Não%20encontrei%20meu%20modelo%20de%20controle%20remoto." target="_blank">Não encontrou seu modelo?</a>
+      </div>
+      <div class="carousel-shell">
+        <div class="carousel-viewport">
+          <div class="control-track" id="controlTrack"></div>
+        </div>
+        <div class="carousel-actions">
+          <a class="btn-secondary" href="ImagensControle/controle6.html" target="_blank">Ver todos</a>
+          <div class="carousel-buttons">
+            <button type="button" class="icon-btn" onclick="moveControlCarousel(-1)" aria-label="Controle anterior">‹</button>
+            <button type="button" class="icon-btn" onclick="moveControlCarousel(1)" aria-label="Próximo controle">›</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-block fade-up" id="protetor-ar">
+      <div class="product-heading">
+        <div>
+          <h3>Protetor de Ar</h3>
+          <p>Proteção elétrica para aumentar a vida útil do aparelho e reduzir danos causados por oscilações de energia.</p>
+        </div>
+      </div>
+      <div class="alternating-grid" id="protectorGrid"></div>
+    </div>
+
+    <div class="product-block fade-up" id="aparelhos-usados">
+      <div class="product-heading">
+        <div>
+          <h3>Aparelhos usados</h3>
+          <p>Equipamentos revisados, com procedência e apresentação clara para consulta.</p>
+        </div>
+      </div>
+      <div class="used-grid" id="usedGrid"></div>
+    </div>
+
+    <div class="product-block fade-up" id="pecas-elgin">
+      <div class="product-heading">
+        <div>
+          <h3>Peças Elgin</h3>
+          <p>Solicite cotação de peças originais informando unidade, contato e descrição do que precisa.</p>
+        </div>
+        <button type="button" class="btn-primary" onclick="openPartsModal(event)">Cotação de peças ELGIN</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AVALIAÇÕES -->
+<section class="avaliacoes">
+  <div class="container">
+    <div class="av-header">
+      <div class="fade-up">
+        <span class="section-label">Clientes satisfeitos</span>
+        <h2 class="section-title">O que dizem sobre <em>nós</em></h2>
+      </div>
+      <div class="av-score fade-up">
+        <div>
+          <div class="av-num">5.0</div>
+          <div class="av-stars">★★★★★</div>
+          <div class="av-total">+200 avaliações</div>
+        </div>
+        <div>
+          <div style="font-size:0.78rem; color:var(--muted); line-height:1.6">
+            Avaliação no<br/>
+            <strong style="color:var(--text)">Google Reviews</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="av-grid">
+      <div class="av-card fade-up">
+        <div class="av-card-top">
+          <div class="av-user">
+            <div class="av-avatar av-avatar-1">R</div>
+            <div>
+              <div class="av-name">Ricardo Ferreira</div>
+              <div class="av-date">há 2 semanas</div>
+            </div>
+          </div>
+          <div class="av-google"><div class="av-google-dot"></div>Google</div>
+        </div>
+        <div class="av-stars-sm">★★★★★</div>
+        <p class="av-text">"Atendimento rápido e extremamente profissional. O técnico chegou no horário combinado, explicou tudo com clareza e resolveu na hora. Recomendo muito!"</p>
+      </div>
+      <div class="av-card fade-up" style="transition-delay:0.1s">
+        <div class="av-card-top">
+          <div class="av-user">
+            <div class="av-avatar av-avatar-2">A</div>
+            <div>
+              <div class="av-name">Ana Cláudia Melo</div>
+              <div class="av-date">há 1 mês</div>
+            </div>
+          </div>
+          <div class="av-google"><div class="av-google-dot"></div>Google</div>
+        </div>
+        <div class="av-stars-sm">★★★★★</div>
+        <p class="av-text">"Empresa séria, de tradição. Já uso os serviços há mais de 10 anos e nunca me decepcionaram. A limpeza do ar condicionado ficou impecável, ambiente bem mais saudável."</p>
+      </div>
+      <div class="av-card fade-up" style="transition-delay:0.2s">
+        <div class="av-card-top">
+          <div class="av-user">
+            <div class="av-avatar av-avatar-3">M</div>
+            <div>
+              <div class="av-name">Marcos Dutra</div>
+              <div class="av-date">há 3 semanas</div>
+            </div>
+          </div>
+          <div class="av-google"><div class="av-google-dot"></div>Google</div>
+        </div>
+        <div class="av-stars-sm">★★★★★</div>
+        <p class="av-text">"Instalei dois splits novos para o meu escritório. Serviço impecável, sem sujeira, sem transtorno. Preço justo e equipe bem treinada. Com certeza voltarei."</p>
+      </div>
+      <div class="av-card fade-up" style="transition-delay:0.3s">
+        <div class="av-card-top">
+          <div class="av-user">
+            <div class="av-avatar av-avatar-4">P</div>
+            <div>
+              <div class="av-name">Patrícia Alves</div>
+              <div class="av-date">há 5 dias</div>
+            </div>
+          </div>
+          <div class="av-google"><div class="av-google-dot"></div>Google</div>
+        </div>
+        <div class="av-stars-sm">★★★★★</div>
+        <p class="av-text">"Solicitei manutenção preventiva para 4 aparelhos da minha empresa. Resultado excelente, aparelhos voltaram a funcionar como novos. Equipe pontual e educada."</p>
+      </div>
+      <div class="av-card fade-up" style="transition-delay:0.4s">
+        <div class="av-card-top">
+          <div class="av-user">
+            <div class="av-avatar av-avatar-5">J</div>
+            <div>
+              <div class="av-name">João Pedro Lima</div>
+              <div class="av-date">há 2 meses</div>
+            </div>
+          </div>
+          <div class="av-google"><div class="av-google-dot"></div>Google</div>
+        </div>
+        <div class="av-stars-sm">★★★★★</div>
+        <p class="av-text">"Comprei um aparelho usado deles e está funcionando perfeitamente. Vieram instalar no mesmo dia, tudo muito rápido. Vale muito a pena, excelente custo-benefício."</p>
+      </div>
+      <div class="av-card fade-up" style="transition-delay:0.5s">
+        <div class="av-card-top">
+          <div class="av-user">
+            <div class="av-avatar av-avatar-6">C</div>
+            <div>
+              <div class="av-name">Camila Rodrigues</div>
+              <div class="av-date">há 1 semana</div>
+            </div>
+          </div>
+          <div class="av-google"><div class="av-google-dot"></div>Google</div>
+        </div>
+        <div class="av-stars-sm">★★★★★</div>
+        <p class="av-text">"Luzitana é referência em Porto Alegre! Já indiquei para vários amigos e todos ficaram satisfeitos. Tradição, seriedade e qualidade que se mantém ao longo dos anos."</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARCAS -->
+<section style="padding:3.5rem 0">
+  <div class="container">
+    <div class="marcas-header fade-up">
+      <span class="section-label">Marcas parceiras</span>
+      <h2 class="section-title" style="font-size:1.8rem">Trabalhamos com as melhores <em>marcas</em></h2>
+    </div>
+    <div class="brands-track">
+      <div class="brands-inner" id="brandsInner">
+        <div class="brand-item"><img class="brand-logo" src="MarcasImagem/LG.png" alt="LG"><div class="brand-name">LG</div></div>
+        <div class="brand-item"><img class="brand-logo" src="MarcasImagem/Samsung.png" alt="Samsung"><div class="brand-name">Samsung</div></div>
+        <div class="brand-item"><img class="brand-logo" src="MarcasImagem/Elgin.png" alt="Elgin"><div class="brand-name">Elgin</div></div>
+        <div class="brand-item"><img class="brand-logo" src="MarcasImagem/SpringerMidea.png" alt="Springer Midea"><div class="brand-name">Springer</div></div>
+        <div class="brand-item"><img class="brand-logo" src="MarcasImagem/SpringerMidea.png" alt="Midea"><div class="brand-name">Midea</div></div>
+        <div class="brand-item"><img class="brand-logo" src="MarcasImagem/Electrolux.png" alt="Electrolux"><div class="brand-name">Electrolux</div></div>
+        <div class="brand-item"><img class="brand-logo" src="MarcasImagem/Daikin.png" alt="Daikin"><div class="brand-name">Daikin</div></div>
+        <!-- duplicate for seamless loop -->
+        <div class="brand-item"><img class="brand-logo" src="MarcasImagem/LG.png" alt="LG"><div class="brand-name">LG</div></div>
+        <div class="brand-item"><img class="brand-logo" src="MarcasImagem/Samsung.png" alt="Samsung"><div class="brand-name">Samsung</div></div>
+        <div class="brand-item"><img class="brand-logo" src="MarcasImagem/Elgin.png" alt="Elgin"><div class="brand-name">Elgin</div></div>
+        <div class="brand-item"><img class="brand-logo" src="MarcasImagem/SpringerMidea.png" alt="Springer Midea"><div class="brand-name">Springer</div></div>
+        <div class="brand-item"><img class="brand-logo" src="MarcasImagem/SpringerMidea.png" alt="Midea"><div class="brand-name">Midea</div></div>
+        <div class="brand-item"><img class="brand-logo" src="MarcasImagem/Electrolux.png" alt="Electrolux"><div class="brand-name">Electrolux</div></div>
+        <div class="brand-item"><img class="brand-logo" src="MarcasImagem/Daikin.png" alt="Daikin"><div class="brand-name">Daikin</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE NÓS -->
+<section class="sobre" id="sobre">
+  <div class="container">
+    <div class="sobre-inner">
+      <div class="fade-up">
+        <span class="section-label">Nossa história</span>
+        <h2 class="section-title">Há mais de 40 anos <em>climatizando</em> ambientes</h2>
+        <p class="section-desc">
+          A Luzitana Ar Condicionado nasceu da paixão pela excelência técnica e pelo compromisso com o bem-estar dos clientes. Fundada em Porto Alegre, construímos nossa trajetória atendendo residências, comércios e indústrias com a mesma dedicação desde o primeiro dia.
+        </p>
+        <ul class="sobre-list">
+          <li>Empresa familiar com raízes sólidas no mercado gaúcho de climatização</li>
+          <li>Equipe técnica certificada e continuamente capacitada</li>
+          <li>Compromisso com transparência, pontualidade e qualidade em cada serviço</li>
+          <li>Atendimento personalizado adaptado a cada necessidade do cliente</li>
+          <li>Parceria com as principais fabricantes para garantir peças e equipamentos originais</li>
+        </ul>
+      </div>
+      <div class="sobre-visual fade-up" style="transition-delay:0.2s">
+        <div class="sobre-num-card">
+          <div class="num">+40</div>
+          <div class="lbl">Anos de experiência no mercado</div>
+        </div>
+        <div class="sobre-num-card">
+          <div class="num">5k+</div>
+          <div class="lbl">Clientes atendidos em RS</div>
+        </div>
+        <div class="sobre-num-card">
+          <div class="num">7</div>
+          <div class="lbl">Marcas parceiras homologadas</div>
+        </div>
+        <div class="sobre-num-card">
+          <div class="num">5.0</div>
+          <div class="lbl">Nota Google Reviews</div>
+        </div>
+        <div class="sobre-num-card sobre-num-card-wide">
+          <div class="icon">🏆</div>
+          <div>
+            <div class="num" style="font-size:1.4rem">Tradição & Modernidade</div>
+            <div class="lbl">Empresa consolidada que une décadas de expertise com as mais modernas técnicas de climatização</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTATO -->
+<section id="contato">
+  <div class="container">
+    <div class="fade-up" style="margin-bottom:3rem">
+      <span class="section-label">Fale conosco</span>
+      <h2 class="section-title">Entre em <em>contato</em></h2>
+      <p class="section-desc">Solicite seu orçamento sem compromisso. Respondemos rapidamente!</p>
+    </div>
+    <div class="contato-inner">
+      <div class="fade-up">
+        <div class="contato-info">
+          <div class="contato-item">
+            <div class="contato-icon">💬</div>
+            <div class="contato-item-text">
+              <div class="label">WhatsApp</div>
+              <div class="val"><a href="https://wa.me/5551999999999" target="_blank">(51) 9 9999-9999</a></div>
+            </div>
+          </div>
+          <div class="contato-item">
+            <div class="contato-icon">📞</div>
+            <div class="contato-item-text">
+              <div class="label">Telefone</div>
+              <div class="val"><a href="tel:5133333333">(51) 3333-3333</a></div>
+            </div>
+          </div>
+          <div class="contato-item">
+            <div class="contato-icon">📍</div>
+            <div class="contato-item-text">
+              <div class="label">Endereço</div>
+              <div class="val">Porto Alegre – RS<br/><span style="font-size:0.82rem; color:var(--muted)">Atendemos toda a região metropolitana</span></div>
+            </div>
+          </div>
+          <div class="contato-item">
+            <div class="contato-icon">🕐</div>
+            <div class="contato-item-text">
+              <div class="label">Horário</div>
+              <div class="val">Seg – Sex: 8h às 18h<br/><span style="font-size:0.82rem; color:var(--muted)">Sábados: 8h às 13h</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="mapa-wrap">
+          <iframe
+            src="https://maps.google.com/maps?q=Porto+Alegre,+RS&z=13&output=embed"
+            width="100%" height="200" style="border:0; border-radius:12px"
+            allowfullscreen loading="lazy">
+          </iframe>
+        </div>
+      </div>
+      <div class="form-card fade-up" style="transition-delay:0.15s">
+        <h3>Solicitar Orçamento</h3>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Nome completo</label>
+            <input type="text" placeholder="Seu nome" />
+          </div>
+          <div class="form-group">
+            <label>WhatsApp / Telefone</label>
+            <input type="tel" placeholder="(51) 9 9999-9999" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>E-mail</label>
+          <input type="email" placeholder="seu@email.com" />
+        </div>
+        <div class="form-group">
+          <label>Serviço de interesse</label>
+          <select>
+            <option value="">Selecione o serviço...</option>
+            <option>Instalação de Ar-Condicionado</option>
+            <option>Manutenção Preventiva</option>
+            <option>Limpeza e Higienização</option>
+            <option>PMOC</option>
+            <option>Máquinas de Lavar</option>
+            <option>Compra de Produto</option>
+            <option>Outro</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Mensagem</label>
+          <textarea placeholder="Descreva sua necessidade, tipo de aparelho, quantidade, localização..."></textarea>
+        </div>
+        <button class="btn-submit" onclick="submitForm()">📋 Enviar solicitação</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-main">
+    <div>
+      <a href="#inicio" class="logo" style="margin-bottom:0.75rem; display:inline-flex">
+        <img src="logo-cropped.png" alt="Luzitana Ar Condicionado" class="logo-mark" />
+      </a>
+      <p class="footer-desc">Há mais de 40 anos climatizando ambientes com tradição, profissionalismo e qualidade em Porto Alegre e região.</p>
+      <div class="social-links">
+        <a href="#" class="social-link" title="Instagram">📷</a>
+        <a href="#" class="social-link" title="Facebook">📘</a>
+        <a href="https://wa.me/5551999999999" class="social-link" target="_blank" title="WhatsApp">💬</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Serviços</h4>
+      <ul>
+        <li><a href="#servicos">Instalação</a></li>
+        <li><a href="#servicos">Manutenção</a></li>
+        <li><a href="#servicos">Limpeza</a></li>
+        <li><a href="#servicos">PMOC</a></li>
+        <li><a href="#servicos">Máquinas de Lavar</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Produtos</h4>
+      <ul>
+        <li><a href="#controle-remoto">Controle Remoto</a></li>
+        <li><a href="#protetor-ar">Protetor de Ar</a></li>
+        <li><a href="#pecas-elgin" onclick="openPartsModal(event)">Peças Elgin</a></li>
+        <li><a href="#aparelhos-usados">Aparelhos usados</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Empresa</h4>
+      <ul>
+        <li><a href="#inicio">Início</a></li>
+        <li><a href="#sobre">Sobre Nós</a></li>
+        <li><a href="#contato">Contato</a></li>
+        <li><a href="https://wa.me/5551999999999" target="_blank">WhatsApp</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2024 <span class="gold-text">Luzitana Ar Condicionado</span>. Todos os direitos reservados.</p>
+    <p>Desenvolvido com ❤️ em Porto Alegre – RS</p>
+  </div>
+</footer>
+
+<!-- MODAIS -->
+<div class="modal-overlay" id="serviceModal" aria-hidden="true">
+  <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="serviceModalTitle">
+    <div class="modal-head">
+      <h3 id="serviceModalTitle">Solicitação de serviço</h3>
+      <button type="button" class="modal-close" onclick="closeModal('serviceModal')" aria-label="Fechar">×</button>
+    </div>
+    <form id="serviceForm" onsubmit="submitServiceForm(event)">
+      <div class="modal-grid">
+        <div class="form-group full">
+          <label>Selecione o serviço</label>
+          <select id="serviceSelect" name="service" required>
+            <option>Instalação de ar condicionado</option>
+            <option>Limpeza e higienização</option>
+            <option>Manutenção preventiva</option>
+            <option>PMOC</option>
+            <option>Máquina de lavar</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Nome</label>
+          <input id="serviceName" name="name" type="text" required placeholder="Seu nome" />
+        </div>
+        <div class="form-group">
+          <label>Telefone</label>
+          <input id="servicePhone" name="phone" type="tel" required placeholder="(51) 99999-9999" data-mask="phone" />
+        </div>
+        <div class="form-group full">
+          <label>Endereço</label>
+          <input id="serviceAddress" name="address" type="text" required placeholder="Rua, número, bairro e cidade" />
+        </div>
+        <div class="form-group">
+          <label>Modelo do aparelho</label>
+          <input id="serviceModel" name="model" type="text" placeholder="Marca e modelo" />
+        </div>
+        <div class="form-group">
+          <label>Melhor data</label>
+          <input id="serviceDate" name="date" type="text" placeholder="dd/mm/aaaa" data-mask="date" />
+        </div>
+        <div class="form-group full">
+          <label>Observação</label>
+          <textarea id="serviceNote" name="note" placeholder="Descreva detalhes importantes para o atendimento"></textarea>
+        </div>
+      </div>
+      <button class="btn-submit" type="submit">
+        <span class="btn-label">Enviar solicitação</span>
+        <span class="btn-loading"><span class="spinner"></span>Enviando solicitação...</span>
+      </button>
+    </form>
+  </div>
+</div>
+
+<div class="modal-overlay" id="partsModal" aria-hidden="true">
+  <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="partsModalTitle">
+    <div class="modal-head">
+      <h3 id="partsModalTitle">Cotação de peças ELGIN</h3>
+      <button type="button" class="modal-close" onclick="closeModal('partsModal')" aria-label="Fechar">×</button>
+    </div>
+    <form id="partsForm" onsubmit="submitPartsForm(event)">
+      <div class="modal-grid">
+        <div class="form-group">
+          <label>Nome</label>
+          <input name="name" type="text" required placeholder="Seu nome" />
+        </div>
+        <div class="form-group">
+          <label>E-mail</label>
+          <input name="email" type="email" required placeholder="seu@email.com" />
+        </div>
+        <div class="form-group">
+          <label>Telefone</label>
+          <input name="phone" type="tel" placeholder="(51) 3333-3333" data-mask="phone" />
+        </div>
+        <div class="form-group">
+          <label>Celular</label>
+          <input name="mobile" type="tel" required placeholder="(51) 99999-9999" data-mask="phone" />
+        </div>
+        <div class="form-group full">
+          <label>Unidade</label>
+          <select name="unit" required>
+            <option>Condensadora</option>
+            <option>Evaporadora</option>
+          </select>
+        </div>
+        <div class="form-group full">
+          <label>Peça</label>
+          <textarea name="parts" required placeholder="Escreva aqui as peças necessárias!"></textarea>
+        </div>
+      </div>
+      <button class="btn-submit" type="submit">
+        <span class="btn-label">Enviar</span>
+        <span class="btn-loading"><span class="spinner"></span>Enviando solicitação...</span>
+      </button>
+    </form>
+  </div>
+</div>
+
+<div class="modal-overlay" id="successModal" aria-hidden="true">
+  <div class="modal-card compact" role="dialog" aria-modal="true" aria-labelledby="successTitle">
+    <div class="success-icon">✓</div>
+    <div class="success-title" id="successTitle">Solicitação enviada com sucesso!</div>
+    <p class="success-copy">Em breve entraremos em contato.</p>
+    <button type="button" class="btn-primary" style="margin-top:1.2rem" onclick="closeModal('successModal')">Fechar</button>
+  </div>
+</div>
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/5551999999999" target="_blank" class="whats-float">
+  <span class="icon">💬</span>
+  <span>Falar no WhatsApp</span>
+</a>
+
+<script>
+  const EMAIL_TO = 'felipee.fariass.770@gmail.com';
+  const WHATSAPP_URL = 'https://wa.me/5551999999999';
+
+  const controlImages = [
+    'ImagensControle/controle6_files/0fc068_06b621986cad4ba1b036509f6904f572~mv2_d_1257_1420_s_2.png',
+    'ImagensControle/controle6_files/0fc068_0a3eeecce5be4962973d3e2d0b288db1~mv2_d_1257_1420_s_2.png',
+    'ImagensControle/controle6_files/0fc068_186e8103cb484d8c9e6a1ea596498840~mv2_d_1257_1420_s_2.png',
+    'ImagensControle/controle6_files/0fc068_2b720bbfc8f44eb3b714d822e2630775~mv2_d_1257_1420_s_2.png',
+    'ImagensControle/controle6_files/0fc068_2d9348d8e1714bd6bb2b073cf41b9c80~mv2_d_1257_1420_s_2.png',
+    'ImagensControle/controle6_files/0fc068_2f09920832a747d6a2739f4b365ca325~mv2_d_1257_1420_s_2.png',
+    'ImagensControle/controle6_files/0fc068_3a0f705f9db84f54a6e4d65c5fb86f4c~mv2.png',
+    'ImagensControle/controle6_files/0fc068_3a256072982745788302c43d27b8cbaf~mv2_d_1257_1420_s_2.png',
+    'ImagensControle/controle6_files/0fc068_42f99957c40c4079a66bce77edf60352~mv2_d_1257_1420_s_2.png',
+    'ImagensControle/controle6_files/0fc068_4604968979d84df0845fd08dd2ca4330~mv2_d_1257_1420_s_2.png',
+    'ImagensControle/controle6_files/0fc068_502c7095b7774e1f8758ef9abef05fb5~mv2_d_1257_1420_s_2.png',
+    'ImagensControle/controle6_files/0fc068_555044a7d33c4ab0aab80a041c443561~mv2_d_1257_1420_s_2.png',
+    'ImagensControle/controle6_files/0fc068_5b357a63932648b399eace4103e288b5~mv2_d_1257_1420_s_2.png',
+    'ImagensControle/controle6_files/0fc068_7f381dc99a324d64952ea02082daf7df~mv2_d_1257_1420_s_2.png',
+    'ImagensControle/controle6_files/0fc068_824d95495ee449b9aa0ce7160fea9858~mv2_d_1257_1420_s_2.png',
+    'ImagensControle/controle6_files/0fc068_8d6c13f44418451293b26d4f4fe29f69~mv2_d_1257_1420_s_2.png',
+    'ImagensControle/controle6_files/0fc068_91dcfe3363864d42ba0bd0f73ac6b4e4~mv2.png',
+    'ImagensControle/controle6_files/0fc068_ab83622141e44c228c54b3215075824a~mv2_d_1257_1420_s_2.png',
+    'ImagensControle/controle6_files/0fc068_ba414854154948ec902e856e2ebd7df0~mv2.png',
+    'ImagensControle/controle6_files/0fc068_c79d9b5258be4c61af6b3c93cce07194~mv2_d_1257_1420_s_2.png',
+    'ImagensControle/controle6_files/0fc068_d09716cf742d44ce830d13ac1d59c97a~mv2_d_1257_1420_s_2.png',
+    'ImagensControle/controle6_files/0fc068_dc497f347564482181e1cad36c05f410~mv2_d_1257_1420_s_2.png',
+    'ImagensControle/controle6_files/0fc068_dcfda0a859e8497bbb9d9d5558bdb791~mv2_d_1257_1420_s_2.png',
+    'ImagensControle/controle6_files/0fc068_dee0c4f8546342a3a983666331daa722~mv2_d_1257_1420_s_2.png',
+    'ImagensControle/controle6_files/0fc068_e470908630b74d0ebb30a557c1e58f1f~mv2_d_1257_1420_s_2.png',
+    'ImagensControle/controle6_files/0fc068_eb6be107eb7340979bd698c3b6dfeaeb~mv2_d_1257_1420_s_2.png',
+    'ImagensControle/controle6_files/0fc068_eb763537beb144f5853e643f3e32ac73~mv2_d_1257_1420_s_2.png',
+    'ImagensControle/controle6_files/0fc068_f1fa8acd60d6445caa6d9d9c4b6ffb40~mv2_d_1257_1420_s_2.png',
+    'ImagensControle/controle6_files/bc3ec7bc825c4e6ca746c659189cea83.jpg',
+    'ImagensControle/controle6_files/phone-fixed_318-33263_edited.png'
+  ];
+  const protectorImages = ['Protetor/Protetor1.avif', 'Protetor/Protetor2.avif'];
+  const usedAirImages = [];
+  let controlIndex = 0;
+
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  function toggleMenu() {
+    document.getElementById('mobileNav').classList.toggle('open');
+  }
+
+  function toggleBudgetMenu(event) {
+    event.stopPropagation();
+    document.getElementById('budgetMenu').classList.toggle('open');
+  }
+
+  document.addEventListener('click', (event) => {
+    const menu = document.getElementById('budgetMenu');
+    if (menu && !event.target.closest('.request-action-wrap')) menu.classList.remove('open');
+    if (event.target.classList.contains('modal-overlay')) closeModal(event.target.id);
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+      document.querySelectorAll('.modal-overlay.open').forEach(modal => closeModal(modal.id));
+      document.getElementById('budgetMenu')?.classList.remove('open');
+    }
+  });
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) e.target.classList.add('visible');
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links > li > a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 100) current = s.id;
+    });
+    navLinks.forEach(a => {
+      a.classList.remove('active');
+      if (a.getAttribute('href') === `#${current}`) a.classList.add('active');
+    });
+  });
+
+  function visibleControlCount() {
+    if (window.innerWidth <= 768) return 1;
+    if (window.innerWidth <= 1024) return 2;
+    return 3;
+  }
+
+  function renderControls() {
+    const track = document.getElementById('controlTrack');
+    if (!track) return;
+    track.innerHTML = controlImages.map((src, index) => `
+      <article class="control-card">
+        <img src="${src}" alt="Controle remoto ${index + 1}" loading="lazy">
+        <h4>Controle remoto ${String(index + 1).padStart(2, '0')}</h4>
+      </article>
+    `).join('');
+    updateControlCarousel();
+  }
+
+  function updateControlCarousel() {
+    const track = document.getElementById('controlTrack');
+    const card = track?.querySelector('.control-card');
+    if (!track || !card) return;
+    const max = Math.max(0, controlImages.length - visibleControlCount());
+    controlIndex = Math.min(controlIndex, max);
+    const gap = 16;
+    const step = card.getBoundingClientRect().width + gap;
+    track.style.transform = `translateX(-${controlIndex * step}px)`;
+  }
+
+  function moveControlCarousel(direction) {
+    const max = Math.max(0, controlImages.length - visibleControlCount());
+    controlIndex = Math.min(max, Math.max(0, controlIndex + direction));
+    updateControlCarousel();
+  }
+
+  window.addEventListener('resize', updateControlCarousel);
+
+  function renderProtectors() {
+    const grid = document.getElementById('protectorGrid');
+    if (!grid) return;
+    if (!protectorImages.length) {
+      grid.innerHTML = '<div class="empty-state">Ainda não temos protetores cadastrados.</div>';
+      return;
+    }
+    grid.innerHTML = protectorImages.map((src, index) => `
+      <article class="alt-row">
+        <div class="alt-media"><img src="${src}" alt="Protetor de ar ${index + 1}" loading="lazy"></div>
+        <div class="alt-copy">
+          <h4>${index === 0 ? 'Proteção inteligente para seu ar-condicionado' : 'Mais segurança contra oscilações de energia'}</h4>
+          <p>${index === 0 ? 'Dispositivo compacto, moderno e ideal para preservar o equipamento no uso diário.' : 'Solução indicada para ambientes residenciais e comerciais que precisam de estabilidade e praticidade.'}</p>
+        </div>
+      </article>
+    `).join('');
+  }
+
+  function renderUsedAir() {
+    const grid = document.getElementById('usedGrid');
+    if (!grid) return;
+    if (!usedAirImages.length) {
+      grid.innerHTML = '<div class="empty-state">Ainda não temos nenhum modelo de Ar de Janela disponível</div>';
+      return;
+    }
+    const groups = [];
+    for (let i = 0; i < usedAirImages.length; i += 3) groups.push(usedAirImages.slice(i, i + 3));
+    grid.innerHTML = groups.map((group, cardIndex) => `
+      <article class="used-card">
+        <div class="used-slider" data-used-slider>
+          ${group.map((src, imgIndex) => `<img class="${imgIndex === 0 ? 'active' : ''}" src="${src}" alt="Ar de janela usado ${cardIndex + 1}" loading="lazy">`).join('')}
+        </div>
+        <h4>Marca: Springer</h4>
+        <p>Potência: 10.000 BTU's quente/frio</p>
+      </article>
+    `).join('');
+  }
+
+  setInterval(() => {
+    document.querySelectorAll('[data-used-slider]').forEach(slider => {
+      const imgs = [...slider.querySelectorAll('img')];
+      if (imgs.length <= 1) return;
+      const current = imgs.findIndex(img => img.classList.contains('active'));
+      imgs[current].classList.remove('active');
+      imgs[(current + 1) % imgs.length].classList.add('active');
+    });
+  }, 3000);
+
+  function openModal(id) {
+    const modal = document.getElementById(id);
+    if (!modal) return;
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden', 'false');
+  }
+
+  function closeModal(id) {
+    const modal = document.getElementById(id);
+    if (!modal) return;
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden', 'true');
+  }
+
+  function normalizeService(service) {
+    const map = {
+      'Instalação de ar condicionado': 'Instalação de ar condicionado',
+      'Limpeza e higienização': 'Limpeza e higienização',
+      'Manutenção preventiva': 'Manutenção preventiva',
+      'PMOC': 'PMOC',
+      'Máquina de lavar': 'Máquina de lavar'
+    };
+    return map[service] || service;
+  }
+
+  function openServiceModal(service, event) {
+    event?.preventDefault();
+    const select = document.getElementById('serviceSelect');
+    if (select) select.value = normalizeService(service);
+    openModal('serviceModal');
+  }
+
+  function openPartsModal(event) {
+    event?.preventDefault();
+    openModal('partsModal');
+  }
+
+  function showSuccess() {
+    document.querySelectorAll('.modal-overlay.open').forEach(modal => closeModal(modal.id));
+    openModal('successModal');
+  }
+
+  function mailto(subject, fields) {
+    const body = Object.entries(fields)
+      .map(([label, value]) => `${label}: ${value || '-'}`)
+      .join('\n');
+    return `mailto:${EMAIL_TO}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  }
+
+  function withLoading(button, done) {
+    button.disabled = true;
+    button.classList.add('is-loading');
+    setTimeout(() => {
+      done();
+      button.disabled = false;
+      button.classList.remove('is-loading');
+    }, 900);
+  }
+
+  function submitServiceForm(event) {
+    event.preventDefault();
+    const form = event.currentTarget;
+    const data = new FormData(form);
+    withLoading(form.querySelector('button[type="submit"]'), () => {
+      window.location.href = mailto('Solicitação de serviço - Luzitana', {
+        'Serviço': data.get('service'),
+        'Nome': data.get('name'),
+        'Telefone': data.get('phone'),
+        'Endereço': data.get('address'),
+        'Modelo do aparelho': data.get('model'),
+        'Melhor data': data.get('date'),
+        'Observação': data.get('note')
+      });
+      form.reset();
+      showSuccess();
+    });
+  }
+
+  function submitPartsForm(event) {
+    event.preventDefault();
+    const form = event.currentTarget;
+    const data = new FormData(form);
+    withLoading(form.querySelector('button[type="submit"]'), () => {
+      window.location.href = mailto('Cotação de peças ELGIN - Luzitana', {
+        'Nome': data.get('name'),
+        'E-mail': data.get('email'),
+        'Telefone': data.get('phone'),
+        'Celular': data.get('mobile'),
+        'Unidade': data.get('unit'),
+        'Peças': data.get('parts')
+      });
+      form.reset();
+      showSuccess();
+    });
+  }
+
+  function submitForm() {
+    showSuccess();
+  }
+
+  function maskPhone(value) {
+    const digits = value.replace(/\D/g, '').slice(0, 11);
+    if (!digits) return '';
+    if (digits.length <= 2) return `(${digits}`;
+    const ddd = digits.slice(0, 2);
+    const rest = digits.slice(2);
+    if (digits.length <= 10) {
+      return `(${ddd}) ${rest.slice(0, 4)}${rest.length > 4 ? '-' + rest.slice(4) : ''}`;
+    }
+    return `(${ddd}) ${rest.slice(0, 5)}${rest.length > 5 ? '-' + rest.slice(5) : ''}`;
+  }
+
+  function maskDate(value) {
+    return value.replace(/\D/g, '').slice(0, 8)
+      .replace(/(\d{2})(\d)/, '$1/$2')
+      .replace(/(\d{2})\/(\d{2})(\d)/, '$1/$2/$3');
+  }
+
+  document.querySelectorAll('[data-mask="phone"]').forEach(input => {
+    input.addEventListener('input', () => { input.value = maskPhone(input.value); });
+  });
+  document.querySelectorAll('[data-mask="date"]').forEach(input => {
+    input.addEventListener('input', () => { input.value = maskDate(input.value); });
+  });
+
+  renderControls();
+  renderProtectors();
+  renderUsedAir();
+</script>
+</body>
+</html>
