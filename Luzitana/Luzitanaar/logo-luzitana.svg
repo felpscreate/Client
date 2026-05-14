@@ -1,0 +1,16 @@
+<svg width="420" height="160" viewBox="0 0 420 160" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Luzitana Ar Condicionado">
+  <rect width="420" height="160" rx="28" fill="white"/>
+  <path d="M67 80C91 31 161 16 249 31C212 37 160 51 132 80C160 109 212 123 249 129C161 144 91 129 67 80Z" fill="#0D2B5C"/>
+  <path d="M353 80C329 31 259 16 171 31C208 37 260 51 288 80C260 109 208 123 171 129C259 144 329 129 353 80Z" fill="#F4B400"/>
+  <ellipse cx="210" cy="80" rx="135" ry="52" fill="url(#paint0_linear)"/>
+  <ellipse cx="210" cy="80" rx="128" ry="46" stroke="#1E5BAA" stroke-width="5"/>
+  <text x="210" y="79" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-weight="800" font-size="48" fill="#FFD84C" letter-spacing="1">LUZITANA</text>
+  <text x="210" y="107" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-weight="700" font-size="18" fill="#FFFFFF" letter-spacing="2">AR CONDICIONADO</text>
+  <defs>
+    <linearGradient id="paint0_linear" x1="86" y1="42" x2="334" y2="118" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#113D81"/>
+      <stop offset="0.5" stop-color="#28336F"/>
+      <stop offset="1" stop-color="#0D2B5C"/>
+    </linearGradient>
+  </defs>
+</svg>
