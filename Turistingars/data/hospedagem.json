@@ -1,0 +1,114 @@
+[
+  {
+    "id": "resort-termas-romanas",
+    "ativo": true,
+    "destaque": true,
+    "tipo": "Com hospedagem",
+    "titulo": "Resort Termas Romanas",
+    "destino": "Restinga Seca, RS",
+    "data": "3 dias e 2 noites",
+    "valor": "R$ 999,99",
+    "parcelamento": "ou 10x de R$ 99,99",
+    "condicaoPagamento": "por pessoa em apartamento duplo",
+    "imagem": "https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=1400&q=85",
+    "badge": "Mais procurado",
+    "status": "Últimas vagas",
+    "resumo": "Pacote completo com hospedagem, águas termais, alimentação e transporte turismo.",
+    "sobreDestino": "Experiência completa para renovar corpo e mente em um resort termal com hospedagem confortável, áreas de lazer, piscinas, alimentação organizada e transporte turístico. O pacote foi estruturado para quem quer viajar com tranquilidade, apoio durante todo o percurso e tempo de sobra para aproveitar o destino.",
+    "beneficios": [
+      { "icone": "bus", "titulo": "Transporte", "descricao": "Veículo turismo para ida e volta com embarques definidos." },
+      { "icone": "hotel", "titulo": "Hospedagem", "descricao": "Duas diárias em resort com estrutura de lazer e descanso." },
+      { "icone": "food", "titulo": "Alimentação", "descricao": "Refeições selecionadas conforme programação do pacote." },
+      { "icone": "waves", "titulo": "Águas termais", "descricao": "Acesso às áreas de piscinas e lazer termal do resort." },
+      { "icone": "map", "titulo": "Guia", "descricao": "Acompanhamento para check-in, horários e orientações do grupo." },
+      { "icone": "shield", "titulo": "Segurança", "descricao": "Operação com parceiros selecionados e comunicação clara." }
+    ],
+    "galeria": [
+      "https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=1400&q=85",
+      "https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1200&q=85"
+    ],
+    "roteiro": [
+      { "horario": "Dia 1 - manhã", "titulo": "Embarque e deslocamento", "descricao": "Saída em transporte turismo, recepção do grupo e chegada ao resort." },
+      { "horario": "Dia 1 - tarde", "titulo": "Check-in e lazer", "descricao": "Acomodação assistida, reconhecimento da estrutura e primeira experiência termal." },
+      { "horario": "Dia 2", "titulo": "Dia completo no resort", "descricao": "Piscinas, refeições, momentos livres, descanso e programação de lazer." },
+      { "horario": "Dia 3 - manhã", "titulo": "Últimas horas", "descricao": "Café da manhã, tempo livre e organização das bagagens." },
+      { "horario": "Dia 3 - tarde", "titulo": "Retorno", "descricao": "Check-out acompanhado e viagem de volta com previsão informada ao grupo." }
+    ],
+    "whatsapp": "5551999999999",
+    "mensagemWhatsapp": "Olá, gostaria de reservar o pacote Resort Termas Romanas."
+  },
+  {
+    "id": "beto-carrero-com-hospedagem",
+    "ativo": true,
+    "destaque": false,
+    "tipo": "Com hospedagem",
+    "titulo": "Beto Carrero World",
+    "destino": "Penha, SC",
+    "data": "2 dias e 1 noite",
+    "valor": "R$ 450,00",
+    "parcelamento": "ou 5x de R$ 90,00",
+    "condicaoPagamento": "por pessoa, ingresso conforme seleção",
+    "imagem": "https://images.unsplash.com/photo-1502134249126-9f3755a50d78?auto=format&fit=crop&w=1200&q=85",
+    "badge": "Diversão",
+    "status": "Saída em grupo",
+    "resumo": "Viagem para Santa Catarina com parque, hospedagem e deslocamento planejado.",
+    "sobreDestino": "Pacote para aproveitar o maior parque temático da América Latina com uma operação prática: transporte, pernoite, orientações de entrada e tempo para curtir shows, brinquedos e experiências dentro do parque.",
+    "beneficios": [
+      { "icone": "bus", "titulo": "Transporte", "descricao": "Viagem em grupo com paradas programadas." },
+      { "icone": "hotel", "titulo": "Hospedagem", "descricao": "Pernoite organizado para tornar o roteiro mais confortável." },
+      { "icone": "ticket", "titulo": "Parque", "descricao": "Orientações para compra ou uso de ingresso conforme pacote." },
+      { "icone": "badge", "titulo": "Grupo assistido", "descricao": "Equipe acompanhando horários e pontos de encontro." }
+    ],
+    "galeria": [
+      "https://images.unsplash.com/photo-1502134249126-9f3755a50d78?auto=format&fit=crop&w=1400&q=85",
+      "https://images.unsplash.com/photo-1523398002811-999ca8dec234?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1504609773096-104ff2c73ba4?auto=format&fit=crop&w=1200&q=85"
+    ],
+    "roteiro": [
+      { "horario": "Dia 1", "titulo": "Viagem a Santa Catarina", "descricao": "Embarque, deslocamento e chegada para hospedagem." },
+      { "horario": "Dia 2 - manhã", "titulo": "Entrada no parque", "descricao": "Orientações e tempo livre para aproveitar atrações." },
+      { "horario": "Dia 2 - tarde", "titulo": "Shows e brinquedos", "descricao": "Período dedicado às principais experiências do parque." },
+      { "horario": "Dia 2 - noite", "titulo": "Retorno", "descricao": "Reencontro do grupo e viagem de volta." }
+    ],
+    "whatsapp": "5551999999999",
+    "mensagemWhatsapp": "Olá, gostaria de reservar o pacote Beto Carrero World."
+  },
+  {
+    "id": "natal-luz-gramado",
+    "ativo": true,
+    "destaque": false,
+    "tipo": "Com hospedagem",
+    "titulo": "Natal Luz Gramado",
+    "destino": "Gramado e Canela, RS",
+    "data": "Temporada 2026",
+    "valor": "R$ 150,00",
+    "parcelamento": "ou 3x de R$ 50,00",
+    "condicaoPagamento": "por pessoa, consulte programação",
+    "imagem": "https://images.unsplash.com/photo-1512389142860-9c449e58a543?auto=format&fit=crop&w=1200&q=85",
+    "badge": "Temporada",
+    "status": "Pré-reserva",
+    "resumo": "Roteiro encantador para viver a Serra Gaúcha no período mais iluminado do ano.",
+    "sobreDestino": "Experiência para conhecer Gramado e Canela durante a temporada natalina, com tempo para centro, decorações, gastronomia, compras e atrativos opcionais. Ideal para quem busca uma viagem organizada e cheia de atmosfera.",
+    "beneficios": [
+      { "icone": "bus", "titulo": "Transporte", "descricao": "Saída em grupo para a Serra Gaúcha." },
+      { "icone": "sparkles", "titulo": "Programação especial", "descricao": "Tempo para vivenciar o clima do Natal Luz." },
+      { "icone": "coffee", "titulo": "Gastronomia", "descricao": "Paradas para café, almoço e experiências locais." },
+      { "icone": "support", "titulo": "Apoio", "descricao": "Orientações de horários, pontos de encontro e retorno." }
+    ],
+    "galeria": [
+      "https://images.unsplash.com/photo-1512389142860-9c449e58a543?auto=format&fit=crop&w=1400&q=85",
+      "https://images.unsplash.com/photo-1482517967863-00e15c9b44be?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1200&q=85"
+    ],
+    "roteiro": [
+      { "horario": "Manhã", "titulo": "Saída para a Serra", "descricao": "Embarque e chegada com orientações iniciais." },
+      { "horario": "Tarde", "titulo": "Centro de Gramado", "descricao": "Tempo livre para compras, fotos e gastronomia." },
+      { "horario": "Noite", "titulo": "Experiência natalina", "descricao": "Período para iluminação, shows opcionais e passeio." },
+      { "horario": "Final", "titulo": "Retorno", "descricao": "Organização do grupo e viagem de volta." }
+    ],
+    "whatsapp": "5551999999999",
+    "mensagemWhatsapp": "Olá, gostaria de reservar o pacote Natal Luz Gramado."
+  }
+]

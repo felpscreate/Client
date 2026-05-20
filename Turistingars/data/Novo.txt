@@ -1,0 +1,13 @@
+Para criar viagem nova:
+
+Você só adiciona:
+
+{
+  "titulo": "Nova viagem",
+  "valor": "R$ 199"
+}
+Sem mexer:
+layout
+CSS
+modal
+páginas

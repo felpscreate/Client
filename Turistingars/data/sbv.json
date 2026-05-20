@@ -1,0 +1,111 @@
+[
+  {
+    "id": "cristo-protetor-alambique-cactario",
+    "ativo": true,
+    "destaque": true,
+    "tipo": "Bate e volta",
+    "titulo": "Cristo Protetor, Alambique Berwanger e Cactário Horst",
+    "destino": "Encantado e Imigrante, RS",
+    "data": "21/06/2026",
+    "valor": "R$ 189,00",
+    "parcelamento": "ou 3x de R$ 63,00",
+    "condicaoPagamento": "por pessoa via Pix ou cartão",
+    "imagem": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=85",
+    "badge": "Roteiro cultural",
+    "status": "Últimas vagas",
+    "resumo": "Um dia para visitar mirantes, sabores regionais e cenários fotográficos no Vale do Taquari.",
+    "sobreDestino": "Saída bate e volta com roteiro regional completo, combinando a imponência do Cristo Protetor, visita ao Alambique Berwanger e parada no Cactário Horst. Uma experiência leve, organizada e ideal para quem quer conhecer pontos marcantes do interior gaúcho sem se preocupar com deslocamento.",
+    "beneficios": [
+      { "icone": "bus", "titulo": "Transporte", "descricao": "Veículo turismo com embarque organizado e retorno no mesmo dia." },
+      { "icone": "map", "titulo": "Roteiro guiado", "descricao": "Paradas planejadas para aproveitar os principais atrativos." },
+      { "icone": "ticket", "titulo": "Ingressos orientados", "descricao": "Informações claras sobre entradas e taxas dos locais visitados." },
+      { "icone": "support", "titulo": "Suporte", "descricao": "Equipe acompanhando horários, pontos de encontro e dúvidas." }
+    ],
+    "galeria": [
+      "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1400&q=85",
+      "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1200&q=85"
+    ],
+    "roteiro": [
+      { "horario": "06:00", "titulo": "Embarque", "descricao": "Saída com pontos definidos e comunicação prévia ao grupo." },
+      { "horario": "09:30", "titulo": "Cristo Protetor", "descricao": "Visita ao complexo, tempo para fotos e contemplação do mirante." },
+      { "horario": "12:30", "titulo": "Almoço regional", "descricao": "Parada para refeição e descanso antes da programação da tarde." },
+      { "horario": "14:30", "titulo": "Alambique e Cactário", "descricao": "Experiências locais com degustação, passeio e compra de produtos." },
+      { "horario": "18:30", "titulo": "Retorno", "descricao": "Viagem de volta com previsão de chegada à noite." }
+    ],
+    "whatsapp": "5551999999999",
+    "mensagemWhatsapp": "Olá, gostaria de reservar o pacote Cristo Protetor, Alambique Berwanger e Cactário Horst - 21/06/2026."
+  },
+  {
+    "id": "namorados-gramado-canela",
+    "ativo": true,
+    "destaque": false,
+    "tipo": "Bate e volta",
+    "titulo": "Dia dos Namorados em Gramado e Canela",
+    "destino": "Serra Gaúcha, RS",
+    "data": "13/06/2026",
+    "valor": "R$ 169,00",
+    "parcelamento": "ou 3x de R$ 56,33",
+    "condicaoPagamento": "por pessoa, vagas limitadas",
+    "imagem": "https://images.unsplash.com/photo-1517824806704-9040b037703b?auto=format&fit=crop&w=1200&q=85",
+    "badge": "Especial casal",
+    "status": "Saída confirmada",
+    "resumo": "Passeio romântico pela Serra Gaúcha com tempo livre, cenários charmosos e clima de inverno.",
+    "sobreDestino": "Uma saída especial para viver Gramado e Canela em clima romântico, com deslocamento organizado, tempo livre para gastronomia, lojas, fotos e visitas aos pontos mais desejados da Serra Gaúcha.",
+    "beneficios": [
+      { "icone": "bus", "titulo": "Transporte turismo", "descricao": "Viagem confortável para aproveitar a Serra sem dirigir." },
+      { "icone": "sparkles", "titulo": "Clima especial", "descricao": "Roteiro pensado para casais, amigos e famílias." },
+      { "icone": "coffee", "titulo": "Paradas estratégicas", "descricao": "Tempo para cafés, compras, almoço e fotos." },
+      { "icone": "shield", "titulo": "Viagem segura", "descricao": "Grupo acompanhado com horários e combinados claros." }
+    ],
+    "galeria": [
+      "https://images.unsplash.com/photo-1517824806704-9040b037703b?auto=format&fit=crop&w=1400&q=85",
+      "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=85"
+    ],
+    "roteiro": [
+      { "horario": "07:00", "titulo": "Saída do grupo", "descricao": "Embarque e deslocamento até a Serra Gaúcha." },
+      { "horario": "10:30", "titulo": "Canela", "descricao": "Visita aos arredores, tempo para fotos e atrativos opcionais." },
+      { "horario": "13:00", "titulo": "Gramado", "descricao": "Tempo livre para almoço, Rua Coberta, lojas e passeio pelo centro." },
+      { "horario": "17:30", "titulo": "Encerramento", "descricao": "Encontro do grupo e retorno com acompanhamento." }
+    ],
+    "whatsapp": "5551999999999",
+    "mensagemWhatsapp": "Olá, gostaria de reservar o pacote Gramado e Canela - 13/06/2026."
+  },
+  {
+    "id": "terra-magica-florybal",
+    "ativo": true,
+    "destaque": false,
+    "tipo": "Bate e volta",
+    "titulo": "Parque Terra Mágica Florybal",
+    "destino": "Canela, RS",
+    "data": "Saídas programadas",
+    "valor": "R$ 220,00",
+    "parcelamento": "ou 4x de R$ 55,00",
+    "condicaoPagamento": "por pessoa, consulte datas",
+    "imagem": "https://images.unsplash.com/photo-1563201515-adbe35c669c1?auto=format&fit=crop&w=1200&q=85",
+    "badge": "Família",
+    "status": "Consulte disponibilidade",
+    "resumo": "Um dia lúdico em um dos parques mais queridos de Canela, ideal para crianças e famílias.",
+    "sobreDestino": "Passeio bate e volta para o Parque Terra Mágica Florybal, com transporte organizado, apoio de viagem e tempo dedicado para explorar cenários temáticos, brinquedos, personagens e áreas para toda a família.",
+    "beneficios": [
+      { "icone": "bus", "titulo": "Transporte", "descricao": "Ida e volta no mesmo dia com pontos de embarque definidos." },
+      { "icone": "ticket", "titulo": "Ingresso orientado", "descricao": "Informações de acesso e organização para entrada no parque." },
+      { "icone": "badge", "titulo": "Ideal para famílias", "descricao": "Roteiro com ritmo tranquilo e foco em experiência infantil." },
+      { "icone": "support", "titulo": "Acompanhamento", "descricao": "Equipe disponível para orientar horários e retorno." }
+    ],
+    "galeria": [
+      "https://images.unsplash.com/photo-1563201515-adbe35c669c1?auto=format&fit=crop&w=1400&q=85",
+      "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1200&q=85"
+    ],
+    "roteiro": [
+      { "horario": "06:30", "titulo": "Embarque", "descricao": "Saída rumo a Canela com breve parada técnica." },
+      { "horario": "10:30", "titulo": "Entrada no parque", "descricao": "Orientações gerais e início do passeio livre." },
+      { "horario": "12:30", "titulo": "Almoço", "descricao": "Tempo para refeição dentro ou nas proximidades do atrativo." },
+      { "horario": "16:30", "titulo": "Encontro do grupo", "descricao": "Organização para retorno e conferência dos passageiros." }
+    ],
+    "whatsapp": "5551999999999",
+    "mensagemWhatsapp": "Olá, gostaria de reservar o pacote Parque Terra Mágica Florybal."
+  }
+]

@@ -1,0 +1,52 @@
+Quem controla o site
+1. data/config.json
+
+Controla configurações globais.
+
+Exemplo:
+
+número WhatsApp
+mensagem padrão
+redes sociais
+links gerais
+configs globais
+2. data/home.json
+
+Controla a HOME.
+
+Exemplo:
+
+card destaque central
+banner principal
+promoções
+texto principal
+CTA principal
+3. data/sbv.json
+
+Controla:
+
+Saídas Bate e Volta
+
+Tudo que aparecer:
+
+na página SBV
+cards SBV
+modal SBV
+
+vem daqui.
+
+4. data/hospedagem.json
+
+Controla:
+
+Saídas com hospedagem
+
+Tudo dessa página:
+
+cards
+valores
+roteiro
+galeria
+modal
+
+vem daqui.

@@ -1,0 +1,10 @@
+{
+  "whatsapp": "5551999999999",
+  "mensagemPadrao": "Olá, gostaria de saber mais sobre as viagens da Aurora Trips.",
+  "agencia": {
+    "nome": "Aurora Trips",
+    "telefone": "(51) 99999-9999",
+    "email": "contato@auroratrips.com",
+    "cidade": "Porto Alegre, RS"
+  }
+}

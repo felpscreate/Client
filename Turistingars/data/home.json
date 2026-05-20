@@ -1,0 +1,16 @@
+{
+  "destaqueCentral": {
+    "ativo": true,
+    "titulo": "Promoção especial",
+    "subtitulo": "Seu próximo destino começa aqui",
+    "descricao": "Aproveite pacotes regionais selecionados com condições especiais e reserva assistida.",
+    "imagem": "https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=1600&q=85",
+    "data": "21/06/2026",
+    "valor": "R$ 19,90",
+    "parcelamento": "ou 3x de R$ 66,63",
+    "condicaoPagamento": "valor por pessoa, sujeito a disponibilidade",
+    "badge": "Últimas vagas",
+    "botaoTexto": "Ver pacote",
+    "botaoLink": "/sbv"
+  }
+}
