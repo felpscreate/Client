@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Felps Barber | Barbearia Premium</title>
+    <meta name="description" content="Golden Cuts - Barbearia Premium e Minimalista. Agende seu horário de forma rápida e prática pelo WhatsApp.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- CSS Link -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header Fixo -->
+    <header class="header">
+        <div class="container header-container">
+            <a href="#" class="logo">
+                FELPS <span class="accent">Barber</span>
+            </a>
+            
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li><a href="#home" class="nav-link active">Início</a></li>
+                    <li><a href="#servicos" class="nav-link">Serviços</a></li>
+                    <li><a href="#barbeiros" class="nav-link">Barbeiros</a></li>
+                    <li><a href="#agendar" class="nav-link">Agendar</a></li>
+                    <li><a href="#contato" class="nav-link">Contato</a></li>
+                </ul>
+            </nav>
+
+            <a href="#agendar" class="btn btn-primary btn-header">Agendar Agora</a>
+
+            <!-- Menu Hambúrguer (Mobile) -->
+            <button class="mobile-menu-btn" aria-label="Abrir menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="container hero-container">
+            <div class="hero-content">
+                <span class="hero-subtitle reveal-up">ESTILO • TRADIÇÃO • EXPERIÊNCIA</span>
+                <h1 class="hero-title reveal-up">Seu estilo<br>começa aqui</h1>
+                <p class="hero-description reveal-up">
+                    Mais que um corte de cabelo, proporcionamos uma experiência de cuidado masculino premium. Ambiente exclusivo, profissionais altamente qualificados e café ou cerveja gelada cortesia.
+                </p>
+                <div class="hero-buttons reveal-up">
+                    <a href="#agendar" class="btn btn-primary">Agendar agora</a>
+                    <a href="#servicos" class="btn btn-secondary">Ver serviços</a>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span class="mouse">
+                <span class="wheel"></span>
+            </span>
+        </div>
+    </section>
+
+    <!-- Seção de Serviços -->
+    <section id="servicos" class="section services-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">O QUE FAZEMOS DE MELHOR</span>
+                <h2 class="section-title">Nossos Serviços</h2>
+                <div class="section-divider"></div>
+            </div>
+
+            <div class="services-grid">
+                <!-- Card 1 -->
+                <div class="service-card reveal-up">
+                    <div class="service-icon-box">
+                        <!-- Custom SVG Icon for Haircut -->
+                        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M6 22a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm0 0V11m0 0V4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v4" stroke-linecap="round"/>
+                            <path d="M18 22a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm0 0V11m0 0V4a1 1 0 0 0-1-1h-2a1 1 0 0 0-1 1v4" stroke-linecap="round"/>
+                            <path d="m9 11 3-3 3 3m-3-3v14" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="service-name">Corte Masculino</h3>
+                    <p class="service-description">Corte moderno ou clássico, alinhado ao seu formato de rosto e estilo de vida. Inclui lavagem com shampoo premium.</p>
+                    <div class="service-footer">
+                        <span class="service-price">R$ 45</span>
+                        <button class="btn btn-outline btn-select-service" data-service="Corte Masculino">Agendar</button>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="service-card reveal-up">
+                    <div class="service-icon-box">
+                        <!-- Custom SVG Icon for Beard -->
+                        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M4 3h16v3c0 4.418-3.582 8-8 8s-8-3.582-8-8V3Z" stroke-linecap="round"/>
+                            <path d="M4 6c0 6 3 11 8 13 5-2 8-7 8-13" stroke-linecap="round"/>
+                            <path d="M9 14.5c0 2 1.5 3.5 3 3.5s3-1.5 3-3.5" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="service-name">Barba Completa</h3>
+                    <p class="service-description">Modelagem de barba com navalha e toalha quente, alinhamento dos fios, óleo hidratante e massagem facial relaxante.</p>
+                    <div class="service-footer">
+                        <span class="service-price">R$ 35</span>
+                        <button class="btn btn-outline btn-select-service" data-service="Barba">Agendar</button>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="service-card reveal-up">
+                    <div class="service-icon-box">
+                        <!-- Custom SVG Icon for Combo -->
+                        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M12 2v20M17 5H7M19 9H5M12 2 8 6m4-4 4 4" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="6" cy="18" r="2"/>
+                            <circle cx="18" cy="18" r="2"/>
+                        </svg>
+                    </div>
+                    <h3 class="service-name">Corte + Barba</h3>
+                    <p class="service-description">O combo VIP definitivo. Corte de cabelo personalizado aliado ao ritual completo de barba com toalha quente.</p>
+                    <div class="service-footer">
+                        <span class="service-price">R$ 75</span>
+                        <button class="btn btn-outline btn-select-service" data-service="Corte + Barba">Agendar</button>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="service-card reveal-up">
+                    <div class="service-icon-box">
+                        <!-- Custom SVG Icon for Eyebrows -->
+                        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M2 14c2-2.5 5-4.5 10-4.5s8 2 10 4.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M6 11.5c1.5-1 3.5-1.5 6-1.5s4.5.5 6 1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="service-name">Sobrancelha</h3>
+                    <p class="service-description">Design e limpeza detalhada da sobrancelha na navalha ou pinça, valorizando e abrindo o seu olhar.</p>
+                    <div class="service-footer">
+                        <span class="service-price">R$ 20</span>
+                        <button class="btn btn-outline btn-select-service" data-service="Sobrancelha">Agendar</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Botão Ver mais serviços (visível apenas no mobile) -->
+            <div class="ver-mais-wrapper">
+                <button type="button" id="btn-ver-mais" class="btn btn-outline btn-ver-mais">Ver mais serviços</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Planos / Assinaturas -->
+    <section id="planos" class="section plans-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">CLUB DE MENSALISTAS</span>
+                <h2 class="section-title">Planos de Assinatura</h2>
+                <div class="section-divider"></div>
+            </div>
+
+            <div class="plans-grid">
+                <!-- Plano Silver -->
+                <div class="plan-card plan-silver reveal-up">
+                    <div class="plan-header">
+                        <h3 class="plan-name">Plano Silver</h3>
+                        <p class="plan-description">Ideal para manutenção mensal e suporte básico.</p>
+                    </div>
+                    <div class="plan-price-box">
+                        <span class="plan-price-currency">R$</span>
+                        <span class="plan-price-value">79,90</span>
+                        <span class="plan-price-period">/mês</span>
+                    </div>
+                    <ul class="plan-features">
+                        <li>
+                            <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            2 Cortes de Cabelo por mês
+                        </li>
+                        <li>
+                            <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            Lavagem com shampoo premium
+                        </li>
+                        <li>
+                            <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            Suporte básico para agendamentos
+                        </li>
+                    </ul>
+                    <button type="button" class="btn btn-outline btn-select-plan" data-plan="Plano Silver">Assinar Agora</button>
+                </div>
+
+                <!-- Plano Ouro -->
+                <div class="plan-card plan-ouro reveal-up">
+                    <div class="plan-badge">Mais escolhido</div>
+                    <div class="plan-header">
+                        <h3 class="plan-name">Plano Ouro</h3>
+                        <p class="plan-description">Ideal para clientes que desejam prioridade, suporte premium e atualizações.</p>
+                    </div>
+                    <div class="plan-price-box">
+                        <span class="plan-price-currency">R$</span>
+                        <span class="plan-price-value">119,90</span>
+                        <span class="plan-price-period">/mês</span>
+                    </div>
+                    <ul class="plan-features">
+                        <li>
+                            <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            Cortes e Barba ilimitados
+                        </li>
+                        <li>
+                            <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            Atendimento com Barbeiro Master
+                        </li>
+                        <li>
+                            <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            Agendamento prioritário no WhatsApp
+                        </li>
+                        <li>
+                            <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            Cerveja ou café cortesia inclusos
+                        </li>
+                    </ul>
+                    <button type="button" class="btn btn-primary btn-select-plan" data-plan="Plano Ouro">Assinar Agora</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Barbeiros -->
+    <section id="barbeiros" class="section barbers-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">MESTRES DA TESOURA E NAVALHA</span>
+                <h2 class="section-title">Nossos Profissionais</h2>
+                <div class="section-divider"></div>
+            </div>
+
+            <div class="barbers-grid">
+                <!-- Barbeiro 1 -->
+                <div class="barber-card reveal-up">
+                    <div class="barber-img-container">
+                        <img src="assets/barber-1.jpg" alt="Lucas Silva" class="barber-img">
+                        <div class="barber-overlay"></div>
+                    </div>
+                    <div class="barber-info">
+                        <h3 class="barber-name">Lucas Silva</h3>
+                        <span class="barber-specialty">Mestre dos Degradês</span>
+                    </div>
+                </div>
+
+                <!-- Barbeiro 2 -->
+                <div class="barber-card reveal-up">
+                    <div class="barber-img-container">
+                        <img src="assets/barber-2.jpg" alt="Gabriel Costa" class="barber-img">
+                        <div class="barber-overlay"></div>
+                    </div>
+                    <div class="barber-info">
+                        <h3 class="barber-name">Gabriel Costa</h3>
+                        <span class="barber-specialty">Especialista em Barba</span>
+                    </div>
+                </div>
+
+                <!-- Barbeiro 3 -->
+                <div class="barber-card reveal-up">
+                    <div class="barber-img-container">
+                        <img src="assets/barber-3.jpg" alt="Felipe Ramos" class="barber-img">
+                        <div class="barber-overlay"></div>
+                    </div>
+                    <div class="barber-info">
+                        <h3 class="barber-name">Felipe Ramos</h3>
+                        <span class="barber-specialty">Cortes Clássicos e Visagismo</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Agendamento -->
+    <section id="agendar" class="section booking-section">
+        <div class="container">
+            <div class="booking-info-card reveal-up">
+                <div class="booking-info-content">
+                    <span class="panel-subtitle">RAPIDEZ E PRATICIDADE</span>
+                    <h2 class="panel-title">Agende seu Horário</h2>
+                    <p class="panel-text">
+                        Preencha os campos com as suas preferências. O nosso sistema irá gerar uma mensagem personalizada estruturada e você será redirecionado para o nosso WhatsApp para confirmar em menos de 1 minuto!
+                    </p>
+                    
+                    <ul class="booking-features">
+                        <li>
+                            <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            Sem taxas ou cadastros complexos
+                        </li>
+                        <li>
+                            <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            Confirmação imediata pelo atendente
+                        </li>
+                        <li>
+                            <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            Escolha o profissional de sua preferência
+                        </li>
+                    </ul>
+
+                    <button type="button" id="btn-open-booking" class="btn btn-primary btn-booking-cta">
+                        <svg class="btn-whatsapp-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                        </svg>
+                        Agende seu horário
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Contato -->
+    <footer id="contato" class="footer">
+        <div class="container footer-container">
+            <div class="footer-grid">
+                <!-- Info Barbearia -->
+                <div class="footer-info reveal-up">
+                    <a href="#" class="footer-logo">FELPS <span class="accent">Barber</span></a>
+                    <p class="footer-description">
+                        Referência em estética masculina. Proporcionamos uma atmosfera clássica e aconchegante, alinhada com as melhores técnicas de visagismo moderno.
+                    </p>
+                    <div class="footer-socials">
+                        <a href="https://instagram.com/goldencutsbarber" target="_blank" class="social-link" aria-label="Acesse nosso Instagram">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Horários -->
+                <div class="footer-col reveal-up">
+                    <h3 class="footer-title">Funcionamento</h3>
+                    <ul class="footer-list">
+                        <li>
+                            <span class="day">Terça a Sexta</span>
+                            <span class="hours">09h às 20h</span>
+                        </li>
+                        <li>
+                            <span class="day">Sábado</span>
+                            <span class="hours">09h às 19h</span>
+                        </li>
+                        <li>
+                            <span class="day">Domingo e Segunda</span>
+                            <span class="hours text-gold">Fechado</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Localização e Contato -->
+                <div class="footer-col reveal-up">
+                    <h3 class="footer-title">Contato e Endereço</h3>
+                    <ul class="footer-contact-list">
+                        <li>
+                            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                            <span>Av. Porto Alegre, 7500<br>Porto Alegre - RS, 90470-001</span>
+                        </li>
+                        <li>
+                            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                            </svg>
+                            <span>(51) 99398-1995</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Golden Cuts. Todos os direitos reservados. Feito com paixão pelo estilo.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botão Flutuante do WhatsApp -->
+    <a href="https://wa.me/5551993981995?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20os%20servi%C3%A7os%20da%20Golden%20Cuts%21" target="_blank" class="whatsapp-floating" aria-label="Fale conosco no WhatsApp">
+        <svg viewBox="0 0 24 24" fill="currentColor" class="whatsapp-floating-icon">
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.42 9.863-9.864.001-2.637-1.03-5.114-2.905-6.989-1.874-1.873-4.354-2.903-6.994-2.904-5.442 0-9.867 4.422-9.87 9.866-.001 1.802.484 3.565 1.407 5.12L1.872 22l6.23-1.633c-1.026.604-2.146.924-3.23.924H6.6c.01 0 .02-.008.026-.008l.021-.01zm11.558-7.798c-.29-.146-1.727-.852-1.993-.948-.267-.097-.461-.146-.656.146-.194.291-.753.948-.923 1.141-.169.194-.339.218-.63.073-.29-.146-1.229-.453-2.34-1.446-.864-.772-1.448-1.725-1.618-2.016-.169-.29-.018-.448.127-.592.131-.13.29-.34.436-.509.145-.17.194-.291.291-.485.097-.194.049-.364-.025-.509-.073-.146-.656-1.579-.899-2.161-.236-.57-.477-.491-.656-.5l-.56-.01c-.194 0-.509.073-.776.364-.267.291-1.02 1.02-1.02 2.487 0 1.467 1.069 2.887 1.214 3.081.146.194 2.105 3.214 5.099 4.507.712.308 1.267.491 1.7.63.716.227 1.368.195 1.883.118.574-.085 1.727-.704 1.97-1.383.243-.679.243-1.262.17-1.383-.074-.12-.267-.193-.559-.34z"/>
+        </svg>
+    </a>
+
+    <!-- Modal de Serviços (Ver mais serviços) -->
+    <div id="service-modal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Fechar pop-up">&times;</button>
+            <div class="modal-header">
+                <span class="modal-subtitle">TODOS OS SERVIÇOS</span>
+                <h3 class="modal-title">Nossos Serviços</h3>
+                <div class="section-divider"></div>
+            </div>
+            <div class="modal-body" id="modal-services-container">
+                <!-- Mini cards injetados dinamicamente via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Agendamento (Formulário) -->
+    <div id="booking-modal" class="modal">
+        <div class="modal-content modal-content-booking">
+            <button class="modal-close modal-close-booking" aria-label="Fechar formulário">&times;</button>
+            <div class="modal-header">
+                <span class="modal-subtitle">AGENDE PELO WHATSAPP</span>
+                <h3 class="modal-title">Agende seu Horário</h3>
+                <div class="section-divider"></div>
+            </div>
+            <div class="modal-body">
+                <form id="booking-form" class="booking-form">
+                    <div class="form-group">
+                        <label for="name">Seu Nome Completo</label>
+                        <input type="text" id="name" name="name" placeholder="Ex: Felipe Amorim" required>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="phone">Seu Telefone / WhatsApp</label>
+                            <input type="tel" id="phone" name="phone" placeholder="Ex: (51) 99398-1995" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="service">Serviço Desejado</label>
+                            <select id="service" name="service" required>
+                                <option value="" disabled selected>Selecione o serviço</option>
+                                <option value="Corte Masculino">Corte Masculino - R$ 45</option>
+                                <option value="Barba">Barba Completa - R$ 35</option>
+                                <option value="Corte + Barba">Corte + Barba - R$ 75</option>
+                                <option value="Sobrancelha">Sobrancelha - R$ 20</option>
+                                <option value="Plano Silver">Plano Silver - R$ 79,90/mês</option>
+                                <option value="Plano Ouro">Plano Ouro - R$ 119,90/mês</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="barber">Escolha o Barbeiro</label>
+                        <select id="barber" name="barber" required>
+                            <option value="" disabled selected>Selecione o profissional</option>
+                            <option value="Lucas Silva">Lucas Silva (Corte e Degradê)</option>
+                            <option value="Gabriel Costa">Gabriel Costa (Especialista em Barba)</option>
+                            <option value="Felipe Ramos">Felipe Ramos (Clássicos e Visagismo)</option>
+                            <option value="Qualquer Barbeiro">Tanto faz / Próximo Disponível</option>
+                        </select>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="date">Data Preferencial</label>
+                            <input type="date" id="date" name="date" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="time">Horário Desejado</label>
+                            <select id="time" name="time" required>
+                                <option value="" disabled selected>Escolha o horário</option>
+                                <option value="09:00">09:00</option>
+                                <option value="10:00">10:00</option>
+                                <option value="11:00">11:00</option>
+                                <option value="13:00">13:00</option>
+                                <option value="14:00">14:00</option>
+                                <option value="15:00">15:00</option>
+                                <option value="16:00">16:00</option>
+                                <option value="17:00">17:00</option>
+                                <option value="18:00">18:00</option>
+                                <option value="19:00">19:00</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-submit">
+                        <svg class="btn-whatsapp-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.42 9.863-9.864.001-2.637-1.03-5.114-2.905-6.989-1.874-1.873-4.354-2.903-6.994-2.904-5.442 0-9.867 4.422-9.87 9.866-.001 1.802.484 3.565 1.407 5.12L1.872 22l6.23-1.633c-1.026.604-2.146.924-3.23.924H6.6c.01 0 .02-.008.026-.008l.021-.01zm11.558-7.798c-.29-.146-1.727-.852-1.993-.948-.267-.097-.461-.146-.656.146-.194.291-.753.948-.923 1.141-.169.194-.339.218-.63.073-.29-.146-1.229-.453-2.34-1.446-.864-.772-1.448-1.725-1.618-2.016-.169-.29-.018-.448.127-.592.131-.13.29-.34.436-.509.145-.17.194-.291.291-.485.097-.194.049-.364-.025-.509-.073-.146-.656-1.579-.899-2.161-.236-.57-.477-.491-.656-.5l-.56-.01c-.194 0-.509.073-.776.364-.267.291-1.02 1.02-1.02 2.487 0 1.467 1.069 2.887 1.214 3.081.146.194 2.105 3.214 5.099 4.507.712.308 1.267.491 1.7.63.716.227 1.368.195 1.883.118.574-.085 1.727-.704 1.97-1.383.243-.679.243-1.262.17-1.383-.074-.12-.267-.193-.559-.34z"/>
+                        </svg>
+                        Enviar para WhatsApp
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- JS Link -->
+    <script src="script.js"></script>
+</body>
+</html>
