@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sobre Nós – Pampa Dog</title>
+  <meta name="description" content="Conheça a história da Pampa Dog, a lancheria que nasceu com amor ao sabor e ao atendimento de qualidade." />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌭</text></svg>" />
+
+  <style>
+    /* Extra styles for Sobre page */
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      position: relative;
+      margin-top: 32px;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 20px;
+      top: 0; bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--red), transparent);
+    }
+
+    .timeline-item {
+      display: flex;
+      gap: 24px;
+      padding-bottom: 36px;
+      position: relative;
+    }
+
+    .timeline-dot {
+      width: 40px; height: 40px;
+      min-width: 40px;
+      background: var(--gradient-cta);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      position: relative;
+      z-index: 1;
+      box-shadow: var(--shadow-btn);
+    }
+
+    .timeline-content {
+      padding-top: 6px;
+    }
+
+    .timeline-year {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--red);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .timeline-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--white);
+      margin: 4px 0 8px;
+    }
+
+    .timeline-desc {
+      font-size: 14px;
+      color: var(--gray);
+      line-height: 1.7;
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      overflow: hidden;
+      border-radius: var(--radius-md);
+      margin-top: 48px;
+    }
+
+    .value-item {
+      background: var(--dark-3);
+      padding: 32px;
+      text-align: center;
+      transition: var(--transition);
+    }
+
+    .value-item:hover {
+      background: rgba(232,32,32,0.08);
+    }
+
+    .value-emoji { font-size: 40px; margin-bottom: 12px; }
+
+    .value-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+
+    .value-desc {
+      font-size: 13px;
+      color: var(--gray);
+      line-height: 1.6;
+    }
+
+    @media (max-width: 768px) {
+      .values-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 480px) {
+      .values-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header" role="banner">
+    <nav class="nav" aria-label="Navegação principal">
+      <a href="index.html" class="logo" aria-label="Pampa Dog – Página inicial">
+        <img src="Logo.png" alt="Pampa Dog Logo" style="height: 56px; width: auto; object-fit: contain;">
+      </a>
+      <ul class="nav-links" id="nav-links" role="list">
+        <li><a href="index.html">Início</a></li>
+        <li><a href="cardapio.html">Cardápio</a></li>
+        <li><a href="sobre.html" class="active">Sobre Nós</a></li>
+        <li><a href="index.html#contato">Contato</a></li>
+        <li class="nav-cta-wrap">
+          <a href="https://www.ifood.com.br" target="_blank" rel="noopener" class="nav-cta" id="nav-ifood-btn">
+            🛵 Pedir no iFood
+          </a>
+        </li>
+      </ul>
+      <button class="hamburger" id="hamburger-btn" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav-links">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <p class="section-label" style="justify-content: center;">Nossa História</p>
+      <h1 class="section-title" style="font-size: clamp(40px, 6vw, 72px);">
+        Sobre a <span class="highlight">Pampa Dog</span>
+      </h1>
+      <p class="section-sub" style="margin: 16px auto 0; text-align: center;">
+        Uma lancheria nascida com paixão pelo sabor e compromisso com a qualidade.
+      </p>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       HISTÓRIA
+       ============================================================ -->
+  <section class="sobre-story" aria-labelledby="historia-title">
+    <div class="sobre-grid">
+
+      <!-- Imagem + Stats -->
+      <div class="reveal">
+        <div class="sobre-img-wrap">
+          <img src="img/lancheria.png" alt="Interior da Pampa Dog" loading="lazy"
+               onerror="this.src=''; this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, #1a0000 0%, #2a0800 100%)';" />
+          <div class="sobre-img-badge">
+            <div class="badge-stat">
+              <div class="badge-num">5+</div>
+              <div class="badge-lbl">Anos de história</div>
+            </div>
+            <div class="badge-stat" style="border-left: 1px solid rgba(255,255,255,0.1); border-right: 1px solid rgba(255,255,255,0.1);">
+              <div class="badge-num">10k+</div>
+              <div class="badge-lbl">Clientes felizes</div>
+            </div>
+            <div class="badge-stat">
+              <div class="badge-num">⭐ 4.9</div>
+              <div class="badge-lbl">Avaliação iFood</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Texto -->
+      <div class="sobre-text reveal">
+        <p class="section-label">Quem Somos</p>
+        <h2 class="section-title" id="historia-title">
+          Nascemos para <span class="highlight">alimentar</span> e encantar
+        </h2>
+
+        <p>
+          A <strong style="color: var(--white);">Pampa Dog</strong> nasceu de um sonho simples: oferecer lanches gostosos, bem servidos e com um atendimento que faz a diferença. Desde o primeiro dia, nossa missão é clara — proporcionar uma experiência de sabor inesquecível para cada cliente.
+        </p>
+
+        <p>
+          Inspirados no espírito gaúcho, valorizamos a tradição, a qualidade e o carinho no preparo de cada lanche. Nossos ingredientes são selecionados com cuidado, e cada receita é desenvolvida para garantir aquele sabor único que faz você voltar sempre.
+        </p>
+
+        <p>
+          De um pequeno ponto de venda para uma referência em hot dogs e burgers artesanais na região, crescemos sem nunca abrir mão do que nos faz especiais: a qualidade, o capricho e o amor por alimentar bem.
+        </p>
+
+        <!-- Timeline -->
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-dot">🌭</div>
+            <div class="timeline-content">
+              <p class="timeline-year">O começo</p>
+              <p class="timeline-title">Pampa Dog abre as portas</p>
+              <p class="timeline-desc">Um carrinho de hot dogs com uma receita especial e muito amor. O povo aprovou na primeira mordida!</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot">📍</div>
+            <div class="timeline-content">
+              <p class="timeline-year">A expansão</p>
+              <p class="timeline-title">Loja fixa e cardápio ampliado</p>
+              <p class="timeline-desc">Com a demanda crescendo, inauguramos nosso ponto fixo e adicionamos burgers e combos ao cardápio.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot">🛵</div>
+            <div class="timeline-content">
+              <p class="timeline-year">Agora</p>
+              <p class="timeline-title">iFood e novos sabores</p>
+              <p class="timeline-desc">Hoje atendemos pelo iFood, WhatsApp e presencialmente, levando o sabor do Pampa até você!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       DIFERENCIAIS
+       ============================================================ -->
+  <section class="diferenciais" aria-labelledby="dif-title">
+    <div class="section-inner">
+      <div style="text-align: center;" class="reveal">
+        <p class="section-label" style="justify-content: center;">Por que nos escolher</p>
+        <h2 class="section-title" id="dif-title">
+          Nossos <span class="highlight">Diferenciais</span>
+        </h2>
+        <p class="section-sub" style="margin: 0 auto;">
+          Cada detalhe pensado para você ter a melhor experiência possível.
+        </p>
+      </div>
+
+      <div class="dif-grid">
+        <div class="dif-card reveal" id="dif-ingredientes">
+          <div class="dif-icon">🥩</div>
+          <h3 class="dif-title">Ingredientes Selecionados</h3>
+          <p class="dif-desc">Trabalhamos apenas com fornecedores de confiança. Carnes frescas, pães artesanais e molhos feitos na casa.</p>
+        </div>
+
+        <div class="dif-card reveal" id="dif-servido">
+          <div class="dif-icon">🍽️</div>
+          <h3 class="dif-title">Lanches Bem Servidos</h3>
+          <p class="dif-desc">Porções generosas e apresentação impecável. Na Pampa Dog, você sempre sai satisfeito!</p>
+        </div>
+
+        <div class="dif-card reveal" id="dif-rapido">
+          <div class="dif-icon">⚡</div>
+          <h3 class="dif-title">Atendimento Rápido</h3>
+          <p class="dif-desc">Seu lanche preparado rapidamente, sem sacrificar a qualidade. Porque fome não espera!</p>
+        </div>
+
+        <div class="dif-card reveal" id="dif-familia">
+          <div class="dif-icon">👨‍👩‍👧</div>
+          <h3 class="dif-title">Opções para Toda a Família</h3>
+          <p class="dif-desc">Do clássico hot dog ao smash burger, do combo econômico ao Combo Família. Tem para todo mundo!</p>
+        </div>
+
+        <div class="dif-card reveal" id="dif-preco">
+          <div class="dif-icon">💛</div>
+          <h3 class="dif-title">Preço Justo</h3>
+          <p class="dif-desc">Qualidade premium com preço acessível. Acreditamos que boa comida deve estar ao alcance de todos.</p>
+        </div>
+
+        <div class="dif-card reveal" id="dif-entrega">
+          <div class="dif-icon">🛵</div>
+          <h3 class="dif-title">Entrega pelo iFood</h3>
+          <p class="dif-desc">Peça pelo iFood e receba seus lanches favoritos no conforto de casa, quentinhos e perfeitos.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       VALORES
+       ============================================================ -->
+  <section style="padding: 80px 24px; background: var(--dark);" aria-labelledby="valores-title">
+    <div class="section-inner">
+      <div style="text-align: center; margin-bottom: 0;" class="reveal">
+        <p class="section-label" style="justify-content: center;">Nossa Essência</p>
+        <h2 class="section-title" id="valores-title">
+          Missão, Visão & <span class="highlight">Valores</span>
+        </h2>
+      </div>
+
+      <div class="values-grid">
+        <div class="value-item reveal">
+          <div class="value-emoji">🎯</div>
+          <h3 class="value-title">Missão</h3>
+          <p class="value-desc">Oferecer lanches de qualidade com sabor autêntico, atendimento rápido e preço justo, transformando cada refeição numa experiência prazerosa.</p>
+        </div>
+        <div class="value-item reveal">
+          <div class="value-emoji">🔭</div>
+          <h3 class="value-title">Visão</h3>
+          <p class="value-desc">Ser a lancheria de referência da região, reconhecida pela excelência, pelo carinho no atendimento e pelo sabor que cria memórias afetivas.</p>
+        </div>
+        <div class="value-item reveal">
+          <div class="value-emoji">❤️</div>
+          <h3 class="value-title">Paixão</h3>
+          <p class="value-desc">Amamos o que fazemos. Cada lanche é preparado com dedicação genuína, porque acreditamos que comida feita com amor tem um sabor diferente.</p>
+        </div>
+        <div class="value-item reveal">
+          <div class="value-emoji">⭐</div>
+          <h3 class="value-title">Qualidade</h3>
+          <p class="value-desc">Não abrimos mão da qualidade. Ingredientes frescos, receitas testadas e padrão alto de higiene em cada etapa do preparo.</p>
+        </div>
+        <div class="value-item reveal">
+          <div class="value-emoji">🤝</div>
+          <h3 class="value-title">Respeito</h3>
+          <p class="value-desc">Respeito ao cliente, à equipe e à comunidade. Tratamos cada pessoa como família, porque é isso que somos: uma família.</p>
+        </div>
+        <div class="value-item reveal">
+          <div class="value-emoji">🌱</div>
+          <h3 class="value-title">Responsabilidade</h3>
+          <p class="value-desc">Comprometidos com práticas sustentáveis, embalagens responsáveis e o bem-estar de nossa comunidade local.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div id="cta" style="padding: 0 24px 80px;">
+    <div class="cta-box reveal">
+      <div class="cta-text">
+        <h2 class="cta-title">Faça parte da história! 🌭</h2>
+        <p class="cta-desc">
+          Venha nos conhecer, peça pelo iFood ou fale com a gente pelo WhatsApp. Estamos prontos para te receber!
+        </p>
+      </div>
+      <div class="cta-btns">
+        <a href="https://www.ifood.com.br" target="_blank" rel="noopener"
+           class="btn btn-primary btn-lg" id="sobre-ifood-btn" data-action="pedido" data-item="iFood Sobre">
+          🛵 Pedir no iFood
+        </a>
+        <a href="https://wa.me/5500000000000" target="_blank" rel="noopener"
+           class="btn btn-whatsapp btn-lg" id="sobre-wpp-btn">
+          💬 Falar no WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-main">
+        <div class="footer-brand">
+          <a href="index.html" class="logo" style="display: inline-flex;">
+            <img src="Logo.png" alt="Pampa Dog Logo" style="height: 48px; width: auto; object-fit: contain;">
+          </a>
+          <p>O melhor sabor do sul num único lugar. Venha nos visitar ou peça pelo iFood!</p>
+          <div class="social-links" style="margin-top: 20px;">
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener" class="social-btn instagram">📸</a>
+            <a href="https://wa.me/5500000000000" target="_blank" rel="noopener" class="social-btn whatsapp">💬</a>
+            <a href="https://www.ifood.com.br" target="_blank" rel="noopener" class="social-btn ifood">🛵</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Navegação</h4>
+          <ul>
+            <li><a href="index.html">→ Início</a></li>
+            <li><a href="cardapio.html">→ Cardápio</a></li>
+            <li><a href="sobre.html">→ Sobre Nós</a></li>
+            <li><a href="index.html#contato">→ Contato</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Atendimento</h4>
+          <ul>
+            <li><a href="https://www.ifood.com.br" target="_blank" rel="noopener">🛵 Pedir pelo iFood</a></li>
+            <li><a href="https://wa.me/5500000000000" target="_blank" rel="noopener">💬 WhatsApp</a></li>
+            <li><a href="https://maps.google.com" target="_blank" rel="noopener">📍 Como Chegar</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 <span>Pampa Dog</span>. Todos os direitos reservados.</p>
+        <p>Feito com <span>❤️</span> e muito sabor.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cardápio – Pampa Dog</title>
+  <meta name="description" content="Conheça o cardápio completo da Pampa Dog: Hot Dogs, Burgers, Combos, Bebidas e muito mais!" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌭</text></svg>" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header" role="banner">
+    <nav class="nav" aria-label="Navegação principal">
+      <a href="index.html" class="logo" aria-label="Pampa Dog – Página inicial">
+        <img src="Logo.png" alt="Pampa Dog Logo" style="height: 56px; width: auto; object-fit: contain;">
+      </a>
+      <ul class="nav-links" id="nav-links" role="list">
+        <li><a href="index.html">Início</a></li>
+        <li><a href="cardapio.html" class="active">Cardápio</a></li>
+        <li><a href="sobre.html">Sobre Nós</a></li>
+        <li><a href="index.html#contato">Contato</a></li>
+        <li class="nav-cta-wrap">
+          <a href="https://www.ifood.com.br" target="_blank" rel="noopener" class="nav-cta" id="nav-ifood-btn">
+            🛵 Pedir no iFood
+          </a>
+          <a href="https://anota.ai/" target="_blank" rel="noopener" class="nav-cta anota-ai-btn" id="nav-anota-btn" style="background: var(--anota-ai-color, #7B1FA2); margin-left: 8px;">
+            📱 Pedir Agora
+          </a>
+        </li>
+      </ul>
+      <button class="hamburger" id="hamburger-btn" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav-links">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <p class="section-label" style="justify-content: center;">Nosso Menu</p>
+      <h1 class="section-title" style="font-size: clamp(40px, 6vw, 72px);">
+        Cardápio <span class="highlight">Completo</span>
+      </h1>
+      <p class="section-sub" style="margin: 16px auto 0; text-align: center;">
+        Tudo preparado na hora, com ingredientes selecionados e muito sabor.
+      </p>
+    </div>
+  </div>
+
+  <!-- CATEGORY FILTER -->
+  <nav class="cat-filter" aria-label="Filtro de categorias">
+    <div class="cat-filter-inner">
+      <button class="cat-btn active" data-cat="all" id="cat-all">🍽️ Todos</button>
+      <button class="cat-btn" data-cat="hotdogs" id="cat-hotdogs">🌭 Hot Dogs</button>
+      <button class="cat-btn" data-cat="burgers" id="cat-burgers">🍔 Burgers</button>
+      <button class="cat-btn" data-cat="combos" id="cat-combos">🎁 Combos</button>
+      <button class="cat-btn" data-cat="bebidas" id="cat-bebidas">🥤 Bebidas</button>
+      <button class="cat-btn" data-cat="adicionais" id="cat-adicionais">➕ Adicionais</button>
+    </div>
+  </nav>
+
+  <!-- ============================================================
+       HOT DOGS
+       ============================================================ -->
+  <section class="menu-section" data-cat="hotdogs" aria-labelledby="section-hotdogs">
+    <div class="menu-grid">
+      <h2 class="menu-section-title" id="section-hotdogs" style="grid-column: 1/-1;">🌭 Hot Dogs</h2>
+
+      <!-- Hot Dog Tradicional -->
+      <article class="menu-card reveal" id="menu-hd-tradicional" data-product-id="hd-tradicional">
+        <div class="menu-card-img">
+          <img src="img/hotdog_tradicional.png" alt="Hot Dog Tradicional" loading="lazy"
+               onerror="this.style.display='none'; this.parentElement.innerHTML='🌭';" />
+        </div>
+        <div class="menu-card-body">
+          <h3 class="menu-card-name">Hot Dog Tradicional</h3>
+          <p class="menu-card-desc">Salsicha, mostarda, ketchup, maionese, milho e batata palha. O clássico que nunca falha!</p>
+          <div class="menu-card-footer">
+            <div class="menu-price">R$ 14,90</div>
+            <a href="https://www.ifood.com.br" target="_blank" rel="noopener"
+               class="btn btn-primary btn-sm" data-action="pedido" data-item="Hot Dog Tradicional" id="btn-hd-tradicional">
+              Pedir agora
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Pampa Dog Especial -->
+      <article class="menu-card reveal" id="menu-hd-especial" data-product-id="hd-especial">
+        <div class="menu-card-img">
+          <img src="img/pampa_dog_especial.png" alt="Pampa Dog Especial" loading="lazy"
+               onerror="this.style.display='none'; this.parentElement.innerHTML='🌭';" />
+        </div>
+        <div class="menu-card-body">
+          <h3 class="menu-card-name">Pampa Dog Especial</h3>
+          <p class="menu-card-desc">Salsicha gourmet, bacon crocante, cheddar, cebola caramelizada e molho especial da casa.</p>
+          <div class="menu-card-footer">
+            <div class="menu-price">R$ 22,90</div>
+            <a href="https://www.ifood.com.br" target="_blank" rel="noopener"
+               class="btn btn-primary btn-sm" data-action="pedido" data-item="Pampa Dog Especial" id="btn-hd-especial">
+              Pedir agora
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Hot Dog Bacon -->
+      <article class="menu-card reveal" id="menu-hd-bacon" data-product-id="hd-bacon">
+        <div class="menu-card-img" style="font-size: 80px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #2a1010, #1a0a00);">
+          🌭
+        </div>
+        <div class="menu-card-body">
+          <h3 class="menu-card-name">Hot Dog Bacon</h3>
+          <p class="menu-card-desc">Salsicha, tiras de bacon grelhadas, queijo prato derretido, molho barbecue e cebola crispy.</p>
+          <div class="menu-card-footer">
+            <div class="menu-price">R$ 19,90</div>
+            <a href="https://www.ifood.com.br" target="_blank" rel="noopener"
+               class="btn btn-primary btn-sm" data-action="pedido" data-item="Hot Dog Bacon" id="btn-hd-bacon">
+              Pedir agora
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Hot Dog Cheddar -->
+      <article class="menu-card reveal" id="menu-hd-cheddar" data-product-id="hd-cheddar">
+        <div class="menu-card-img" style="font-size: 80px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #2a1a00, #1a0a00);">
+          🧀
+        </div>
+        <div class="menu-card-body">
+          <h3 class="menu-card-name">Hot Dog Cheddar</h3>
+          <p class="menu-card-desc">Salsicha grelhada coberta com generoso cheddar derretido, jalapeño e molho sriracha.</p>
+          <div class="menu-card-footer">
+            <div class="menu-price">R$ 18,90</div>
+            <a href="https://www.ifood.com.br" target="_blank" rel="noopener"
+               class="btn btn-primary btn-sm" data-action="pedido" data-item="Hot Dog Cheddar" id="btn-hd-cheddar">
+              Pedir agora
+            </a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       BURGERS
+       ============================================================ -->
+  <section class="menu-section" data-cat="burgers" aria-labelledby="section-burgers">
+    <div class="menu-grid">
+      <h2 class="menu-section-title" id="section-burgers" style="grid-column: 1/-1;">🍔 Burgers</h2>
+
+      <!-- Burger Campeiro -->
+      <article class="menu-card reveal" id="menu-bg-campeiro" data-product-id="bg-campeiro">
+        <div class="menu-card-img">
+          <img src="img/burger_campeiro.png" alt="Burger Campeiro" loading="lazy"
+               onerror="this.style.display='none'; this.parentElement.innerHTML='🍔';" />
+        </div>
+        <div class="menu-card-body">
+          <h3 class="menu-card-name">Burger Campeiro</h3>
+          <p class="menu-card-desc">Blend artesanal 200g, queijo americano, alface, tomate, picles e maionese especial no pão brioche.</p>
+          <div class="menu-card-footer">
+            <div class="menu-price">R$ 29,90</div>
+            <a href="https://www.ifood.com.br" target="_blank" rel="noopener"
+               class="btn btn-primary btn-sm" data-action="pedido" data-item="Burger Campeiro" id="btn-bg-campeiro">
+              Pedir agora
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Smash Burger -->
+      <article class="menu-card reveal" id="menu-bg-smash" data-product-id="bg-smash">
+        <div class="menu-card-img" style="font-size: 80px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #1a1000, #2a1500);">
+          🍔
+        </div>
+        <div class="menu-card-body">
+          <h3 class="menu-card-name">Smash Burger</h3>
+          <p class="menu-card-desc">Dois smash patties, cheddar, maionese de ervas, cebola caramelizada e picles artesanal.</p>
+          <div class="menu-card-footer">
+            <div class="menu-price">R$ 34,90</div>
+            <a href="https://www.ifood.com.br" target="_blank" rel="noopener"
+               class="btn btn-primary btn-sm" data-action="pedido" data-item="Smash Burger" id="btn-bg-smash">
+              Pedir agora
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- X-Tudo -->
+      <article class="menu-card reveal" id="menu-bg-xtudo" data-product-id="bg-xtudo">
+        <div class="menu-card-img" style="font-size: 80px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #200010, #1a0a00);">
+          🥩
+        </div>
+        <div class="menu-card-body">
+          <h3 class="menu-card-name">X-Tudo Pampa</h3>
+          <p class="menu-card-desc">Hambúrguer, bacon, ovo, presunto, queijo, tomate, alface, milho e maionese. Tem de tudo!</p>
+          <div class="menu-card-footer">
+            <div class="menu-price">R$ 38,90</div>
+            <a href="https://www.ifood.com.br" target="_blank" rel="noopener"
+               class="btn btn-primary btn-sm" data-action="pedido" data-item="X-Tudo Pampa" id="btn-bg-xtudo">
+              Pedir agora
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Chicken Burger -->
+      <article class="menu-card reveal" id="menu-bg-chicken" data-product-id="bg-chicken">
+        <div class="menu-card-img" style="font-size: 80px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #1a1500, #2a1800);">
+          🍗
+        </div>
+        <div class="menu-card-body">
+          <h3 class="menu-card-name">Chicken Burger</h3>
+          <p class="menu-card-desc">Frango empanado crocante, queijo, alface, tomate e molho honey mustard no pão de leite.</p>
+          <div class="menu-card-footer">
+            <div class="menu-price">R$ 26,90</div>
+            <a href="https://www.ifood.com.br" target="_blank" rel="noopener"
+               class="btn btn-primary btn-sm" data-action="pedido" data-item="Chicken Burger" id="btn-bg-chicken">
+              Pedir agora
+            </a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       COMBOS
+       ============================================================ -->
+  <section class="menu-section" data-cat="combos" aria-labelledby="section-combos">
+    <div class="menu-grid">
+      <h2 class="menu-section-title" id="section-combos" style="grid-column: 1/-1;">🎁 Combos</h2>
+
+      <!-- Combo Dog + Batata -->
+      <article class="menu-card reveal" id="menu-cb-dog-batata" data-product-id="cb-dog-batata">
+        <div class="menu-card-img">
+          <img src="img/batata_refri.png" alt="Combo Dog + Batata + Refri" loading="lazy"
+               onerror="this.style.display='none'; this.parentElement.innerHTML='🎁';" />
+        </div>
+        <div class="menu-card-body">
+          <h3 class="menu-card-name">Combo Dog + Batata + Refri</h3>
+          <p class="menu-card-desc">1 Hot Dog à escolha + Batata Frita Média + Refrigerante Lata. O combo perfeito para o dia a dia!</p>
+          <div class="menu-card-footer">
+            <div class="menu-price">R$ 28,90</div>
+            <a href="https://www.ifood.com.br" target="_blank" rel="noopener"
+               class="btn btn-primary btn-sm" data-action="pedido" data-item="Combo Dog + Batata" id="btn-cb-dog">
+              Pedir agora
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Combo Burger + Batata -->
+      <article class="menu-card reveal" id="menu-cb-burger-batata" data-product-id="cb-burger-batata">
+        <div class="menu-card-img" style="font-size: 80px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #1a0a00, #2a1500);">
+          🍔🍟
+        </div>
+        <div class="menu-card-body">
+          <h3 class="menu-card-name">Combo Burger + Batata + Refri</h3>
+          <p class="menu-card-desc">1 Burger à escolha + Batata Frita Grande + Refrigerante 600ml. Bem servido!</p>
+          <div class="menu-card-footer">
+            <div class="menu-price">R$ 38,90</div>
+            <a href="https://www.ifood.com.br" target="_blank" rel="noopener"
+               class="btn btn-primary btn-sm" data-action="pedido" data-item="Combo Burger + Batata" id="btn-cb-burger">
+              Pedir agora
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Combo Família -->
+      <article class="menu-card reveal" id="menu-cb-familia" data-product-id="cb-familia">
+        <div class="menu-card-img">
+          <img src="img/combo_familia.png" alt="Combo Família" loading="lazy"
+               onerror="this.style.display='none'; this.parentElement.innerHTML='👨‍👩‍👧';" />
+        </div>
+        <div class="menu-card-body">
+          <h3 class="menu-card-name">Combo Família</h3>
+          <p class="menu-card-desc">2 Hot Dogs + 2 Burgers + Batata Grande + 4 Refrigerantes. Perfeito para reunir a galera!</p>
+          <div class="menu-card-footer">
+            <div class="menu-price">R$ 89,90</div>
+            <a href="https://www.ifood.com.br" target="_blank" rel="noopener"
+               class="btn btn-primary btn-sm" data-action="pedido" data-item="Combo Família" id="btn-cb-familia">
+              Pedir agora
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Combo Casal -->
+      <article class="menu-card reveal" id="menu-cb-casal" data-product-id="cb-casal">
+        <div class="menu-card-img" style="font-size: 80px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #1a0010, #2a0015);">
+          ❤️
+        </div>
+        <div class="menu-card-body">
+          <h3 class="menu-card-name">Combo Casal</h3>
+          <p class="menu-card-desc">2 Lanches à escolha + Batata Frita para dividir + 2 Refrigerantes. Programa perfeito!</p>
+          <div class="menu-card-footer">
+            <div class="menu-price">R$ 54,90</div>
+            <a href="https://www.ifood.com.br" target="_blank" rel="noopener"
+               class="btn btn-primary btn-sm" data-action="pedido" data-item="Combo Casal" id="btn-cb-casal">
+              Pedir agora
+            </a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       BEBIDAS
+       ============================================================ -->
+  <section class="menu-section" data-cat="bebidas" aria-labelledby="section-bebidas">
+    <div class="menu-grid">
+      <h2 class="menu-section-title" id="section-bebidas" style="grid-column: 1/-1;">🥤 Bebidas</h2>
+
+      <article class="menu-card reveal" id="menu-beb-refri" data-product-id="beb-refri">
+        <div class="menu-card-img" style="font-size: 80px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #080018, #100024);">
+          🥤
+        </div>
+        <div class="menu-card-body">
+          <h3 class="menu-card-name">Refrigerante Lata</h3>
+          <p class="menu-card-desc">Coca-Cola, Guaraná Antarctica, Fanta Laranja ou Sprite. Lata 350ml geladinha!</p>
+          <div class="menu-card-footer">
+            <div class="menu-price">R$ 5,00</div>
+            <a href="https://www.ifood.com.br" target="_blank" rel="noopener"
+               class="btn btn-primary btn-sm" data-action="pedido" data-item="Refrigerante Lata" id="btn-beb-refri-lata">
+              Pedir agora
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <article class="menu-card reveal" id="menu-beb-suco" data-product-id="beb-suco">
+        <div class="menu-card-img" style="font-size: 80px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #1a1500, #251800);">
+          🍊
+        </div>
+        <div class="menu-card-body">
+          <h3 class="menu-card-name">Suco Natural</h3>
+          <p class="menu-card-desc">Laranja, limão, morango ou maracujá. Feito na hora, 300ml, sem conservantes.</p>
+          <div class="menu-card-footer">
+            <div class="menu-price">R$ 9,00</div>
+            <a href="https://www.ifood.com.br" target="_blank" rel="noopener"
+               class="btn btn-primary btn-sm" data-action="pedido" data-item="Suco Natural" id="btn-beb-suco">
+              Pedir agora
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <article class="menu-card reveal" id="menu-beb-agua" data-product-id="beb-agua">
+        <div class="menu-card-img" style="font-size: 80px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #001018, #001a24);">
+          💧
+        </div>
+        <div class="menu-card-body">
+          <h3 class="menu-card-name">Água Mineral</h3>
+          <p class="menu-card-desc">Água mineral 500ml com ou sem gás. Sempre geladinha!</p>
+          <div class="menu-card-footer">
+            <div class="menu-price">R$ 3,50</div>
+            <a href="https://www.ifood.com.br" target="_blank" rel="noopener"
+               class="btn btn-primary btn-sm" data-action="pedido" data-item="Água Mineral" id="btn-beb-agua">
+              Pedir agora
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <article class="menu-card reveal" id="menu-beb-milk" data-product-id="beb-milk">
+        <div class="menu-card-img" style="font-size: 80px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #1a0010, #250018);">
+          🥛
+        </div>
+        <div class="menu-card-body">
+          <h3 class="menu-card-name">Milk Shake</h3>
+          <p class="menu-card-desc">Morango, chocolate, baunilha ou Nutella. Cremoso, gelado e irresistível! 400ml.</p>
+          <div class="menu-card-footer">
+            <div class="menu-price">R$ 16,90</div>
+            <a href="https://www.ifood.com.br" target="_blank" rel="noopener"
+               class="btn btn-primary btn-sm" data-action="pedido" data-item="Milk Shake" id="btn-beb-milk">
+              Pedir agora
+            </a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       ADICIONAIS
+       ============================================================ -->
+  <section class="menu-section" data-cat="adicionais" aria-labelledby="section-adicionais">
+    <div class="menu-grid">
+      <h2 class="menu-section-title" id="section-adicionais" style="grid-column: 1/-1;">➕ Adicionais</h2>
+
+      <article class="menu-card reveal" id="menu-add-bacon" data-product-id="add-bacon">
+        <div class="menu-card-img" style="font-size: 80px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #2a0a00, #1a0800);">
+          🥓
+        </div>
+        <div class="menu-card-body">
+          <h3 class="menu-card-name">Bacon Extra</h3>
+          <p class="menu-card-desc">Mais tiras de bacon crocante no seu lanche.</p>
+          <div class="menu-card-footer">
+            <div class="menu-price">R$ 4,00</div>
+            <a href="https://www.ifood.com.br" target="_blank" rel="noopener"
+               class="btn btn-primary btn-sm" data-action="pedido" data-item="Bacon Extra" id="btn-add-bacon">
+              Adicionar
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <article class="menu-card reveal" id="menu-add-cheddar" data-product-id="add-cheddar">
+        <div class="menu-card-img" style="font-size: 80px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #2a1a00, #1a1000);">
+          🧀
+        </div>
+        <div class="menu-card-body">
+          <h3 class="menu-card-name">Cheddar Extra</h3>
+          <p class="menu-card-desc">Porção extra de cheddar cremoso derretido.</p>
+          <div class="menu-card-footer">
+            <div class="menu-price">R$ 3,50</div>
+            <a href="https://www.ifood.com.br" target="_blank" rel="noopener"
+               class="btn btn-primary btn-sm" data-action="pedido" data-item="Cheddar Extra" id="btn-add-cheddar">
+              Adicionar
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <article class="menu-card reveal" id="menu-add-batata" data-product-id="add-batata">
+        <div class="menu-card-img">
+          <img src="img/batata_refri.png" alt="Batata Frita" loading="lazy"
+               onerror="this.style.display='none'; this.parentElement.innerHTML='🍟';" />
+        </div>
+        <div class="menu-card-body">
+          <h3 class="menu-card-name">Batata Frita</h3>
+          <p class="menu-card-desc">Batata frita crocante temperada. Porção pequena, média ou grande.</p>
+          <div class="menu-card-footer">
+            <div class="menu-price">a partir de R$ 8,00</div>
+            <a href="https://www.ifood.com.br" target="_blank" rel="noopener"
+               class="btn btn-primary btn-sm" data-action="pedido" data-item="Batata Frita" id="btn-add-batata">
+              Pedir agora
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <article class="menu-card reveal" id="menu-add-ovo" data-product-id="add-ovo">
+        <div class="menu-card-img" style="font-size: 80px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #1a1800, #2a2200);">
+          🍳
+        </div>
+        <div class="menu-card-body">
+          <h3 class="menu-card-name">Ovo Frito</h3>
+          <p class="menu-card-desc">Ovo frito quentinho para complementar seu lanche.</p>
+          <div class="menu-card-footer">
+            <div class="menu-price">R$ 2,50</div>
+            <a href="https://www.ifood.com.br" target="_blank" rel="noopener"
+               class="btn btn-primary btn-sm" data-action="pedido" data-item="Ovo Frito" id="btn-add-ovo">
+              Adicionar
+            </a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-main">
+        <div class="footer-brand">
+          <a href="index.html" class="logo" style="display: inline-flex;">
+            <img src="Logo.png" alt="Pampa Dog Logo" style="height: 48px; width: auto; object-fit: contain;">
+          </a>
+          <p>O melhor sabor do sul num único lugar. Venha nos visitar ou peça pelo iFood!</p>
+          <div class="social-links" style="margin-top: 20px;">
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener" class="social-btn instagram">📸</a>
+            <a href="https://wa.me/5500000000000" target="_blank" rel="noopener" class="social-btn whatsapp">💬</a>
+            <a href="https://www.ifood.com.br" target="_blank" rel="noopener" class="social-btn ifood">🛵</a>
+            <a href="https://anota.ai/" target="_blank" rel="noopener" class="social-btn anotaai" style="background:var(--anota-ai-color, #7B1FA2); color:white;">📱</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Navegação</h4>
+          <ul>
+            <li><a href="index.html">→ Início</a></li>
+            <li><a href="cardapio.html">→ Cardápio</a></li>
+            <li><a href="sobre.html">→ Sobre Nós</a></li>
+            <li><a href="index.html#contato">→ Contato</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Atendimento</h4>
+          <ul>
+            <li><a href="https://www.ifood.com.br" target="_blank" rel="noopener">🛵 Pedir pelo iFood</a></li>
+            <li><a href="https://anota.ai/" target="_blank" rel="noopener">📱 Pedir pelo Anota Aí</a></li>
+            <li><a href="https://wa.me/5500000000000" target="_blank" rel="noopener">💬 WhatsApp</a></li>
+            <li><a href="https://maps.google.com" target="_blank" rel="noopener">📍 Como Chegar</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 <span>Pampa Dog</span>. Todos os direitos reservados.</p>
+        <p>Feito com <span>❤️</span> e muito sabor.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="data.js"></script>`n  <script src="script.js"></script>
+</body>
+</html>
+
