@@ -1,7 +1,7 @@
 /**
  * PAMPA DOG - data.js
  * Módulo de gerenciamento de produtos, flags e renderização dinâmica.
- * Carregado em: index.html, cardapio.html, admin.html
+ * Carregado em: index.html, cardapio.html, Admin/admin.html
  */
 'use strict';
 
@@ -18,11 +18,11 @@ var PD = (function () {
     { id: 'hd-especial',    name: 'Pampa Dog Especial',         desc: 'Salsicha gourmet, bacon crocante, cheddar, cebola caramelizada e molho especial da casa.',                                       price: 22.90, category: 'hotdogs',   imgCardapio: 'img/pampa_dog_especial.png', imgHome: 'img/hero1.png',             isPromocao: true,  isMaisPedido: true,  isProdutoSemana: true, productUrl: ''  },
     { id: 'hd-bacon',       name: 'Hot Dog Bacon',              desc: 'Salsicha, tiras de bacon grelhadas, queijo prato derretido, molho barbecue e cebola crispy.',                                   price: 19.90, category: 'hotdogs',   imgCardapio: '',                          imgHome: '',                          isPromocao: false, isMaisPedido: false, isProdutoSemana: false, productUrl: '' },
     { id: 'hd-cheddar',     name: 'Hot Dog Cheddar',            desc: 'Salsicha grelhada coberta com generoso cheddar derretido, jalapeño e molho sriracha.',                                         price: 18.90, category: 'hotdogs',   imgCardapio: '',                          imgHome: '',                          isPromocao: false, isMaisPedido: false, isProdutoSemana: false, productUrl: '' },
-    // BURGERS
-    { id: 'bg-campeiro',    name: 'Burger Campeiro',            desc: 'Blend artesanal 200g, queijo americano, alface, tomate, picles e maionese especial no pão brioche.',                           price: 29.90, category: 'burgers',   imgCardapio: 'img/burger_campeiro.png',   imgHome: 'img/burger_campeiro.png',   isPromocao: true,  isMaisPedido: false, isProdutoSemana: true, productUrl: ''  },
-    { id: 'bg-smash',       name: 'Smash Burger',               desc: 'Dois smash patties, cheddar, maionese de ervas, cebola caramelizada e picles artesanal.',                                      price: 34.90, category: 'burgers',   imgCardapio: '',                          imgHome: '',                          isPromocao: false, isMaisPedido: false, isProdutoSemana: false, productUrl: '' },
-    { id: 'bg-xtudo',       name: 'X-Tudo Pampa',               desc: 'Hambúrguer, bacon, ovo, presunto, queijo, tomate, alface, milho e maionese. Tem de tudo!',                                     price: 38.90, category: 'burgers',   imgCardapio: '',                          imgHome: '',                          isPromocao: false, isMaisPedido: false, isProdutoSemana: false, productUrl: '' },
-    { id: 'bg-chicken',     name: 'Chicken Burger',             desc: 'Frango empanado crocante, queijo, alface, tomate e molho honey mustard no pão de leite.',                                      price: 26.90, category: 'burgers',   imgCardapio: '',                          imgHome: '',                          isPromocao: false, isMaisPedido: false, isProdutoSemana: false, productUrl: '' },
+    // CLÁSSICOS
+    { id: 'bg-campeiro',    name: 'Burger Campeiro',            desc: 'Blend artesanal 200g, queijo americano, alface, tomate, picles e maionese especial no pão brioche.',                           price: 29.90, category: 'classicos', imgCardapio: 'img/burger_campeiro.png',   imgHome: 'img/burger_campeiro.png',   isPromocao: true,  isMaisPedido: false, isProdutoSemana: true, productUrl: ''  },
+    { id: 'bg-smash',       name: 'Smash Burger',               desc: 'Dois smash patties, cheddar, maionese de ervas, cebola caramelizada e picles artesanal.',                                      price: 34.90, category: 'classicos', imgCardapio: '',                          imgHome: '',                          isPromocao: false, isMaisPedido: false, isProdutoSemana: false, productUrl: '' },
+    { id: 'bg-xtudo',       name: 'X-Tudo Pampa',               desc: 'Hambúrguer, bacon, ovo, presunto, queijo, tomate, alface, milho e maionese. Tem de tudo!',                                     price: 38.90, category: 'classicos', imgCardapio: '',                          imgHome: '',                          isPromocao: false, isMaisPedido: false, isProdutoSemana: false, productUrl: '' },
+    { id: 'bg-chicken',     name: 'Chicken Burger',             desc: 'Frango empanado crocante, queijo, alface, tomate e molho honey mustard no pão de leite.',                                      price: 26.90, category: 'classicos', imgCardapio: '',                          imgHome: '',                          isPromocao: false, isMaisPedido: false, isProdutoSemana: false, productUrl: '' },
     // COMBOS
     { id: 'cb-dog-batata',  name: 'Combo Dog + Batata + Refri', desc: '1 Hot Dog à escolha + Batata Frita Média + Refrigerante Lata. O combo perfeito para o dia a dia!',                            price: 28.90, category: 'combos',    imgCardapio: 'img/batata_refri.png',      imgHome: '',                          isPromocao: true,  isMaisPedido: false, isProdutoSemana: false, productUrl: '' },
     { id: 'cb-burger-batata',name:'Combo Burger + Batata + Refri',desc:'1 Burger à escolha + Batata Frita Grande + Refrigerante 600ml. Bem servido!',                                                  price: 38.90, category: 'combos',    imgCardapio: '',                          imgHome: '',                          isPromocao: false, isMaisPedido: false, isProdutoSemana: false, productUrl: '' },
@@ -43,9 +43,14 @@ var PD = (function () {
   /* ============================================================
      METADADOS
      ============================================================ */
-  var catEmoji  = { hotdogs: '🌭', burgers: '🍔', combos: '🎁', bebidas: '🥤', adicionais: '➕' };
-  var catLabel  = { hotdogs: 'Hot Dogs', burgers: 'Burgers', combos: 'Combos', bebidas: 'Bebidas', adicionais: 'Adicionais' };
-  var catHolder = { hotdogs: '🌭', burgers: '🍔', combos: '🎁', bebidas: '🥤', adicionais: '🍳' };
+  var catEmoji  = { hotdogs: '🌭', classicos: '🌟', combos: '🎁', bebidas: '🥤' };
+  var catLabel  = { hotdogs: 'Hot Dogs', classicos: 'Clássicos do Rio Grande do Sul', combos: 'Combos', bebidas: 'Bebidas' };
+  var catHolder = { hotdogs: '🌭', classicos: '🌟', combos: '🎁', bebidas: '🥤' };
+  var visibleCategories = Object.keys(catLabel);
+  var defaultProductMap = {};
+  DEFAULT_PRODUCTS.forEach(function(p) {
+    defaultProductMap[p.id] = Object.assign({}, p, { category: normalizeCategory(p.category) });
+  });
 
   /* ============================================================
      CRUD — localStorage
@@ -53,19 +58,77 @@ var PD = (function () {
   function getProducts() {
     try {
       var stored = localStorage.getItem(STORAGE_KEY);
-      if (stored) {
+      if (stored !== null) {
         var parsed = JSON.parse(stored);
-        return Array.isArray(parsed) ? parsed : [];
-        // Merge: garante que novos produtos defaults aparecem se não existem no storage
+        var products = sanitizeStoredProducts(Array.isArray(parsed) ? parsed : []);
+        if (JSON.stringify(parsed) !== JSON.stringify(products)) {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(products));
+        }
+        return products;
       }
     } catch (e) {}
-    return saveProducts(DEFAULT_PRODUCTS.map(function(p){ return Object.assign({}, p); }));
+    return getDefaultProducts();
   }
 
   function saveProducts(products) {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(products));
+    var normalized = normalizeProducts(products);
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(normalized));
     refreshDynamicViews();
-    return products;
+    return normalized;
+  }
+
+  function hasSavedProducts() {
+    try {
+      return localStorage.getItem(STORAGE_KEY) !== null;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  function normalizeCategory(category) {
+    if (category === 'burgers') return 'classicos';
+    return category;
+  }
+
+  function normalizeProducts(products) {
+    return products.map(function(p) {
+      return Object.assign({}, p, { category: normalizeCategory(p.category) });
+    }).filter(function(p) {
+      return visibleCategories.indexOf(p.category) !== -1;
+    });
+  }
+
+  function sanitizeStoredProducts(products) {
+    var normalized = normalizeProducts(products);
+    var hasCustom = normalized.some(function(p) { return !defaultProductMap[p.id]; });
+    var onlyUnchangedDefaults = normalized.length > 0 && normalized.every(isUnchangedDefaultProduct);
+
+    if (hasCustom || onlyUnchangedDefaults) {
+      return normalized.filter(function(p) { return !isUnchangedDefaultProduct(p); });
+    }
+
+    return normalized;
+  }
+
+  function isUnchangedDefaultProduct(product) {
+    var def = defaultProductMap[product.id];
+    if (!def) return false;
+
+    return product.name === def.name
+      && product.desc === def.desc
+      && Number(product.price) === Number(def.price)
+      && normalizeCategory(product.category) === def.category
+      && (product.imgCardapio || '') === (def.imgCardapio || '')
+      && (product.imgHome || '') === (def.imgHome || '')
+      && (product.imgHero || '') === (def.imgHero || '')
+      && !!product.isPromocao === !!def.isPromocao
+      && !!product.isMaisPedido === !!def.isMaisPedido
+      && !!product.isProdutoSemana === !!def.isProdutoSemana
+      && (product.productUrl || '') === (def.productUrl || '');
+  }
+
+  function getDefaultProducts() {
+    return normalizeProducts(DEFAULT_PRODUCTS.map(function(p){ return Object.assign({}, p); }));
   }
 
   function deleteProduct(id) {
@@ -82,7 +145,7 @@ var PD = (function () {
   }
 
   function updateProduct(updated) {
-    var products = getProducts();
+    var products = hasSavedProducts() ? getProducts() : [];
     var idx = -1;
     products.forEach(function(p, i){ if (p.id === updated.id) idx = i; });
     if (idx >= 0) products[idx] = updated;
@@ -108,8 +171,10 @@ var PD = (function () {
      UTILITÁRIOS
      ============================================================ */
   function getProductImage(product, type) {
-    if (type === 'home') return product.imgHome || product.imgCardapio || '';
-    return product.imgCardapio || '';
+    var homeImg = (product.imgHome || '').trim();
+    var cardapioImg = (product.imgCardapio || '').trim();
+    if (type === 'home') return homeImg || cardapioImg || '';
+    return cardapioImg || '';
   }
 
   function formatPrice(price) {
@@ -132,13 +197,42 @@ var PD = (function () {
     var url = product.productUrl || 'https://www.ifood.com.br';
     if (url.indexOf('wa.me') !== -1 || url.indexOf('api.whatsapp.com') !== -1 || url.indexOf('web.whatsapp.com') !== -1) {
       if (url.indexOf('text=') === -1) {
-        var emoji = catEmoji[product.category] || '🍔';
+        var emoji = catEmoji[normalizeCategory(product.category)] || '🍔';
         var msg = "Olá! Gostaria de fazer um pedido:\n\n" + emoji + " Produto: " + product.name + "\n💰 Valor: R$ " + formatPrice(product.price);
         var sep = url.indexOf('?') !== -1 ? '&' : '?';
         url += sep + 'text=' + encodeURIComponent(msg);
       }
     }
     return url;
+  }
+
+  /* ============================================================
+     RENDER: HERO CAROUSEL (index.html)
+     ============================================================ */
+  function renderHeroCarousel() {
+    var carousel = document.querySelector('.hero .carousel');
+    var dotsWrap = document.querySelector('.hero .carousel-dots');
+    if (!carousel || !dotsWrap) return;
+
+    var featured = getProducts().filter(function(p) {
+      var img = (p.imgHero || '').trim();
+      var hasFlag = p.isPromocao || p.isMaisPedido || p.isProdutoSemana;
+      return hasFlag && !!img;
+    });
+
+    if (!featured.length) return;
+
+    carousel.innerHTML = featured.map(function(p, i) {
+      var src = (p.imgHero || '').trim();
+      return '<div class="carousel-slide' + (i === 0 ? ' active' : '') + '">'
+        + '<img src="' + src + '" alt="' + p.name + '" loading="' + (i === 0 ? 'eager' : 'lazy') + '" />'
+        + '<div class="carousel-overlay"></div>'
+      + '</div>';
+    }).join('');
+
+    dotsWrap.innerHTML = featured.map(function(_, i) {
+      return '<button class="carousel-dot' + (i === 0 ? ' active' : '') + '" aria-label="Slide ' + (i + 1) + '"></button>';
+    }).join('');
   }
 
   /* ============================================================
@@ -336,17 +430,18 @@ var PD = (function () {
       container.innerHTML =
         '<p style="color:var(--gray);text-align:center;padding:60px 0;grid-column:1/-1;">'
         + 'Nenhuma promoção ativa no momento. '
-        + '<a href="admin.html" style="color:var(--red);font-weight:700;">Acesse o Admin</a> para ativar.</p>';
+        + '<a href="Admin/admin.html" style="color:var(--red);font-weight:700;">Acesse o Admin</a> para ativar.</p>';
       return;
     }
 
     container.innerHTML = promos.map(function (p) {
       var src = getProductImage(p, 'cardapio');
       var badge = p.isMaisPedido ? '⭐ Mais Pedido' : '🔥 Promoção';
+      var badgeClass = p.isMaisPedido ? 'mais-pedido' : 'promocao';
       return '<article class="promo-card reveal" id="dyn-card-' + p.id + '">'
         + '<div class="card-img-wrap">'
           + buildImgHtml(src, p.name, p.category)
-          + '<span class="card-badge">' + badge + '</span>'
+          + '<span class="card-badge ' + badgeClass + '">' + badge + '</span>'
         + '</div>'
         + '<div class="card-body">'
           + '<h3 class="card-name">' + p.name + '</h3>'
@@ -377,6 +472,31 @@ var PD = (function () {
 
     products.forEach(function (p) {
       var card = document.querySelector('[data-product-id="' + p.id + '"]');
+      if (card) {
+        var currentSection = card.closest('.menu-section[data-cat]');
+        if (currentSection && currentSection.getAttribute('data-cat') !== p.category) {
+          card.remove();
+          card = null;
+        }
+      }
+      if (!card) {
+        var section = document.querySelector('.menu-section[data-cat="' + p.category + '"] .menu-grid');
+        if (!section) return;
+        section.insertAdjacentHTML('beforeend',
+          '<article class="menu-card reveal visible" id="menu-' + p.id + '" data-product-id="' + p.id + '">'
+            + '<div class="menu-card-img">' + buildImgHtml(p.imgCardapio || '', p.name, p.category) + '</div>'
+            + '<div class="menu-card-body">'
+              + '<h3 class="menu-card-name">' + p.name + '</h3>'
+              + '<p class="menu-card-desc">' + p.desc + '</p>'
+              + '<div class="menu-card-footer">'
+                + '<div class="menu-price">R$ ' + formatPrice(p.price) + '</div>'
+                + '<a href="' + buildProductUrl(p) + '" target="_blank" rel="noopener" '
+                + 'class="btn btn-primary btn-sm" data-action="pedido" data-item="' + p.name + '">Pedir agora</a>'
+              + '</div>'
+            + '</div>'
+          + '</article>');
+        card = document.querySelector('[data-product-id="' + p.id + '"]');
+      }
       if (!card) return;
 
       // Atualiza imagem se definida no admin
@@ -403,7 +523,7 @@ var PD = (function () {
         if (wrapEl) {
           wrapEl.style.position = 'relative';
           var badge = document.createElement('span');
-          badge.className = 'card-badge dyn-badge';
+          badge.className = 'card-badge dyn-badge ' + (p.isMaisPedido ? 'mais-pedido' : 'promocao');
           badge.style.cssText = 'position:absolute;top:12px;right:12px;z-index:2;';
           badge.textContent = p.isMaisPedido ? '⭐ Mais Pedido' : '🔥 Promoção';
           wrapEl.appendChild(badge);
@@ -440,6 +560,7 @@ var PD = (function () {
     getPlaceholder:         getPlaceholder,
     catEmoji:               catEmoji,
     catLabel:               catLabel,
+    renderHeroCarousel:     renderHeroCarousel,
     renderProdutosSemana:   renderProdutosSemana,
     applyHomeFilter:        applyHomeFilter,
     renderHomePromos:       renderHomePromos,

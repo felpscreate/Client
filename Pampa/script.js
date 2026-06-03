@@ -146,7 +146,24 @@ function initScrollReveal() {
 // CARDÁPIO – CATEGORY FILTER
 // ============================================================
 function initCatFilter() {
-  const btns     = document.querySelectorAll('.cat-btn');
+  document.querySelector('[data-cat="burgers"]')?.setAttribute('data-cat', 'classicos');
+  const oldClassicosBtn = document.getElementById('cat-burgers');
+  if (oldClassicosBtn) {
+    oldClassicosBtn.id = 'cat-classicos';
+    oldClassicosBtn.textContent = '🌟 Clássicos do Rio Grande do Sul';
+  }
+  document.getElementById('cat-adicionais')?.remove();
+  document.querySelector('.menu-section[data-cat="burgers"]')?.setAttribute('data-cat', 'classicos');
+  const classicosTitle = document.getElementById('section-burgers');
+  if (classicosTitle) {
+    classicosTitle.id = 'section-classicos';
+    classicosTitle.textContent = '🌟 Clássicos do Rio Grande do Sul';
+  }
+  const adicionaisSection = document.querySelector('.menu-section[data-cat="adicionais"]');
+  if (adicionaisSection) adicionaisSection.style.display = 'none';
+
+  const allowedCats = ['hotdogs', 'classicos', 'combos', 'bebidas'];
+  const btns = document.querySelectorAll('.cat-btn');
   const sections = document.querySelectorAll('.menu-section[data-cat]');
   if (!btns.length) return;
 
@@ -158,7 +175,9 @@ function initCatFilter() {
       const cat = btn.dataset.cat;
 
       sections.forEach(sec => {
-        if (cat === 'all' || sec.dataset.cat === cat) {
+        if (allowedCats.indexOf(sec.dataset.cat) === -1) {
+          sec.style.display = 'none';
+        } else if (cat === 'all' || sec.dataset.cat === cat) {
           sec.style.display = '';
         } else {
           sec.style.display = 'none';
@@ -261,6 +280,10 @@ function initHomeFilters() {
 // INIT
 // ============================================================
 document.addEventListener('DOMContentLoaded', () => {
+  if (typeof PD !== 'undefined' && PD.renderHeroCarousel) {
+    PD.renderHeroCarousel();
+  }
+
   initCarousel();
   initHeader();
   initMobileNav();

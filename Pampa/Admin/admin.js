@@ -12,8 +12,51 @@ document.addEventListener('DOMContentLoaded', () => {
   const tabsEl = document.getElementById('admin-tabs');
   const modal = document.getElementById('edit-modal');
   const form = document.getElementById('edit-form');
+  const imgInput = document.getElementById('edit-img-cardapio');
+  const imgUpload = document.getElementById('edit-img-upload');
+  const imgPreview = document.getElementById('edit-img-preview');
+  const imgUploadName = document.getElementById('edit-img-upload-name');
   
   let currentCategory = 'all';
+  let selectedUploadUrl = '';
+
+  function resolveAdminAssetPath(src) {
+    if (!src) return '';
+    if (/^(https?:|data:|blob:|\/)/i.test(src)) return src;
+    return '../' + src.replace(/^\.\//, '');
+  }
+
+  function normalizeCategory(category) {
+    if (category === 'burgers') return 'classicos';
+    return category;
+  }
+
+  function setImagePreview(src) {
+    const previewSrc = resolveAdminAssetPath(src);
+    imgPreview.innerHTML = previewSrc ? `<img src="${previewSrc}" alt="Prévia da imagem">` : '';
+    imgPreview.style.display = previewSrc ? 'block' : 'none';
+  }
+
+  function resetUploadPreview() {
+    if (selectedUploadUrl) URL.revokeObjectURL(selectedUploadUrl);
+    selectedUploadUrl = '';
+    imgUpload.value = '';
+    imgUploadName.textContent = 'Use uma imagem existente da pasta img ou mantenha uma URL/caminho no campo acima.';
+    setImagePreview(imgInput.value.trim());
+  }
+
+  function showToast(message) {
+    let toast = document.getElementById('admin-toast');
+    if (!toast) {
+      toast = document.createElement('div');
+      toast.id = 'admin-toast';
+      toast.className = 'admin-toast';
+      document.body.appendChild(toast);
+    }
+    toast.textContent = message;
+    toast.classList.add('active');
+    setTimeout(() => toast.classList.remove('active'), 2800);
+  }
 
   // INICIALIZAÇÃO
   function init() {
@@ -48,11 +91,11 @@ document.addEventListener('DOMContentLoaded', () => {
     let filtered = products;
     
     if (currentCategory !== 'all') {
-      filtered = products.filter(p => p.category === currentCategory);
+      filtered = products.filter(p => normalizeCategory(p.category) === currentCategory);
     }
     
     listEl.innerHTML = filtered.map(p => {
-      const imgSrc = PD.getProductImage(p, 'cardapio');
+      const imgSrc = resolveAdminAssetPath(PD.getProductImage(p, 'cardapio'));
       const imgHtml = imgSrc 
         ? `<img src="${imgSrc}" style="width:100%;height:100%;object-fit:cover;">`
         : `<div style="display:flex;align-items:center;justify-content:center;height:100%;font-size:24px;">${PD.getPlaceholder(p.category)}</div>`;
@@ -63,7 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="admin-card-img">${imgHtml}</div>
             <div>
               <div class="admin-card-title">${p.name}</div>
-              <div class="admin-card-cat">${PD.catLabel[p.category]} • R$ ${PD.formatPrice(p.price)}</div>
+              <div class="admin-card-cat">${PD.catLabel[normalizeCategory(p.category)]} • R$ ${PD.formatPrice(p.price)}</div>
             </div>
           </div>
           
@@ -121,8 +164,29 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
+    document.getElementById('btn-backup-toggle').addEventListener('click', () => {
+      const panel = document.getElementById('backup-panel');
+      panel.style.display = panel.style.display === 'none' ? 'flex' : 'none';
+    });
+
     document.getElementById('close-modal').addEventListener('click', closeModal);
     document.getElementById('btn-cancel').addEventListener('click', closeModal);
+
+    imgInput.addEventListener('input', () => {
+      imgUploadName.textContent = 'Use uma imagem existente da pasta img ou mantenha uma URL/caminho no campo acima.';
+      setImagePreview(imgInput.value.trim());
+    });
+
+    imgUpload.addEventListener('change', (e) => {
+      const file = e.target.files[0];
+      if (!file) return;
+      if (selectedUploadUrl) URL.revokeObjectURL(selectedUploadUrl);
+      selectedUploadUrl = URL.createObjectURL(file);
+      imgInput.value = `img/${file.name}`;
+      imgUploadName.textContent = `Selecionada: ${file.name}`;
+      imgPreview.innerHTML = `<img src="${selectedUploadUrl}" alt="Prévia da imagem">`;
+      imgPreview.style.display = 'block';
+    });
     
     // Adicionar Produto
     document.getElementById('btn-add').addEventListener('click', () => {
@@ -133,7 +197,7 @@ document.addEventListener('DOMContentLoaded', () => {
       document.getElementById('edit-price').value = '';
       document.getElementById('edit-product-url').value = '';
       document.getElementById('edit-img-cardapio').value = '';
-      document.getElementById('edit-img-home').value = '';
+      resetUploadPreview();
       
       document.getElementById('btn-delete').style.display = 'none';
       modal.classList.add('active');
@@ -190,6 +254,7 @@ document.addEventListener('DOMContentLoaded', () => {
       e.preventDefault();
       
       const id = document.getElementById('edit-id').value;
+      const isNewProduct = !id;
       let original = id ? PD.getProductById(id) : null;
       
       if (!original) {
@@ -208,14 +273,16 @@ document.addEventListener('DOMContentLoaded', () => {
         name: document.getElementById('edit-name').value,
         desc: document.getElementById('edit-desc').value,
         price: parseFloat(rawPrice) || 0,
-        productUrl: document.getElementById('edit-product-url').value,
-        imgCardapio: document.getElementById('edit-img-cardapio').value,
-        imgHome: document.getElementById('edit-img-home').value
+        productUrl: document.getElementById('edit-product-url').value.trim(),
+        imgCardapio: document.getElementById('edit-img-cardapio').value.trim(),
+        imgHome: '',
+        imgHero: original.imgHero || ''
       });
       
       PD.updateProduct(updated);
       closeModal();
       renderList();
+      if (isNewProduct) showToast('Mais um Pampa criado com sucesso! ⭐');
     });
   }
 
@@ -225,13 +292,13 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!p) return;
     
     document.getElementById('edit-id').value = p.id;
-    document.getElementById('edit-category').value = p.category;
+    document.getElementById('edit-category').value = normalizeCategory(p.category);
     document.getElementById('edit-name').value = p.name;
     document.getElementById('edit-desc').value = p.desc;
     document.getElementById('edit-price').value = p.price.toFixed(2).replace('.', ',');
     document.getElementById('edit-product-url').value = p.productUrl || '';
     document.getElementById('edit-img-cardapio').value = p.imgCardapio || '';
-    document.getElementById('edit-img-home').value = p.imgHome || '';
+    resetUploadPreview();
     
     document.getElementById('btn-delete').style.display = 'inline-block';
     modal.classList.add('active');
@@ -239,6 +306,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function closeModal() {
     modal.classList.remove('active');
+    resetUploadPreview();
   }
 
   // START

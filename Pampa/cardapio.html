@@ -23,7 +23,7 @@
         <li><a href="index.html#contato">Contato</a></li>
         <li class="nav-cta-wrap">
           <a href="https://www.ifood.com.br" target="_blank" rel="noopener" class="nav-cta" id="nav-ifood-btn">
-            🛵 Pedir no iFood
+            <span class="ifood-mark" aria-hidden="true">iFood</span> Pedir no iFood
           </a>
           <a href="https://anota.ai/" target="_blank" rel="noopener" class="nav-cta anota-ai-btn" id="nav-anota-btn" style="background: var(--anota-ai-color, #7B1FA2); margin-left: 8px;">
             📱 Pedir Agora
@@ -54,10 +54,9 @@
     <div class="cat-filter-inner">
       <button class="cat-btn active" data-cat="all" id="cat-all">🍽️ Todos</button>
       <button class="cat-btn" data-cat="hotdogs" id="cat-hotdogs">🌭 Hot Dogs</button>
-      <button class="cat-btn" data-cat="burgers" id="cat-burgers">🍔 Burgers</button>
+      <button class="cat-btn" data-cat="classicos" id="cat-classicos">🌟 Clássicos do Rio Grande do Sul</button>
       <button class="cat-btn" data-cat="combos" id="cat-combos">🎁 Combos</button>
       <button class="cat-btn" data-cat="bebidas" id="cat-bebidas">🥤 Bebidas</button>
-      <button class="cat-btn" data-cat="adicionais" id="cat-adicionais">➕ Adicionais</button>
     </div>
   </nav>
 
@@ -147,9 +146,9 @@
   <!-- ============================================================
        BURGERS
        ============================================================ -->
-  <section class="menu-section" data-cat="burgers" aria-labelledby="section-burgers">
+  <section class="menu-section" data-cat="classicos" aria-labelledby="section-classicos">
     <div class="menu-grid">
-      <h2 class="menu-section-title" id="section-burgers" style="grid-column: 1/-1;">🍔 Burgers</h2>
+      <h2 class="menu-section-title" id="section-classicos" style="grid-column: 1/-1;">🌟 Clássicos do Rio Grande do Sul</h2>
 
       <!-- Burger Campeiro -->
       <article class="menu-card reveal" id="menu-bg-campeiro" data-product-id="bg-campeiro">
@@ -389,7 +388,7 @@
   <!-- ============================================================
        ADICIONAIS
        ============================================================ -->
-  <section class="menu-section" data-cat="adicionais" aria-labelledby="section-adicionais">
+  <section class="menu-section" data-cat="adicionais" aria-labelledby="section-adicionais" style="display:none;">
     <div class="menu-grid">
       <h2 class="menu-section-title" id="section-adicionais" style="grid-column: 1/-1;">➕ Adicionais</h2>
 
@@ -474,9 +473,9 @@
           </a>
           <p>O melhor sabor do sul num único lugar. Venha nos visitar ou peça pelo iFood!</p>
           <div class="social-links" style="margin-top: 20px;">
-            <a href="https://www.instagram.com/" target="_blank" rel="noopener" class="social-btn instagram">📸</a>
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener" class="social-btn instagram"><span class="instagram-mark" aria-hidden="true"></span></a>
             <a href="https://wa.me/5500000000000" target="_blank" rel="noopener" class="social-btn whatsapp">💬</a>
-            <a href="https://www.ifood.com.br" target="_blank" rel="noopener" class="social-btn ifood">🛵</a>
+            <a href="https://www.ifood.com.br" target="_blank" rel="noopener" class="social-btn ifood"><span class="ifood-mark" aria-hidden="true">iFood</span></a>
             <a href="https://anota.ai/" target="_blank" rel="noopener" class="social-btn anotaai" style="background:var(--anota-ai-color, #7B1FA2); color:white;">📱</a>
           </div>
         </div>
@@ -506,7 +505,7 @@
     </div>
   </footer>
 
-  <script src="data.js"></script>`n  <script src="script.js"></script>
+  <script src="data.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
-

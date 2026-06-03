@@ -9,19 +9,19 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
   
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="../style.css">
 </head>
 <body>
 
   <!-- HEADER SIMPLIFICADO -->
   <header class="header" id="header">
     <div class="header-inner">
-      <a href="index.html" class="logo">
-        <img src="Logo.png" alt="Pampa Dog Logo" style="height: 48px; width: auto; object-fit: contain;">
+      <a href="../index.html" class="logo">
+        <img src="../Logo.png" alt="Pampa Dog Logo" style="height: 48px; width: auto; object-fit: contain;">
         <span style="font-size: 14px; color: var(--gray); margin-left: 10px;">[ ADMIN ]</span>
       </a>
       <nav class="nav-links">
-        <a href="index.html">← Voltar ao Site</a>
+        <a href="../index.html">← Voltar ao Site</a>
       </nav>
     </div>
   </header>
@@ -35,12 +35,13 @@
         </div>
         <div style="display:flex; gap:10px; flex-wrap:wrap;">
           <button class="btn btn-primary" id="btn-add">➕ Adicionar Produto</button>
+          <button class="btn btn-outline" id="btn-backup-toggle" type="button">Backup e restauração</button>
           <button class="btn btn-outline" id="btn-reset">🔄 Resetar</button>
         </div>
       </div>
 
       <!-- Área de Backup das configurações -->
-      <div class="admin-backup" style="background: var(--dark-2); padding: 20px; border-radius: 12px; margin-bottom: 30px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 15px;">
+      <div class="admin-backup" id="backup-panel" style="background: var(--dark-2); padding: 20px; border-radius: 12px; margin-bottom: 30px; display: none; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 15px;">
         <div>
           <h3 style="margin-bottom: 5px;">Backup das Configurações</h3>
           <p style="color: var(--gray); font-size: 14px;">Exporte ou importe todos os produtos e configurações.</p>
@@ -78,10 +79,9 @@
           <label for="edit-category">Categoria</label>
           <select id="edit-category" style="width:100%; padding:12px; background:var(--dark); border:1px solid #333; color:white; border-radius:8px;" required>
             <option value="hotdogs">Hot Dogs</option>
-            <option value="burgers">Burgers</option>
+            <option value="classicos">Hot Dogs Clássicos</option>
             <option value="combos">Combos</option>
             <option value="bebidas">Bebidas</option>
-            <option value="adicionais">Adicionais</option>
           </select>
         </div>
         
@@ -116,11 +116,15 @@
         </div>
 
         <div class="form-group">
-          <label for="edit-img-home">URL Imagem (Destaque Home)</label>
-          <input type="text" id="edit-img-home" placeholder="Se vazio, usa a imagem acima">
-          <small style="color:var(--gray);font-size:12px;margin-top:4px;display:block;">
-            *Usada apenas na seção "Produtos da Semana" na Home.
+          <label for="edit-img-upload">Upload da imagem do produto</label>
+          <label class="btn btn-outline admin-upload-btn" style="cursor:pointer; margin:0; display:inline-flex;">
+            Selecionar imagem
+            <input type="file" id="edit-img-upload" accept="image/*" style="display:none;">
+          </label>
+          <small id="edit-img-upload-name" style="color:var(--gray);font-size:12px;margin-top:4px;display:block;">
+            Use uma imagem existente da pasta img ou mantenha uma URL/caminho no campo acima.
           </small>
+          <div id="edit-img-preview" class="admin-img-preview" aria-hidden="true"></div>
         </div>
 
         <div style="margin-top: 20px; display: flex; justify-content: space-between;">
@@ -134,7 +138,7 @@
     </div>
   </div>
 
-  <script src="data.js"></script>
+  <script src="../data.js"></script>
   <script src="admin.js"></script>
 </body>
 </html>

@@ -29,7 +29,7 @@
         <li><a href="#contato">Contato</a></li>
         <li class="nav-cta-wrap">
           <a href="https://www.ifood.com.br" target="_blank" rel="noopener" class="nav-cta" id="nav-ifood-btn">
-            🛵 Pedir no iFood
+            <span class="ifood-mark" aria-hidden="true">iFood</span> Pedir no iFood
           </a>
           <a href="https://anota.ai/" target="_blank" rel="noopener" class="nav-cta anota-ai-btn" id="nav-anota-btn" style="background: var(--anota-ai-color, #7B1FA2); margin-left: 8px;">
             📱 Pedir Agora
@@ -71,15 +71,15 @@
         <div class="carousel-overlay"></div>
       </div>
       <!-- Slide 5 -->
-      <div class="carousel-slide">
+     <!-- <div class="carousel-slide">
         <img src="img/combo_familia.png" alt="Combo Família" loading="lazy"
-             onerror="this.src='Lanche3.jpg'" />
+             onerror="this.src='Lanche3.jpg'" />-->
         <div class="carousel-overlay"></div>
       </div>
       <!-- Slide 6 -->
-      <div class="carousel-slide">
+      <!--<div class="carousel-slide">
         <img src="Lanche3.jpg" alt="Sabores Pampa Dog" loading="lazy" />
-        <div class="carousel-overlay"></div>
+        <div class="carousel-overlay"></div>-->
       </div>
     </div>
 
@@ -94,7 +94,7 @@
       <div class="hero-btns">
         <a href="https://www.ifood.com.br" target="_blank" rel="noopener"
            class="btn btn-primary btn-lg" id="hero-ifood-btn" data-action="pedido" data-item="iFood Hero">
-          🛵 Peça pelo iFood
+          <span class="ifood-mark" aria-hidden="true">iFood</span> Peça pelo iFood
         </a>
         <a href="https://anota.ai/" target="_blank" rel="noopener"
            class="btn btn-primary btn-lg anota-ai-btn" id="hero-anota-btn" data-action="pedido" data-item="Anota Ai Hero" style="background: var(--anota-ai-color, #7B1FA2); border-color: var(--anota-ai-color, #7B1FA2);">
@@ -102,11 +102,38 @@
         </a>
         <a href="https://anota.ai/crie-seu-lanche" target="_blank" rel="noopener"
            class="btn btn-primary btn-lg highlight-btn pulse-anim" id="hero-crie-btn" data-action="pedido" data-item="Crie seu lanche" style="background: linear-gradient(135deg, #FF3366, #FF9933); border: none; font-weight: 800; text-transform: uppercase;">
-          🔥 MONTE SEU LANCHE!
+          🌭 MONTE SEU LANCHE!
         </a>
         <a href="cardapio.html" class="btn btn-secondary btn-lg" id="hero-cardapio-btn">
-          📋 Ver Cardápio
+          📖 Ver Cardápio
         </a>
+      </div>
+
+      <div class="hero-diferenciais" aria-label="Diferenciais da Pampa Dog">
+        <div class="hero-dif-item">
+          <span class="hero-dif-icon">🥬</span>
+          <span><strong data-mobile-title="Ingredientes">Ingredientes Selecionados</strong><small>Qualidade de verdade</small></span>
+        </div>
+        <div class="hero-dif-item">
+          <span class="hero-dif-icon">🌿</span>
+          <span><strong data-mobile-title="Tradição">Tradição Gaúcha</strong><small>Orgulho do nosso chão</small></span>
+        </div>
+        <div class="hero-dif-item">
+          <span class="hero-dif-icon">🔥</span>
+          <span><strong data-mobile-title="Sabor">Sabor que te Apaixona</strong><small>Experimente e comprove</small></span>
+        </div>
+        <div class="hero-dif-item">
+          <span class="hero-dif-icon">♨️</span>
+          <span><strong data-mobile-title="Rápido">Rápido e Quentinho</strong><small>Como tem que ser</small></span>
+        </div>
+        <div class="hero-dif-item">
+          <span class="hero-dif-icon">💛</span>
+          <span><strong data-mobile-title="Feito com carinho">Feito com Carinho</strong><small>Para você</small></span>
+        </div>
+        <div class="hero-dif-item hero-dif-mobile-extra">
+          <span class="hero-dif-icon">🛵</span>
+          <span><strong data-mobile-title="Delivery">Delivery</strong><small>Chega rapidinho</small></span>
+        </div>
       </div>
     </div>
 
@@ -160,9 +187,22 @@
             </p>
           </div>
           <div class="cta-btns">
+            <details class="order-dropdown">
+              <summary class="btn btn-primary btn-lg anota-ai-btn" id="cta-order-btn">
+                📲 Pedir Agora
+              </summary>
+              <div class="order-dropdown-menu">
+                <a href="https://anota.ai/" target="_blank" rel="noopener" data-action="pedido" data-item="Anota Ai CTA">
+                  📲 Peça Agora
+                </a>
+                <a href="https://www.ifood.com.br" target="_blank" rel="noopener" data-action="pedido" data-item="iFood CTA">
+                  <span class="ifood-mark" aria-hidden="true">iFood</span> Peça pelo iFood
+                </a>
+              </div>
+            </details>
             <a href="https://www.ifood.com.br" target="_blank" rel="noopener"
                class="btn btn-primary btn-lg" id="cta-ifood-btn" data-action="pedido" data-item="iFood CTA">
-              🛵 Peça pelo iFood
+              <span class="ifood-mark" aria-hidden="true">iFood</span> Peça pelo iFood
             </a>
             <a href="https://anota.ai/" target="_blank" rel="noopener"
                class="btn btn-primary btn-lg anota-ai-btn" id="cta-anota-btn" data-action="pedido" data-item="Anota Ai CTA" style="background: var(--anota-ai-color, #7B1FA2); border-color: var(--anota-ai-color, #7B1FA2);">
@@ -170,10 +210,10 @@
             </a>
             <a href="https://anota.ai/crie-seu-lanche" target="_blank" rel="noopener"
                class="btn btn-primary btn-lg highlight-btn pulse-anim" id="cta-crie-btn" data-action="pedido" data-item="Crie seu lanche CTA" style="background: linear-gradient(135deg, #FF3366, #FF9933); border: none; font-weight: 800; text-transform: uppercase;">
-              🔥 Monte seu lanche!
+              🌭 Monte seu lanche!
             </a>
             <a href="cardapio.html" class="btn btn-secondary btn-lg" id="cta-cardapio-btn">
-              📋 Ver Cardápio
+              📖 Ver Cardápio
             </a>
           </div>
         </div>
@@ -240,7 +280,7 @@
                 <!-- ↓ Substitua os links pelas URLs reais -->
                 <a href="https://www.instagram.com/pampadog.oficial/" target="_blank" rel="noopener"
                    class="social-btn instagram" id="instagram-link">
-                  📸 Instagram
+                  <span class="instagram-mark" aria-hidden="true"></span> Instagram
                 </a>
                 <a href="https://api.whatsapp.com/send/?phone=553899063376&text&type=phone_number&app_absent=0" target="_blank" rel="noopener"
                    class="social-btn whatsapp" id="wpp-social-btn">
@@ -248,7 +288,7 @@
                 </a>
                 <a href="https://www.ifood.com.br" target="_blank" rel="noopener"
                    class="social-btn ifood" id="ifood-social-btn">
-                  🛵 iFood
+                  <span class="ifood-mark" aria-hidden="true">iFood</span> iFood
                 </a>
                 <a href="https://pedido.anota.ai/loja/pampa-dog-1?f=msa&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGnZ0TBW2rVcjqn4SBq7pJ63WVNVVnbL0lr3Bk5Y6o8Mhfg8yBuZQ09I0WJFcE_aem_YWdncwAo6VnV9SLd1ABuXlLdsfbR&brid=YWdncwFkVZZNZoBMlpbK5q0_OSle&utm_id=97760_v0_s00_e0_tv6_a1denni7p7hd2o" target="_blank" rel="noopener"
                    class="social-btn anotaai" id="anotaai-social-btn"> 
@@ -261,15 +301,14 @@
 
         <!-- Mapa -->
         <div class="map-wrap reveal">
-          <div class="map-placeholder">
-            <div class="map-pin">📍</div>
-            <h3 style="font-size: 20px; font-weight: 800;">Pampa Dog</h3>
-            <p>Rua das Acácias, 123 – Centro</p>
-            <p style="font-size: 13px; margin-top: 8px;">Clique abaixo para abrir no Google Maps</p>
-          </div>
+          <iframe
+            class="map-iframe"
+            title="Mapa Pampa Dog"
+            src="https://www.google.com/maps?q=Av.%20Cula%20Mangabeira%2C%201608%20-%20Santo%20Expedito%2C%20Montes%20Claros%20-%20MG%2C%2039400-780&output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
           <div class="map-footer">
-            <!-- ↓ Substitua pelo link real do Google Maps -->
-            <a href="https://www.google.com/maps/place/Pampa+Dog/@-16.7431733,-43.8726413,17z/data=!3m1!4b1!4m6!3m5!1s0xab53e743084163:0x57bf21836e4840e8!8m2!3d-16.7431733!4d-43.8726413!16s%2Fg%2F11mdnl0jfn?entry=ttu&g_ep=EgoyMDI2MDUyNy4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener"
+            <a href="https://www.google.com/maps/search/?api=1&query=Av.%20Cula%20Mangabeira%2C%201608%20-%20Santo%20Expedito%2C%20Montes%20Claros%20-%20MG%2C%2039400-780" target="_blank" rel="noopener"
                class="btn btn-primary" id="maps-btn" style="width: 100%; justify-content: center;">
               🗺️ Abrir no Google Maps
             </a>
@@ -291,9 +330,9 @@
           </a>
           <p>O melhor sabor do sul num único lugar. Venha nos visitar ou peça pelo iFood!</p>
           <div class="social-links" style="margin-top: 20px;">
-            <a href="https://www.instagram.com/pampadog.oficial/" target="_blank" rel="noopener" class="social-btn instagram">📸</a>
+            <a href="https://www.instagram.com/pampadog.oficial/" target="_blank" rel="noopener" class="social-btn instagram"><span class="instagram-mark" aria-hidden="true"></span></a>
             <a href="https://api.whatsapp.com/send/?phone=553899063376&text&type=phone_number&app_absent=0" target="_blank" rel="noopener" class="social-btn whatsapp">💬</a>
-            <a href="https://www.ifood.com.br" target="_blank" rel="noopener" class="social-btn ifood">🛵</a>
+            <a href="https://www.ifood.com.br" target="_blank" rel="noopener" class="social-btn ifood"><span class="ifood-mark" aria-hidden="true">iFood</span></a>
             <a href="https://pedido.anota.ai/loja/pampa-dog-1?f=msa&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGnZ0TBW2rVcjqn4SBq7pJ63WVNVVnbL0lr3Bk5Y6o8Mhfg8yBuZQ09I0WJFcE_aem_YWdncwAo6VnV9SLd1ABuXlLdsfbR&brid=YWdncwFkVZZNZoBMlpbK5q0_OSle&utm_id=97760_v0_s00_e0_tv6_a1denni7p7hd2o" target="_blank" rel="noopener" class="social-btn anotaai">📱</a>
           </div>
         </div>
@@ -311,11 +350,11 @@
         <div class="footer-col">
           <h4>Atendimento</h4>
           <ul>
-            <li><a href="https://www.ifood.com.br" target="_blank" rel="noopener">🛵 Pedir pelo iFood</a></li>
-            <li><a href="https://pedido.anota.ai/loja/pampa-dog-1?f=msa&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGnZ0TBW2rVcjqn4SBq7pJ63WVNVVnbL0lr3Bk5Y6o8Mhfg8yBuZQ09I0WJFcE_aem_YWdncwAo6VnV9SLd1ABuXlLdsfbR&brid=YWdncwFkVZZNZoBMlpbK5q0_OSle&utm_id=97760_v0_s00_e0_tv6_a1denni7p7hd2o" target="_blank" rel="noopener">📱 Pedir Agora</a></li>
-            <li><a href="https://wa.me/5500000000000" target="_blank" rel="noopener">💬 WhatsApp</a></li>
-            <li><a href="https://www.google.com/maps/place/cula+mangabeira+1608/data=!4m2!3m1!1s0xab53e743084163:0x57bf21836e4840e8?sa=X&ved=1t:242&ictx=111" target="_blank" rel="noopener">📍 Como Chegar</a></li>
-            <li><a href="cardapio.html">📖 Ver Cardápio</a></li>
+            <li><a href="https://www.ifood.com.br" target="_blank" rel="noopener">🛵   Pedir pelo iFood</a></li>
+            <li><a href="https://pedido.anota.ai/loja/pampa-dog-1?f=msa&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGnZ0TBW2rVcjqn4SBq7pJ63WVNVVnbL0lr3Bk5Y6o8Mhfg8yBuZQ09I0WJFcE_aem_YWdncwAo6VnV9SLd1ABuXlLdsfbR&brid=YWdncwFkVZZNZoBMlpbK5q0_OSle&utm_id=97760_v0_s00_e0_tv6_a1denni7p7hd2o" target="_blank" rel="noopener">📱   Pedir Agora pelo Anota Ai</a></li>
+            <li><a href="https://wa.me/5500000000000" target="_blank" rel="noopener">💬   Falar no WhatsApp</a></li>
+            <li><a href="https://www.google.com/maps/place/cula+mangabeira+1608/data=!4m2!3m1!1s0xab53e743084163:0x57bf21836e4840e8?sa=X&ved=1t:242&ictx=111" target="_blank" rel="noopener">📍   Veja como Chegar</a></li>
+            <li><a href="cardapio.html">📖   Ver Cardápio</a></li>
           </ul>
         </div>
       </div>
