@@ -13,31 +13,45 @@ var PD = (function () {
      DADOS PADRÃO — editáveis pelo Admin
      ============================================================ */
   var DEFAULT_PRODUCTS = [
-    // HOT DOGS
-    { id: 'hd-tradicional', name: 'Hot Dog Tradicional',       desc: 'Salsicha, mostarda, ketchup, maionese, milho e batata palha. O clássico que nunca falha!',                                      price: 14.90, category: 'hotdogs',   imgCardapio: 'img/hotdog_tradicional.png', imgHome: '',                          isPromocao: false, isMaisPedido: false, isProdutoSemana: false, productUrl: '' },
-    { id: 'hd-especial',    name: 'Pampa Dog Especial',         desc: 'Salsicha gourmet, bacon crocante, cheddar, cebola caramelizada e molho especial da casa.',                                       price: 22.90, category: 'hotdogs',   imgCardapio: 'img/pampa_dog_especial.png', imgHome: 'img/hero1.png',             isPromocao: true,  isMaisPedido: true,  isProdutoSemana: true, productUrl: ''  },
-    { id: 'hd-bacon',       name: 'Hot Dog Bacon',              desc: 'Salsicha, tiras de bacon grelhadas, queijo prato derretido, molho barbecue e cebola crispy.',                                   price: 19.90, category: 'hotdogs',   imgCardapio: '',                          imgHome: '',                          isPromocao: false, isMaisPedido: false, isProdutoSemana: false, productUrl: '' },
-    { id: 'hd-cheddar',     name: 'Hot Dog Cheddar',            desc: 'Salsicha grelhada coberta com generoso cheddar derretido, jalapeño e molho sriracha.',                                         price: 18.90, category: 'hotdogs',   imgCardapio: '',                          imgHome: '',                          isPromocao: false, isMaisPedido: false, isProdutoSemana: false, productUrl: '' },
-    // CLÁSSICOS
-    { id: 'bg-campeiro',    name: 'Burger Campeiro',            desc: 'Blend artesanal 200g, queijo americano, alface, tomate, picles e maionese especial no pão brioche.',                           price: 29.90, category: 'classicos', imgCardapio: 'img/burger_campeiro.png',   imgHome: 'img/burger_campeiro.png',   isPromocao: true,  isMaisPedido: false, isProdutoSemana: true, productUrl: ''  },
-    { id: 'bg-smash',       name: 'Smash Burger',               desc: 'Dois smash patties, cheddar, maionese de ervas, cebola caramelizada e picles artesanal.',                                      price: 34.90, category: 'classicos', imgCardapio: '',                          imgHome: '',                          isPromocao: false, isMaisPedido: false, isProdutoSemana: false, productUrl: '' },
-    { id: 'bg-xtudo',       name: 'X-Tudo Pampa',               desc: 'Hambúrguer, bacon, ovo, presunto, queijo, tomate, alface, milho e maionese. Tem de tudo!',                                     price: 38.90, category: 'classicos', imgCardapio: '',                          imgHome: '',                          isPromocao: false, isMaisPedido: false, isProdutoSemana: false, productUrl: '' },
-    { id: 'bg-chicken',     name: 'Chicken Burger',             desc: 'Frango empanado crocante, queijo, alface, tomate e molho honey mustard no pão de leite.',                                      price: 26.90, category: 'classicos', imgCardapio: '',                          imgHome: '',                          isPromocao: false, isMaisPedido: false, isProdutoSemana: false, productUrl: '' },
     // COMBOS
-    { id: 'cb-dog-batata',  name: 'Combo Dog + Batata + Refri', desc: '1 Hot Dog à escolha + Batata Frita Média + Refrigerante Lata. O combo perfeito para o dia a dia!',                            price: 28.90, category: 'combos',    imgCardapio: 'img/batata_refri.png',      imgHome: '',                          isPromocao: true,  isMaisPedido: false, isProdutoSemana: false, productUrl: '' },
-    { id: 'cb-burger-batata',name:'Combo Burger + Batata + Refri',desc:'1 Burger à escolha + Batata Frita Grande + Refrigerante 600ml. Bem servido!',                                                  price: 38.90, category: 'combos',    imgCardapio: '',                          imgHome: '',                          isPromocao: false, isMaisPedido: false, isProdutoSemana: false, productUrl: '' },
-    { id: 'cb-familia',     name: 'Combo Família',              desc: '2 Hot Dogs + 2 Burgers + Batata Grande + 4 Refrigerantes. Perfeito para reunir a galera!',                                     price: 89.90, category: 'combos',    imgCardapio: 'img/combo_familia.png',     imgHome: 'img/combo_familia.png',     isPromocao: true,  isMaisPedido: false, isProdutoSemana: false, productUrl: '' },
-    { id: 'cb-casal',       name: 'Combo Casal',                desc: '2 Lanches à escolha + Batata Frita para dividir + 2 Refrigerantes. Programa perfeito!',                                       price: 54.90, category: 'combos',    imgCardapio: '',                          imgHome: '',                          isPromocao: false, isMaisPedido: false, isProdutoSemana: false, productUrl: '' },
+    { id: "hd-tradicional", name: "Dupla Franguito", desc: "Franguito + Franguito Bacon. Dois lanches com pão no vapor, recheados com strogonoff de frango cremoso, salsicha, tomate fresco, cebola, milho, batata palha crocante e maionese especial gaúcha. A diferença é que o Franguito no Bacon recebe bacon crocante.", price: 38.9, category: "combos", imgCardapio: "img/hotdog_tradicional.png", imgHome: "", isPromocao: false, isMaisPedido: false, isProdutoSemana: false, productUrl: "" },
+    { id: "hd-especial", name: "Dupla Tchê Cremoso", desc: "Tchê Cremoso + Tchê Cremoso Bacon. Dois lanches com pão no vapor, salsicha, tomate fresco, cebola, molho de tomate, purê de batata cremoso, carne moída especial, salsinha, milho, batata palha crocante e maionese especial gaúcha. A versão Bacon recebe bacon crocante.", price: 47.9, category: "combos", imgCardapio: "img/pampa_dog_especial.png", imgHome: "img/hero1.png", isPromocao: true, isMaisPedido: true, isProdutoSemana: true, productUrl: "" },
+    { id: "hd-bacon", name: "Dupla Bão Demais", desc: "Bão Demais + Bão Demais com Bacon. Dois clássicos preparados com pão no vapor, salsicha Perdigão, tomate fresco, cebola, molho de tomate, mostarda, salsinha, milho, batata palha crocante e maionese especial gaúcha.", price: 34.9, category: "combos", imgCardapio: "", imgHome: "", isPromocao: false, isMaisPedido: false, isProdutoSemana: false, productUrl: "" },
+    { id: "hd-cheddar", name: "Dupla Frangolino", desc: "Dois lanches com pão no vapor, salsicha, frango temperado, purê cremoso, tomate, cebola, molho de tomate, salsinha, milho, batata palha crocante e maionese especial gaúcha. Um tradicional e outro com bacon crocante.", price: 42.9, category: "combos", imgCardapio: "", imgHome: "", isPromocao: false, isMaisPedido: false, isProdutoSemana: false, productUrl: "" },
+    { id: "bg-campeiro", name: "Combo Família", desc: "Pampinha Feliz, Bem Capaz e O Loco Tchê completos com tomate, cebola, molho de tomate, mostarda, ovo cozido, salsinha, milho, batata palha crocante, queijo parmesão ralado e maionese especial gaúcha. Acompanha Coca-Cola 1 litro.", price: 69.9, category: "combos", imgCardapio: "img/burger_campeiro.png", imgHome: "img/burger_campeiro.png", isPromocao: true, isMaisPedido: false, isProdutoSemana: true, productUrl: "" },
+    { id: "bg-smash", name: "Combo Pampa Gaúcho", desc: "Acebolado Supreme + BahBacon acompanhados de Mate Couro 1 litro. Ambos preparados com salsicha, tomate fresco, cebola, molho de tomate, mostarda, ovo cozido, salsinha, milho, batata palha crocante, queijo parmesão ralado e maionese especial gaúcha.", price: 69.9, category: "combos", imgCardapio: "", imgHome: "", isPromocao: false, isMaisPedido: false, isProdutoSemana: false, productUrl: "" },
+    // HOT DOGS
+    { id: "bg-xtudo", name: "Frangolino (Purê e Franguinho)", desc: "Pão no vapor, salsicha Perdigão, tomate fresco, cebola, molho de tomate, purê de batata cremoso, frango suculento, salsinha, milho, batata palha crocante e maionese especial gaúcha.", price: 22.5, category: "hotdogs", imgCardapio: "", imgHome: "", isPromocao: false, isMaisPedido: false, isProdutoSemana: false, productUrl: "" },
+    { id: "bg-chicken", name: "Tchê Cremoso (Purê e Carne Moída)", desc: "Pão no vapor, salsicha, carne moída ao molho, purê de batata cremoso, tomate, cebola, milho, salsinha, batata palha crocante e maionese especial gaúcha.", price: 23.9, category: "hotdogs", imgCardapio: "", imgHome: "", isPromocao: false, isMaisPedido: false, isProdutoSemana: false, productUrl: "" },
+    { id: "cb-dog-batata", name: "Bão Demais", desc: "Pão no vapor, salsicha Perdigão, tomate fresco, cebola picada, molho de tomate, mostarda, salsinha, milho verde, batata palha crocante e maionese especial gaúcha.", price: 17.9, category: "hotdogs", imgCardapio: "img/batata_refri.png", imgHome: "", isPromocao: true, isMaisPedido: false, isProdutoSemana: false, productUrl: "" },
+    { id: "cb-burger-batata", name: "Franguito", desc: "Pão no vapor, strogonoff de frango, salsicha Perdigão, tomate fresco, cebola crua picada, milho verde, batata palha crocante e maionese especial gaúcha.", price: 21.9, category: "hotdogs", imgCardapio: "", imgHome: "", isPromocao: false, isMaisPedido: false, isProdutoSemana: false, productUrl: "" },
+    { id: "cb-familia", name: "Bão Demais com Bacon", desc: "Pão no vapor, salsicha Perdigão, tomate fresco, cebola picada, molho de tomate, mostarda, milho verde, batata palha crocante, bacon crocante e maionese especial gaúcha.", price: 21.9, category: "hotdogs", imgCardapio: "img/combo_familia.png", imgHome: "img/combo_familia.png", isPromocao: true, isMaisPedido: false, isProdutoSemana: false, productUrl: "" },
+    { id: "cb-casal", name: "Tchê Cremoso Bacon", desc: "Pão no vapor, salsicha, tomate fresco, cebola, molho vermelho, purê de batata cremoso, carne moída especial, milho, batata palha crocante, bacon crocante e maionese especial gaúcha.", price: 27.9, category: "hotdogs", imgCardapio: "", imgHome: "", isPromocao: false, isMaisPedido: false, isProdutoSemana: false, productUrl: "" },
+    { id: "beb-refri", name: "Franguito Bacon", desc: "Pão no vapor, strogonoff de frango, salsicha Perdigão, tomate fresco, cebola, milho verde, batata palha crocante, bacon crocante e maionese especial gaúcha.", price: 23.9, category: "hotdogs", imgCardapio: "", imgHome: "", isPromocao: false, isMaisPedido: false, isProdutoSemana: false, productUrl: "" },
+    // CL?SSICOS
+    { id: "beb-suco", name: "Pampa Insano", desc: "Pão gigante de 23 cm, 3 salsichas Perdigão, tomate fresco, cebola, molho de tomate, mostarda, ovo cozido, salsinha, milho, batata palha crocante, queijo parmesão ralado e maionese especial gaúcha. Serve até 2 pessoas.", price: 36.9, category: "classicos", imgCardapio: "", imgHome: "", isPromocao: false, isMaisPedido: false, isProdutoSemana: false, productUrl: "" },
+    { id: "beb-agua", name: "BahBacon", desc: "Pão no vapor, salsicha Perdigão, tomate fresco, cebola, molho de tomate, mostarda, ovo cozido, salsinha, milho, batata palha crocante, queijo parmesão ralado, bacon crocante e maionese especial gaúcha.", price: 32.9, category: "classicos", imgCardapio: "", imgHome: "", isPromocao: false, isMaisPedido: false, isProdutoSemana: false, productUrl: "" },
+    { id: "beb-milk", name: "Pampinha Feliz", desc: "Pão pequeno, 1 salsicha, tomate, cebola, molho vermelho, mostarda, ovo picado, salsinha, milho, batata palha, queijo ralado e maionese especial gaúcha.", price: 16.9, category: "classicos", imgCardapio: "", imgHome: "", isPromocao: false, isMaisPedido: false, isProdutoSemana: false, productUrl: "" },
+    { id: "add-bacon", name: "Bem Capaz", desc: "Pão no vapor com 1 salsicha, tomate, cebola, molho de tomate, mostarda, ovo cozido, salsinha, milho, batata palha, queijo ralado e maionese especial gaúcha.", price: 22.9, category: "classicos", imgCardapio: "", imgHome: "", isPromocao: false, isMaisPedido: false, isProdutoSemana: false, productUrl: "" },
+    { id: "add-cheddar", name: "O Loco Tchê", desc: "Pão no vapor com 2 salsichas, tomate, cebola, molho de tomate, mostarda, ovo cozido, salsinha, milho, batata palha, queijo ralado e maionese especial gaúcha.", price: 27.9, category: "classicos", imgCardapio: "", imgHome: "", isPromocao: false, isMaisPedido: false, isProdutoSemana: false, productUrl: "" },
+    { id: "add-batata", name: "Prime Frango", desc: "Pão no vapor, strogonoff de frango, salsicha Perdigão, tomate fresco, cebola, molho de tomate, mostarda, ovo cozido, salsinha, milho, batata palha, queijo parmesão ralado e maionese especial gaúcha.", price: 30.9, category: "classicos", imgCardapio: "img/batata_refri.png", imgHome: "", isPromocao: false, isMaisPedido: false, isProdutoSemana: false, productUrl: "" },
+    { id: "add-ovo", name: "Barbaridade Tchê", desc: "Pão no vapor, linguiça calabresa Sadia, tomate, cebola, molho de tomate, mostarda, ovo cozido, salsinha, milho, batata palha, queijo ralado e maionese especial gaúcha.", price: 28.9, category: "classicos", imgCardapio: "", imgHome: "", isPromocao: false, isMaisPedido: false, isProdutoSemana: false, productUrl: "" },
+    { id: "cla-acebolado-supreme", imgCardapio: "", imgHome: "", isPromocao: false, isMaisPedido: false, isProdutoSemana: false, productUrl: "", imgHero: "", name: "Acebolado Supreme", desc: "Carne acebolada amanteigada, salsicha Perdigão, tomate fresco, molho de tomate, mostarda, ovo cozido, salsinha, milho, batata palha crocante, queijo parmesão ralado e maionese especial gaúcha.", price: 32.9, category: "classicos" },
     // BEBIDAS
-    { id: 'beb-refri',      name: 'Refrigerante Lata',          desc: 'Coca-Cola, Guaraná Antarctica, Fanta Laranja ou Sprite. Lata 350ml geladinha!',                                               price:  5.00, category: 'bebidas',   imgCardapio: '',                          imgHome: '',                          isPromocao: false, isMaisPedido: false, isProdutoSemana: false, productUrl: '' },
-    { id: 'beb-suco',       name: 'Suco Natural',               desc: 'Laranja, limão, morango ou maracujá. Feito na hora, 300ml, sem conservantes.',                                                 price:  9.00, category: 'bebidas',   imgCardapio: '',                          imgHome: '',                          isPromocao: false, isMaisPedido: false, isProdutoSemana: false, productUrl: '' },
-    { id: 'beb-agua',       name: 'Água Mineral',               desc: 'Água mineral 500ml com ou sem gás. Sempre geladinha!',                                                                         price:  3.50, category: 'bebidas',   imgCardapio: '',                          imgHome: '',                          isPromocao: false, isMaisPedido: false, isProdutoSemana: false, productUrl: '' },
-    { id: 'beb-milk',       name: 'Milk Shake',                 desc: 'Morango, chocolate, baunilha ou Nutella. Cremoso, gelado e irresistível! 400ml.',                                              price: 16.90, category: 'bebidas',   imgCardapio: '',                          imgHome: '',                          isPromocao: false, isMaisPedido: false, isProdutoSemana: false, productUrl: '' },
-    // ADICIONAIS
-    { id: 'add-bacon',      name: 'Bacon Extra',                desc: 'Mais tiras de bacon crocante no seu lanche.',                                                                                  price:  4.00, category: 'adicionais', imgCardapio: '',                          imgHome: '',                          isPromocao: false, isMaisPedido: false, isProdutoSemana: false, productUrl: '' },
-    { id: 'add-cheddar',    name: 'Cheddar Extra',              desc: 'Porção extra de cheddar cremoso derretido.',                                                                                   price:  3.50, category: 'adicionais', imgCardapio: '',                          imgHome: '',                          isPromocao: false, isMaisPedido: false, isProdutoSemana: false, productUrl: '' },
-    { id: 'add-batata',     name: 'Batata Frita',               desc: 'Batata frita crocante temperada. Porção pequena, média ou grande.',                                                            price:  8.00, category: 'adicionais', imgCardapio: 'img/batata_refri.png',      imgHome: '',                          isPromocao: false, isMaisPedido: false, isProdutoSemana: false, productUrl: '' },
-    { id: 'add-ovo',        name: 'Ovo Frito',                  desc: 'Ovo frito quentinho para complementar seu lanche.',                                                                            price:  2.50, category: 'adicionais', imgCardapio: '',                          imgHome: '',                          isPromocao: false, isMaisPedido: false, isProdutoSemana: false, productUrl: '' }
+    { id: "beb-suco-natural-maracuja-500ml", imgCardapio: "", imgHome: "", isPromocao: false, isMaisPedido: false, isProdutoSemana: false, productUrl: "", imgHero: "", name: "Suco Natural Maracujá 500ml", desc: "Gelado.", price: 9, category: "bebidas" },
+    { id: "beb-suco-natural-goiaba-500ml", imgCardapio: "", imgHome: "", isPromocao: false, isMaisPedido: false, isProdutoSemana: false, productUrl: "", imgHero: "", name: "Suco Natural Goiaba 500ml", desc: "Gelado.", price: 9, category: "bebidas" },
+    { id: "beb-suco-natural-caju-500ml", imgCardapio: "", imgHome: "", isPromocao: false, isMaisPedido: false, isProdutoSemana: false, productUrl: "", imgHero: "", name: "Suco Natural Cajú 500ml", desc: "Gelado.", price: 9, category: "bebidas" },
+    { id: "beb-agua-500ml", imgCardapio: "", imgHome: "", isPromocao: false, isMaisPedido: false, isProdutoSemana: false, productUrl: "", imgHero: "", name: "Água 500ml", desc: "Escolha entre água com ou sem gás.", price: "Consultar", category: "bebidas" },
+    { id: "beb-refrigerante-lata", imgCardapio: "", imgHome: "", isPromocao: false, isMaisPedido: false, isProdutoSemana: false, productUrl: "", imgHero: "", name: "Refrigerante Lata", desc: "Escolha o seu refrigerante.", price: "Consultar", category: "bebidas" },
+    { id: "beb-refrigerante-600ml", imgCardapio: "", imgHome: "", isPromocao: false, isMaisPedido: false, isProdutoSemana: false, productUrl: "", imgHero: "", name: "Refrigerante 600ml", desc: "Escolha o seu refrigerante.", price: "Consultar", category: "bebidas" },
+    { id: "beb-refrigerante-1l", imgCardapio: "", imgHome: "", isPromocao: false, isMaisPedido: false, isProdutoSemana: false, productUrl: "", imgHero: "", name: "Refrigerante 1L", desc: "Escolha o seu refrigerante.", price: "Consultar", category: "bebidas" },
+    { id: "beb-refrigerante-1-5l", imgCardapio: "", imgHome: "", isPromocao: false, isMaisPedido: false, isProdutoSemana: false, productUrl: "", imgHero: "", name: "Refrigerante 1,5L", desc: "Escolha o seu refrigerante.", price: "Consultar", category: "bebidas" },
+    { id: "beb-refrigerante-2l", imgCardapio: "", imgHome: "", isPromocao: false, isMaisPedido: false, isProdutoSemana: false, productUrl: "", imgHero: "", name: "Refrigerante 2L", desc: "Escolha o seu refrigerante.", price: "Consultar", category: "bebidas" },
+    { id: "beb-del-valle-kapo-200ml", imgCardapio: "", imgHome: "", isPromocao: false, isMaisPedido: false, isProdutoSemana: false, productUrl: "", imgHero: "", name: "Del Valle Kapo 200ml", desc: "Escolha o sabor.", price: "Consultar", category: "bebidas" },
+    { id: "beb-h2o-zero-acucar-500ml", imgCardapio: "", imgHome: "", isPromocao: false, isMaisPedido: false, isProdutoSemana: false, productUrl: "", imgHero: "", name: "H2O Zero Açúcar 500ml", desc: "Bebida refrescante.", price: 8, category: "bebidas" },
+    { id: "beb-h2o-limoneto", imgCardapio: "", imgHome: "", isPromocao: false, isMaisPedido: false, isProdutoSemana: false, productUrl: "", imgHero: "", name: "H2O Limoneto", desc: "Bebida refrescante sabor limão.", price: 8.5, category: "bebidas" },
+    { id: "beb-heineken-473ml", imgCardapio: "", imgHome: "", isPromocao: false, isMaisPedido: false, isProdutoSemana: false, productUrl: "", imgHero: "", name: "Heineken 473ml", desc: "Cerveja gelada.", price: 10, category: "bebidas" },
+    { id: "beb-brahma-latao-550ml", imgCardapio: "", imgHome: "", isPromocao: false, isMaisPedido: false, isProdutoSemana: false, productUrl: "", imgHero: "", name: "Brahma Latão 550ml", desc: "Cerveja gelada.", price: 10, category: "bebidas" }
   ];
 
   /* ============================================================
@@ -178,7 +192,14 @@ var PD = (function () {
   }
 
   function formatPrice(price) {
-    return Number(price).toFixed(2).replace('.', ',');
+    var value = Number(price);
+    if (!Number.isFinite(value)) return String(price || '');
+    return value.toFixed(2).replace('.', ',');
+  }
+
+  function displayPrice(price) {
+    var formatted = formatPrice(price);
+    return Number.isFinite(Number(price)) ? 'R$ ' + formatted : formatted;
   }
 
   function getPlaceholder(category) {
@@ -198,7 +219,7 @@ var PD = (function () {
     if (url.indexOf('wa.me') !== -1 || url.indexOf('api.whatsapp.com') !== -1 || url.indexOf('web.whatsapp.com') !== -1) {
       if (url.indexOf('text=') === -1) {
         var emoji = catEmoji[normalizeCategory(product.category)] || '🍔';
-        var msg = "Olá! Gostaria de fazer um pedido:\n\n" + emoji + " Produto: " + product.name + "\n💰 Valor: R$ " + formatPrice(product.price);
+        var msg = "Olá! Gostaria de fazer um pedido:\n\n" + emoji + " Produto: " + product.name + "\n💰 Valor: " + displayPrice(product.price);
         var sep = url.indexOf('?') !== -1 ? '&' : '?';
         url += sep + 'text=' + encodeURIComponent(msg);
       }
@@ -268,7 +289,7 @@ var PD = (function () {
             + '</div>'
             + '<h3 class="semana-name">' + p.name + '</h3>'
             + '<p class="semana-desc">' + p.desc + '</p>'
-            + '<div class="semana-price">R$ ' + formatPrice(p.price) + '</div>'
+            + '<div class="semana-price">' + displayPrice(p.price) + '</div>'
             + '<a href="' + buildProductUrl(p) + '" target="_blank" rel="noopener" '
             +    'class="btn btn-primary btn-lg" data-action="pedido" data-item="' + p.name + '">'
             +   '🛵 Pedir agora'
@@ -292,7 +313,7 @@ var PD = (function () {
             + '</div>'
             + '<h3 class="semana-name">' + p.name + '</h3>'
             + '<p class="semana-desc">' + p.desc + '</p>'
-            + '<div class="semana-price">R$ ' + formatPrice(p.price) + '</div>'
+            + '<div class="semana-price">' + displayPrice(p.price) + '</div>'
             + '<a href="' + buildProductUrl(p) + '" target="_blank" rel="noopener" '
             +    'class="btn btn-primary btn-lg" data-action="pedido" data-item="' + p.name + '">'
             +   '🛵 Pedir agora'
@@ -447,7 +468,7 @@ var PD = (function () {
           + '<h3 class="card-name">' + p.name + '</h3>'
           + '<p class="card-desc">' + p.desc + '</p>'
           + '<div class="card-footer">'
-            + '<div class="card-price">R$ ' + formatPrice(p.price) + '</div>'
+            + '<div class="card-price">' + displayPrice(p.price) + '</div>'
             + '<a href="' + buildProductUrl(p) + '" target="_blank" rel="noopener" '
             +    'class="btn btn-primary btn-sm" data-action="pedido" data-item="' + p.name + '">Pedir</a>'
           + '</div>'
@@ -489,7 +510,7 @@ var PD = (function () {
               + '<h3 class="menu-card-name">' + p.name + '</h3>'
               + '<p class="menu-card-desc">' + p.desc + '</p>'
               + '<div class="menu-card-footer">'
-                + '<div class="menu-price">R$ ' + formatPrice(p.price) + '</div>'
+                + '<div class="menu-price">' + displayPrice(p.price) + '</div>'
                 + '<a href="' + buildProductUrl(p) + '" target="_blank" rel="noopener" '
                 + 'class="btn btn-primary btn-sm" data-action="pedido" data-item="' + p.name + '">Pedir agora</a>'
               + '</div>'
@@ -557,6 +578,7 @@ var PD = (function () {
     toggleFlag:             toggleFlag,
     getProductImage:        getProductImage,
     formatPrice:            formatPrice,
+    displayPrice:           displayPrice,
     getPlaceholder:         getPlaceholder,
     catEmoji:               catEmoji,
     catLabel:               catLabel,

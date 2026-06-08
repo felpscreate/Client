@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="admin-card-img">${imgHtml}</div>
             <div>
               <div class="admin-card-title">${p.name}</div>
-              <div class="admin-card-cat">${PD.catLabel[normalizeCategory(p.category)]} • R$ ${PD.formatPrice(p.price)}</div>
+              <div class="admin-card-cat">${PD.catLabel[normalizeCategory(p.category)]} • ${PD.displayPrice(p.price)}</div>
             </div>
           </div>
           
@@ -267,12 +267,13 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       
       let rawPrice = document.getElementById('edit-price').value.replace(',', '.');
+      let parsedPrice = parseFloat(rawPrice);
       
       const updated = Object.assign({}, original, {
         category: document.getElementById('edit-category').value,
         name: document.getElementById('edit-name').value,
         desc: document.getElementById('edit-desc').value,
-        price: parseFloat(rawPrice) || 0,
+        price: Number.isFinite(parsedPrice) ? parsedPrice : rawPrice.trim(),
         productUrl: document.getElementById('edit-product-url').value.trim(),
         imgCardapio: document.getElementById('edit-img-cardapio').value.trim(),
         imgHome: '',
@@ -295,7 +296,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('edit-category').value = normalizeCategory(p.category);
     document.getElementById('edit-name').value = p.name;
     document.getElementById('edit-desc').value = p.desc;
-    document.getElementById('edit-price').value = p.price.toFixed(2).replace('.', ',');
+    document.getElementById('edit-price').value = typeof p.price === 'number' ? p.price.toFixed(2).replace('.', ',') : (p.price || '');
     document.getElementById('edit-product-url').value = p.productUrl || '';
     document.getElementById('edit-img-cardapio').value = p.imgCardapio || '';
     resetUploadPreview();
