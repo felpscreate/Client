@@ -1,0 +1,695 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#dca8be" />
+  <meta name="description" content="Convite de 15 anos da Manu — 17 de outubro, às 20h." />
+  <title>15 anos da Manu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Allura&family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #233b8f;
+      --ink-deep: #17286b;
+      --rose: #b785a7;
+      --rose-deep: #8b577c;
+      --gold: #b88937;
+      --gold-light: #e6c879;
+      --paper: #fff8f7;
+      --shadow: 0 28px 90px rgba(98, 51, 80, .24);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--ink);
+      font-family: "Montserrat", sans-serif;
+      background: #eac4d2;
+      overflow-x: hidden;
+    }
+    body.before-open { overflow: hidden; }
+    button, input { font: inherit; }
+    button { -webkit-tap-highlight-color: transparent; }
+
+    .page {
+      position: relative;
+      min-height: 100svh;
+      width: 100%;
+      display: grid;
+      place-items: center;
+      padding: 28px 16px;
+      isolation: isolate;
+      overflow: hidden;
+    }
+    .nebula-canvas {
+      position: fixed;
+      inset: 0;
+      z-index: -4;
+      width: 100%;
+      height: 100%;
+      background: #dba5bd;
+    }
+    .page::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -3;
+      background: url("assets/fundo-convite.png") center / cover no-repeat;
+      transform: scale(1.02);
+      opacity: .64;
+      mix-blend-mode: screen;
+    }
+    .page::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      background: radial-gradient(circle at center, rgba(255,249,249,.22) 0 34%, rgba(91,36,78,.18) 100%);
+      pointer-events: none;
+    }
+
+    .invitation {
+      position: relative;
+      width: min(100%, 480px);
+      min-height: min(780px, calc(100svh - 56px));
+      padding: clamp(38px, 7vw, 64px) clamp(22px, 6vw, 48px) 34px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      border: 1px solid rgba(180, 132, 54, .56);
+      border-radius: 28px 28px 90px 28px;
+      background: rgba(255, 249, 248, .54);
+      box-shadow: var(--shadow), inset 0 0 0 5px rgba(255,255,255,.25);
+      backdrop-filter: blur(3px);
+      -webkit-backdrop-filter: blur(3px);
+    }
+    .invitation::before,
+    .invitation::after {
+      content: "✦";
+      position: absolute;
+      color: var(--gold);
+      font-size: 1rem;
+      text-shadow: 0 0 18px rgba(255, 229, 143, .9);
+      animation: twinkle 2.8s ease-in-out infinite;
+    }
+    .invitation::before { top: 19px; left: 23px; }
+    .invitation::after { right: 23px; bottom: 20px; animation-delay: 1.2s; }
+
+    .eyebrow {
+      margin: 0 0 2px;
+      color: var(--gold);
+      font-family: "Cormorant Garamond", serif;
+      font-size: .86rem;
+      font-weight: 700;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+    }
+    h1 {
+      margin: 0;
+      color: var(--rose-deep);
+      font-family: "Allura", cursive;
+      font-size: clamp(4.5rem, 18vw, 7rem);
+      font-weight: 400;
+      line-height: .9;
+      text-shadow: 0 2px 0 #fff, 0 8px 26px rgba(139,87,124,.22);
+    }
+    .ornament {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      width: min(270px, 84%);
+      margin: 10px auto 18px;
+      color: var(--gold);
+    }
+    .ornament::before, .ornament::after {
+      content: "";
+      height: 1px;
+      flex: 1;
+      background: linear-gradient(90deg, transparent, currentColor);
+    }
+    .ornament::after { background: linear-gradient(90deg, currentColor, transparent); }
+    .ornament span { font-size: 1.05rem; }
+
+    .intro {
+      margin: 0 auto 22px;
+      max-width: 310px;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(1.25rem, 5vw, 1.65rem);
+      font-weight: 600;
+      line-height: 1.15;
+    }
+    .intro strong { color: var(--rose-deep); font-weight: 700; }
+
+    .date-card {
+      display: grid;
+      grid-template-columns: 1fr 1px 1fr;
+      align-items: stretch;
+      width: min(100%, 336px);
+      margin: 0 auto 18px;
+      border: 1px solid rgba(184,137,55,.75);
+      border-radius: 18px;
+      background: rgba(255,255,255,.45);
+      box-shadow: 0 14px 34px rgba(114,72,93,.11);
+      overflow: hidden;
+    }
+    .date-divider { background: linear-gradient(transparent, var(--gold), transparent); }
+    .date-block { padding: 15px 10px 14px; }
+    .date-label {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--rose-deep);
+      font-size: .68rem;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+    .date-main {
+      display: block;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 2.35rem;
+      font-weight: 700;
+      line-height: .9;
+    }
+    .date-small {
+      display: block;
+      margin-top: 5px;
+      color: var(--rose-deep);
+      font-family: "Cormorant Garamond", serif;
+      font-size: .8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .notes {
+      margin: 0 auto 25px;
+      max-width: 330px;
+      color: var(--ink-deep);
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1rem;
+      font-weight: 600;
+      line-height: 1.25;
+    }
+    .notes strong { color: var(--rose-deep); }
+
+    .actions {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      align-items: start;
+    }
+    .action {
+      appearance: none;
+      border: 0;
+      padding: 0;
+      color: var(--ink-deep);
+      background: transparent;
+      cursor: pointer;
+    }
+    .action-icon {
+      position: relative;
+      width: clamp(68px, 20vw, 88px);
+      aspect-ratio: 1;
+      margin: 0 auto 9px;
+      display: grid;
+      place-items: center;
+      color: white;
+      border: 1px solid rgba(92, 45, 79, .56);
+      border-radius: 50%;
+      background: linear-gradient(145deg, #c39ab6, #996789);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.55), 0 10px 24px rgba(94,50,81,.22);
+      transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
+    }
+    .action-icon::before {
+      content: "";
+      position: absolute;
+      inset: -5px;
+      z-index: -1;
+      padding: 2px;
+      border-radius: inherit;
+      background: conic-gradient(from 0deg, transparent 0 20%, rgba(255,255,255,.95) 28%, var(--gold-light) 36%, transparent 47% 72%, rgba(255,210,235,.9) 82%, transparent 92%);
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      animation: loader-spin 3.2s linear infinite;
+      filter: drop-shadow(0 0 7px rgba(255,230,245,.8));
+    }
+    .action-icon::after {
+      content: "";
+      position: absolute;
+      inset: 8px;
+      border: 1px solid rgba(255,255,255,.28);
+      border-radius: 50%;
+      animation: loader-pulse 2.2s ease-in-out infinite;
+    }
+    .action svg { width: 31px; height: 31px; stroke-width: 1.7; }
+    .action-label {
+      display: block;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(.86rem, 3.4vw, 1rem);
+      font-weight: 700;
+      line-height: 1.05;
+    }
+    .action:hover .action-icon,
+    .action:focus-visible .action-icon {
+      transform: translateY(-5px) scale(1.03);
+      background: linear-gradient(145deg, #cfabc1, #8b577c);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.65), 0 15px 29px rgba(94,50,81,.3);
+    }
+    .action:focus-visible { outline: 2px solid var(--ink); outline-offset: 5px; border-radius: 8px; }
+
+    .veil {
+      position: fixed;
+      inset: 0;
+      z-index: 10;
+      visibility: hidden;
+      opacity: 0;
+      background: rgba(43, 22, 41, .38);
+      backdrop-filter: blur(5px);
+      transition: opacity .35s ease, visibility .35s ease;
+    }
+    .veil.open { visibility: visible; opacity: 1; }
+    .sheet {
+      position: fixed;
+      top: 0;
+      right: 0;
+      z-index: 11;
+      width: min(92vw, 430px);
+      height: 100%;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      color: var(--ink-deep);
+      background: linear-gradient(160deg, #fffaf9, #f8e5eb);
+      border-left: 1px solid rgba(184,137,55,.45);
+      box-shadow: -24px 0 70px rgba(49, 23, 42, .25);
+      transform: translateX(104%);
+      transition: transform .42s cubic-bezier(.2,.8,.2,1);
+    }
+    .veil.open .sheet { transform: translateX(0); }
+    .sheet::before {
+      content: "";
+      position: absolute;
+      inset: 12px;
+      border: 1px solid rgba(184,137,55,.34);
+      border-radius: 22px;
+      pointer-events: none;
+    }
+    .sheet-content { position: relative; z-index: 1; }
+    .close {
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      z-index: 2;
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(139,87,124,.28);
+      border-radius: 50%;
+      color: var(--rose-deep);
+      background: rgba(255,255,255,.7);
+      cursor: pointer;
+    }
+    .close:hover { background: white; }
+    .sheet-kicker {
+      margin: 0 0 8px;
+      color: var(--gold);
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+    .sheet h2 {
+      margin: 0 0 18px;
+      color: var(--rose-deep);
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(2.4rem, 8vw, 3.4rem);
+      line-height: .92;
+    }
+    .sheet p { margin: 0 0 17px; font-size: 1rem; line-height: 1.65; }
+    .info-box {
+      margin: 8px 0 22px;
+      padding: 18px;
+      border: 1px solid rgba(184,137,55,.38);
+      border-radius: 16px;
+      background: rgba(255,255,255,.58);
+    }
+    .info-box span { display: block; margin-bottom: 5px; color: var(--rose-deep); font-size: .76rem; font-weight: 700; text-transform: uppercase; }
+    .info-box strong { font-family: "Cormorant Garamond", serif; font-size: 1.3rem; }
+    .primary {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      width: 100%;
+      min-height: 52px;
+      padding: 14px 20px;
+      border: 0;
+      border-radius: 999px;
+      color: white;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      background: linear-gradient(135deg, var(--rose), var(--rose-deep));
+      box-shadow: 0 12px 28px rgba(111,63,94,.25);
+      cursor: pointer;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .primary::before {
+      content: "";
+      position: absolute;
+      inset: -3px;
+      z-index: -2;
+      border-radius: inherit;
+      background: conic-gradient(from var(--shimmer-angle), transparent 0 72%, #fff 79%, var(--gold-light) 83%, transparent 90%);
+      animation: shimmer-rotate 2.8s linear infinite;
+    }
+    .primary::after {
+      content: "";
+      position: absolute;
+      inset: 2px;
+      z-index: -1;
+      border-radius: inherit;
+      background: linear-gradient(135deg, var(--rose), var(--rose-deep));
+    }
+    .primary:hover { transform: translateY(-2px); box-shadow: 0 16px 32px rgba(111,63,94,.32); }
+    label { display: block; margin: 0 0 8px; font-size: .84rem; font-weight: 700; color: var(--rose-deep); }
+    input {
+      width: 100%;
+      min-height: 52px;
+      margin-bottom: 14px;
+      padding: 0 16px;
+      border: 1px solid rgba(139,87,124,.38);
+      border-radius: 13px;
+      color: var(--ink-deep);
+      background: rgba(255,255,255,.78);
+      outline: 0;
+    }
+    input:focus { border-color: var(--rose-deep); box-shadow: 0 0 0 3px rgba(183,133,167,.17); }
+    .pix-value { color: var(--rose-deep); font-family: "Cormorant Garamond", serif; font-size: 2.1rem; font-weight: 700; }
+
+    .sound-toggle {
+      position: fixed;
+      right: max(16px, env(safe-area-inset-right));
+      bottom: max(16px, env(safe-area-inset-bottom));
+      z-index: 8;
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(255,255,255,.7);
+      border-radius: 50%;
+      color: white;
+      background: rgba(116,65,101,.82);
+      box-shadow: 0 10px 30px rgba(73,31,62,.28);
+      backdrop-filter: blur(12px);
+      cursor: pointer;
+    }
+    .sound-toggle svg { width: 22px; height: 22px; }
+    .sound-toggle .sound-off { display: none; }
+    .sound-toggle.muted .sound-on { display: none; }
+    .sound-toggle.muted .sound-off { display: block; }
+
+    .welcome {
+      position: fixed;
+      inset: 0;
+      z-index: 30;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      color: white;
+      text-align: center;
+      background: radial-gradient(circle at 50% 42%, rgba(217,146,184,.55), rgba(73,26,64,.9)), url("assets/fundo-convite.png") center / cover;
+      transition: opacity .8s ease, visibility .8s ease;
+    }
+    .welcome.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+    .welcome-card { animation: welcome-float 3s ease-in-out infinite; }
+    .welcome-small { margin: 0; font-size: .75rem; font-weight: 600; letter-spacing: .25em; text-transform: uppercase; }
+    .welcome h2 { margin: 2px 0 12px; font-family: "Allura", cursive; font-size: clamp(5rem, 22vw, 8rem); font-weight: 400; line-height: 1; text-shadow: 0 8px 35px rgba(69,24,57,.4); }
+    .welcome p { margin: 0 0 24px; font-family: "Cormorant Garamond", serif; font-size: 1.25rem; }
+    .welcome .primary { width: auto; min-width: 210px; }
+
+    @keyframes twinkle { 0%,100% { opacity:.45; transform:scale(.85) rotate(0); } 50% { opacity:1; transform:scale(1.15) rotate(20deg); } }
+    @property --shimmer-angle { syntax: "<angle>"; initial-value: 0deg; inherits: false; }
+    @keyframes shimmer-rotate { to { --shimmer-angle: 360deg; } }
+    @keyframes loader-spin { to { transform: rotate(360deg); } }
+    @keyframes loader-pulse { 0%,100% { opacity:.28; transform:scale(.92); } 50% { opacity:.72; transform:scale(1); } }
+    @keyframes welcome-float { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-8px); } }
+    @media (max-width: 520px) {
+      .page { padding: 0; }
+      .invitation {
+        width: 100%;
+        min-height: 100svh;
+        border: 0;
+        border-radius: 0;
+        padding-top: max(34px, env(safe-area-inset-top));
+        padding-bottom: max(24px, env(safe-area-inset-bottom));
+        box-shadow: none;
+        background: rgba(255,249,248,.35);
+      }
+      .sheet { width: min(94vw, 430px); padding: 28px 25px; }
+    }
+    @media (max-height: 700px) and (orientation: landscape) {
+      .invitation { min-height: auto; padding-block: 32px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <canvas class="nebula-canvas" id="nebula" aria-hidden="true"></canvas>
+  <div class="welcome" id="welcome">
+    <div class="welcome-card">
+      <p class="welcome-small">Você está convidado</p>
+      <h2>Manu</h2>
+      <p>Uma noite para celebrar sonhos e novos começos.</p>
+      <button class="primary" id="open-invitation" type="button">Abrir convite ✦</button>
+    </div>
+  </div>
+  <main class="page">
+    <article class="invitation" aria-labelledby="title">
+      <p class="eyebrow">Meus 15 anos</p>
+      <h1 id="title">Manu</h1>
+      <div class="ornament" aria-hidden="true"><span>❦</span></div>
+      <p class="intro">Meus 15 anos,<br><strong>um novo começo</strong><br>de sonhos, amor<br>e conquistas!</p>
+
+      <section class="date-card" aria-label="Data e horário da festa">
+        <div class="date-block">
+          <span class="date-label">Sábado</span>
+          <span class="date-main">17</span>
+          <span class="date-small">Outubro</span>
+        </div>
+        <div class="date-divider" aria-hidden="true"></div>
+        <div class="date-block">
+          <span class="date-label">Horário</span>
+          <span class="date-main">20h</span>
+          <span class="date-small">Espero você</span>
+        </div>
+      </section>
+
+      <p class="notes"><strong>Traje:</strong> Esporte fino<br><strong>Bebidas alcoólicas:</strong> cada convidado poderá levar a sua.</p>
+
+      <nav class="actions" aria-label="Informações do convite">
+        <button class="action" type="button" data-panel="address">
+          <span class="action-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+          </span>
+          <span class="action-label">Endereço</span>
+        </button>
+        <button class="action" type="button" data-panel="confirm">
+          <span class="action-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m5 12 4 4L19 6"/><circle cx="12" cy="12" r="10"/></svg>
+          </span>
+          <span class="action-label">Confirmação</span>
+        </button>
+        <button class="action" type="button" data-panel="gift">
+          <span class="action-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="8" width="18" height="13" rx="2"/><path d="M12 8v13M3 12h18M7.5 8C5 8 4 6.8 4 5.5S5.1 3 6.5 3C9 3 12 8 12 8s3-5 5.5-5C18.9 3 20 4.1 20 5.5S19 8 16.5 8"/></svg>
+          </span>
+          <span class="action-label">Dicas de<br>presente</span>
+        </button>
+      </nav>
+    </article>
+  </main>
+
+  <audio id="background-music" src="assets/vem-pros-15-da-manu.mp3" loop preload="auto"></audio>
+  <button class="sound-toggle muted" id="sound-toggle" type="button" aria-label="Ativar música" title="Ativar ou pausar música">
+    <svg class="sound-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 18V5l10-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="16" cy="16" r="3"/></svg>
+    <svg class="sound-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 18V5l10-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="16" cy="16" r="3"/><path d="m3 3 18 18"/></svg>
+  </button>
+
+  <div class="veil" id="address" role="dialog" aria-modal="true" aria-labelledby="address-title">
+    <aside class="sheet">
+      <button class="close" type="button" aria-label="Fechar">✕</button>
+      <div class="sheet-content">
+        <p class="sheet-kicker">Local da festa</p>
+        <h2 id="address-title">Endereço</h2>
+        <p>Venha celebrar esse momento especial comigo.</p>
+        <div class="info-box"><span>Onde será</span><strong>Rua Portal dos Pinheiros, nº 200</strong></div>
+        <a class="primary" href="https://www.google.com/maps/search/?api=1&query=Rua%20Portal%20dos%20Pinheiros%20200" target="_blank" rel="noopener">Como chegar</a>
+      </div>
+    </aside>
+  </div>
+
+  <div class="veil" id="confirm" role="dialog" aria-modal="true" aria-labelledby="confirm-title">
+    <aside class="sheet">
+      <button class="close" type="button" aria-label="Fechar">✕</button>
+      <div class="sheet-content">
+        <p class="sheet-kicker">Você vem?</p>
+        <h2 id="confirm-title">Confirme sua presença</h2>
+        <p>Preencha seu nome para enviar a confirmação pelo WhatsApp.</p>
+        <form id="confirm-form">
+          <label for="guest-name">Seu nome</label>
+          <input id="guest-name" name="name" type="text" autocomplete="name" placeholder="Digite seu nome" required maxlength="80">
+          <button class="primary" type="submit">Confirmar pelo WhatsApp</button>
+        </form>
+      </div>
+    </aside>
+  </div>
+
+  <div class="veil" id="gift" role="dialog" aria-modal="true" aria-labelledby="gift-title">
+    <aside class="sheet">
+      <button class="close" type="button" aria-label="Fechar">✕</button>
+      <div class="sheet-content">
+        <p class="sheet-kicker">Dica de presente</p>
+        <h2 id="gift-title">Um presente especial</h2>
+        <p>Se desejar me presentear, estou juntando para comprar um celular novo.</p>
+        <div class="info-box">
+          <span>Sugestão</span>
+          <strong class="pix-value">Pix de R$ 50,00</strong>
+        </div>
+        <div class="info-box"><span>Chave Pix — celular</span><strong>51992341293</strong></div>
+      </div>
+    </aside>
+  </div>
+
+  <script>
+    document.body.classList.add('before-open');
+    const music = document.getElementById('background-music');
+    const soundToggle = document.getElementById('sound-toggle');
+    const welcome = document.getElementById('welcome');
+
+    async function playMusic() {
+      try {
+        music.volume = .5;
+        await music.play();
+        soundToggle.classList.remove('muted');
+        soundToggle.setAttribute('aria-label', 'Pausar música');
+      } catch (_) {
+        soundToggle.classList.add('muted');
+      }
+    }
+
+    document.getElementById('open-invitation').addEventListener('click', () => {
+      welcome.classList.add('hidden');
+      document.body.classList.remove('before-open');
+      playMusic();
+    });
+
+    soundToggle.addEventListener('click', () => {
+      if (music.paused) playMusic();
+      else {
+        music.pause();
+        soundToggle.classList.add('muted');
+        soundToggle.setAttribute('aria-label', 'Ativar música');
+      }
+    });
+
+    const canvas = document.getElementById('nebula');
+    const ctx = canvas.getContext('2d');
+    const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const lights = [
+      { x:.14, y:.18, r:.42, color:[255,182,218], speed:.00012, phase:0 },
+      { x:.83, y:.22, r:.36, color:[180,107,177], speed:.00009, phase:2.1 },
+      { x:.28, y:.82, r:.45, color:[242,145,193], speed:.00008, phase:4.2 },
+      { x:.78, y:.76, r:.4, color:[255,208,224], speed:.00011, phase:1.2 }
+    ];
+
+    function resizeNebula() {
+      const ratio = Math.min(devicePixelRatio || 1, 2);
+      canvas.width = innerWidth * ratio;
+      canvas.height = innerHeight * ratio;
+      canvas.style.width = innerWidth + 'px';
+      canvas.style.height = innerHeight + 'px';
+      ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
+    }
+
+    function drawNebula(time = 0) {
+      ctx.clearRect(0, 0, innerWidth, innerHeight);
+      const base = ctx.createLinearGradient(0, 0, innerWidth, innerHeight);
+      base.addColorStop(0, '#d692b2');
+      base.addColorStop(.5, '#b979a7');
+      base.addColorStop(1, '#744969');
+      ctx.fillStyle = base;
+      ctx.fillRect(0, 0, innerWidth, innerHeight);
+      ctx.globalCompositeOperation = 'screen';
+      lights.forEach(light => {
+        const drift = reduceMotion ? 0 : Math.sin(time * light.speed + light.phase);
+        const x = (light.x + drift * .1) * innerWidth;
+        const y = (light.y + Math.cos(time * light.speed * .8 + light.phase) * .08) * innerHeight;
+        const radius = light.r * Math.max(innerWidth, innerHeight);
+        const glow = ctx.createRadialGradient(x, y, 0, x, y, radius);
+        glow.addColorStop(0, `rgba(${light.color.join(',')},.78)`);
+        glow.addColorStop(.48, `rgba(${light.color.join(',')},.3)`);
+        glow.addColorStop(1, `rgba(${light.color.join(',')},0)`);
+        ctx.fillStyle = glow;
+        ctx.fillRect(0, 0, innerWidth, innerHeight);
+      });
+      ctx.globalCompositeOperation = 'source-over';
+      if (!reduceMotion) requestAnimationFrame(drawNebula);
+    }
+
+    addEventListener('resize', resizeNebula, { passive: true });
+    resizeNebula();
+    drawNebula();
+
+    const triggers = document.querySelectorAll('[data-panel]');
+    const veils = document.querySelectorAll('.veil');
+    let lastTrigger = null;
+
+    function openPanel(id, trigger) {
+      const panel = document.getElementById(id);
+      if (!panel) return;
+      lastTrigger = trigger;
+      panel.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      setTimeout(() => panel.querySelector('input, .close, a, button')?.focus(), 50);
+    }
+
+    function closePanel(panel) {
+      panel.classList.remove('open');
+      document.body.style.overflow = '';
+      lastTrigger?.focus();
+    }
+
+    triggers.forEach(button => button.addEventListener('click', () => openPanel(button.dataset.panel, button)));
+    veils.forEach(panel => {
+      panel.querySelector('.close').addEventListener('click', () => closePanel(panel));
+      panel.addEventListener('click', event => { if (event.target === panel) closePanel(panel); });
+    });
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape') {
+        const open = document.querySelector('.veil.open');
+        if (open) closePanel(open);
+      }
+    });
+
+    document.getElementById('confirm-form').addEventListener('submit', event => {
+      event.preventDefault();
+      const name = document.getElementById('guest-name').value.trim();
+      if (!name) return;
+      const message = `Olá, sou ${name}. Confirmo minha presença!`;
+      window.open(`https://wa.me/5551992341293?text=${encodeURIComponent(message)}`, '_blank', 'noopener');
+    });
+  </script>
+</body>
+</html>
