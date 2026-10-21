@@ -1584,4 +1584,45 @@ a {
         width: 26px;
         height: 26px;
     }
+
+    .barber-video {
+        object-position: center center;
+    }
+
+    .barber-card {
+        min-width: 0;
+    }
+/* -------------------------------------------------------------
+   NOVA ATT
+------------------------------------------------------------- */
+    @media (prefers-reduced-motion: reduce) {
+        .barber-video {
+            transition: none;
+        }
+    }
+
+/* Vídeos dos barbeiros */
+.barber-video {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    position: absolute;
+    inset: 0;
+    transition: var(--transition-smooth);
+    background-color: #1e1e1e;
+}
+
+/* Zoom suave ao passar o mouse */
+.barber-card:hover .barber-video {
+    transform: scale(1.06);
+}
+
+/* Overlay dourado? Não: manter o degradê escuro original */
+.barber-overlay {
+    pointer-events: none;
+}
+
+   
 }
