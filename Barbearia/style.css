@@ -1593,37 +1593,68 @@ a {
     .barber-card {
         min-width: 0;
     }
-/* -------------------------------------------------------------
-   NOVA ATT
-------------------------------------------------------------- */
-    @media (prefers-reduced-motion: reduce) {
-        .barber-video {
-            transition: none;
-        }
-    }
 
-/* Vídeos dos barbeiros */
-.barber-video {
-    display: block;
+/* -------------------------------------------------------------
+   VÍDEOS DOS BARBEIROS — AJUSTE DOS CARDS
+------------------------------------------------------------- */
+
+.barber-img-container {
+    position: relative;
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+    background-color: #1e1e1e;
+}
+
+/* Vídeo limitado à área da imagem do card */
+.barber-img-container > .barber-video {
+    display: block;
     position: absolute;
     inset: 0;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    object-fit: cover;
+    object-position: center center;
     transition: var(--transition-smooth);
     background-color: #1e1e1e;
 }
 
-/* Zoom suave ao passar o mouse */
+/* Zoom suave sem ultrapassar os limites do card */
 .barber-card:hover .barber-video {
     transform: scale(1.06);
 }
 
-/* Overlay dourado? Não: manter o degradê escuro original */
+/* Mantém o degradê sobre o vídeo */
 .barber-overlay {
     pointer-events: none;
 }
 
-   
+/* Ajustes para dispositivos móveis */
+@media (max-width: 768px) {
+    .barber-img-container {
+        aspect-ratio: 1 / 1.08;
+    }
+
+    .barber-img-container > .barber-video {
+        object-position: center center;
+    }
+
+    .barber-card {
+        min-width: 0;
+    }
+}
+
+/* Respeita a preferência por menos animações */
+@media (prefers-reduced-motion: reduce) {
+    .barber-img-container > .barber-video {
+        transition: none;
+    }
+
+    .barber-card:hover .barber-video {
+        transform: none;
+    }
 }
