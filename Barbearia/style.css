@@ -126,3 +126,16 @@ backdrop-filter: blur(15px);
 
     .barber-card:hover .barber-video {
         transform: none;
+
+        .barber-img-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+}
+
+@media (max-width: 768px) {
+    .barber-img-container {
+        aspect-ratio: 1 / 1.08;
+    }
+}
